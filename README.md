@@ -25,29 +25,43 @@
 ```typescript
 import { SmsClient } from '@barobill-sdk/sms';
 
+// 기본 사업자번호를 설정하는 경우
 const client = await SmsClient.create({
   certKey: 'your-cert-key',
-  corpNum: '1234567890',  // 파트너 사업자등록번호
+  corpNum: '1234567890',  // 기본 사업자등록번호 (선택)
   test: true,              // true: 테스트 환경, false: 운영 환경 (기본값: false)
+});
+
+// certKey만으로 초기화 (사업자번호를 매 호출 시 전달)
+const client2 = await SmsClient.create({
+  certKey: 'your-cert-key',
 });
 ```
 
 - `certKey`: 바로빌 인증키
-- `corpNum`: 파트너 사업자등록번호 (모든 API 호출에 자동 주입)
+- `corpNum` (선택): 기본 사업자등록번호. 설정하면 모든 API 호출에 자동 주입됩니다.
 - `test`: `true`이면 `testws.baroservice.com`, `false`이면 `ws.baroservice.com` 사용
 
 ### API 호출
 
 ```typescript
-// 문자 전송
+// 기본 사업자번호 사용
 const result = await client.sendSMSMessage({
+  FromNumber: '01012345678',
+  ToNumber: '01098765432',
+  Contents: '안녕하세요',
+});
+
+// 다른 사업자번호로 호출 (기본값 덮어쓰기)
+const result2 = await client.sendSMSMessage({
+  CorpNum: '9876543210',
   FromNumber: '01012345678',
   ToNumber: '01098765432',
   Contents: '안녕하세요',
 });
 ```
 
-`CERTKEY`와 `CorpNum`은 클라이언트 초기화 시 설정한 값이 자동으로 주입되므로 별도로 전달할 필요가 없습니다.
+`CERTKEY`는 항상 자동 주입됩니다. `CorpNum`은 초기화 시 설정한 기본값이 사용되며, 호출 시 전달하면 해당 값이 우선 사용됩니다.
 
 ### 전자세금계산서 예시
 
@@ -59,7 +73,6 @@ const client = await TiClient.create({
   corpNum: '1234567890',
 });
 
-// 세금계산서 발행
 const result = await client.registAndIssueTaxInvoice({
   Invoice: {
     InvoicerParty: {
@@ -85,11 +98,11 @@ import { CashbillClient } from '@barobill-sdk/cashbill';
 
 const client = await CashbillClient.create({
   certKey: 'your-cert-key',
-  corpNum: '1234567890',
   test: true,
 });
 
 const result = await client.registCashbill({
+  CorpNum: '1234567890',
   // ...
 });
 ```

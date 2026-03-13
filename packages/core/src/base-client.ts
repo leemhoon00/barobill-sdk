@@ -7,7 +7,7 @@ export abstract class BaseBarobillClient {
   protected readonly config: Required<BarobillConfig>;
 
   constructor(config: BarobillConfig) {
-    this.config = { test: false, ...config };
+    this.config = { test: false, corpNum: '', ...config };
   }
 
   protected abstract get serviceName(): ServiceName;

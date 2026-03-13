@@ -1,6 +1,6 @@
 {
   "name": "@barobill-sdk/card",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "바로빌 카드조회 API SDK",
   "license": "ISC",
   "author": "",
