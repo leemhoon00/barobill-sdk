@@ -1,0 +1,3252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.baroservice.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://ws.baroservice.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 카드조회 서비스</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.baroservice.com/">
+      <s:element name="RegistCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardCompany" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCardEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CollectCycle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardCompany" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCardExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistCardExResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCardsEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cards" type="tns:ArrayOfCardEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCardEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardEx" nillable="true" type="tns:CardEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CollectCycle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardCompanyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardCompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebPwd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistCardsExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistCardsExResult" type="tns:CardRegistResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CardRegistResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardCheckResults" type="tns:ArrayOfCardCheckResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCardCheckResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardCheckResult" nillable="true" type="tns:CardCheckResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardCheckResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StopCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelStopCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelStopCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelStopCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReRegistCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReRegistCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReRegistCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCardLogMemo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UseKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Memo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCardLogMemoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistCardLogMemoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardResult" type="tns:ArrayOfCard" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCard">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Card" nillable="true" type="tns:Card" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Card">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CardCompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCardEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AvailOnly" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardExResult" type="tns:ArrayOfCard" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AvailOnly" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardEx2Result" type="tns:ArrayOfCardEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RefreshCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardLogResult" type="tns:PagedCardLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedCardLog">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardLogList" type="tns:ArrayOfCardLog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCardLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardLog" nillable="true" type="tns:CardLog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalCost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceCharge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCardLogEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardLogExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardLogExResult" type="tns:PagedCardLogEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedCardLogEx">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardLogList" type="tns:ArrayOfCardLogEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCardLogEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardLogEx" nillable="true" type="tns:CardLogEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardLogEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalCost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceCharge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreCorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreCeo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreAddr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreBizType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseStoreTaxType" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDailyCardLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyCardLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyCardLogResult" type="tns:PagedCardLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyCardLogEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyCardLogExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyCardLogExResult" type="tns:PagedCardLogEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyCardLogEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyCardLogEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyCardLogEx2Result" type="tns:PagedCardLogEx2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedCardLogEx2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardLogList" type="tns:ArrayOfCardLogEx2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCardLogEx2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardLogEx2" nillable="true" type="tns:CardLogEx2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardLogEx2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalCost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceCharge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreCorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreCeo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreAddr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreBizType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseStoreTaxType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentPlan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstallmentMonths" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDailyCardLogEx3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyCardLogEx3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyCardLogEx3Result" type="tns:PagedCardLogEx3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedCardLogEx3">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardLogList" type="tns:ArrayOfCardLogEx3" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCardLogEx3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardLogEx3" nillable="true" type="tns:CardLogEx3" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardLogEx3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardApprovalCost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceCharge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreCorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreCeo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreAddr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreBizType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseStoreTaxType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentPlan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstallmentMonths" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Memo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDailyCardApprovalLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyCardApprovalLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyCardApprovalLogResult" type="tns:PagedCardApprovalLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedCardApprovalLog">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardLogList" type="tns:ArrayOfCardApprovalLog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCardApprovalLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardApprovalLog" nillable="true" type="tns:CardApprovalLog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardApprovalLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovalType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovalNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovalAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForeignApprovalAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceCharge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreCorpNum" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseStoreTaxType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreCeo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreAddr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreBizType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UseStoreTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentPlan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstallmentMonths" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Memo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMonthlyCardLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseMonth" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyCardLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyCardLogResult" type="tns:PagedCardLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyCardLogEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseMonth" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyCardLogExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyCardLogExResult" type="tns:PagedCardLogEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyCardLogEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseMonth" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyCardLogEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyCardLogEx2Result" type="tns:PagedCardLogEx2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyCardLogEx3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseMonth" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyCardLogEx3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyCardLogEx3Result" type="tns:PagedCardLogEx3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyCardApprovalLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseMonth" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyCardApprovalLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyCardApprovalLogResult" type="tns:PagedCardApprovalLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodCardLogResult" type="tns:PagedCardLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardLogEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardLogExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodCardLogExResult" type="tns:PagedCardLogEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardLogEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardLogEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodCardLogEx2Result" type="tns:PagedCardLogEx2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardLogEx3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardLogEx3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodCardLogEx3Result" type="tns:PagedCardLogEx3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardApprovalLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodCardApprovalLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodCardApprovalLogResult" type="tns:PagedCardApprovalLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardScrapRequestURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardScrapRequestURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardScrapRequestURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardManagementURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardManagementURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardManagementURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardLogURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardLogURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardLogURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCorpIsMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckCorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCorpIsMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCorpIsMemberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCorp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CEOName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JuminNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCorpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistCorpResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserToCorp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JuminNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserToCorpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddUserToCorpResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCorpInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CEOName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCorpInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCorpInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JuminNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUserInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPWD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPWDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUserPWDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCorpManager">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newManagerID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCorpManagerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeCorpManagerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorpMemberContacts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckCorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorpMemberContactsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCorpMemberContactsResult" type="tns:ArrayOfContact" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Contact" nillable="true" type="tns:Contact" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBalanceCostAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountExResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountOfInterOPResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOPEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOPExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountOfInterOPExResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckChargeable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DocType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckChargeableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckChargeableResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ChargeCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetChargeUnitCostResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCostEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ChargeCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCostExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetChargeUnitCostExResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashChargeURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashChargeURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCashChargeURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateRegistDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateExpireDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateExpireDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateExpireDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCERTIsValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCERTIsValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCERTIsValidResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateRegistURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBaroBillURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TOGO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBaroBillURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBaroBillURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLoginURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistSMSFromNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistSMSFromNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistSMSFromNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSFromNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSFromNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckSMSFromNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSFromNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSFromNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSMSFromNumbersResult" type="tns:ArrayOfFromNumber" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFromNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FromNumber" nillable="true" type="tns:FromNumber" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FromNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSMSFromNumberURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSFromNumberURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSMSFromNumberURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFaxFromNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFaxFromNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckFaxFromNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxFromNumbersResult" type="tns:ArrayOfFromNumber" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumberURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumberURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxFromNumberURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ErrCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetErrStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ping">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegistCardSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistCard" />
+  </wsdl:message>
+  <wsdl:message name="RegistCardSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistCardExSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistCardEx" />
+  </wsdl:message>
+  <wsdl:message name="RegistCardExSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistCardExResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistCardsExSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistCardsEx" />
+  </wsdl:message>
+  <wsdl:message name="RegistCardsExSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistCardsExResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCardSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCard" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCardSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopCardSoapIn">
+    <wsdl:part name="parameters" element="tns:StopCard" />
+  </wsdl:message>
+  <wsdl:message name="StopCardSoapOut">
+    <wsdl:part name="parameters" element="tns:StopCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelStopCardSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelStopCard" />
+  </wsdl:message>
+  <wsdl:message name="CancelStopCardSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelStopCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReRegistCardSoapIn">
+    <wsdl:part name="parameters" element="tns:ReRegistCard" />
+  </wsdl:message>
+  <wsdl:message name="ReRegistCardSoapOut">
+    <wsdl:part name="parameters" element="tns:ReRegistCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistCardLogMemoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistCardLogMemo" />
+  </wsdl:message>
+  <wsdl:message name="RegistCardLogMemoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistCardLogMemoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCard" />
+  </wsdl:message>
+  <wsdl:message name="GetCardSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardEx" />
+  </wsdl:message>
+  <wsdl:message name="GetCardExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetCardEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="RefreshCardSoapIn">
+    <wsdl:part name="parameters" element="tns:RefreshCard" />
+  </wsdl:message>
+  <wsdl:message name="RefreshCardSoapOut">
+    <wsdl:part name="parameters" element="tns:RefreshCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardLog" />
+  </wsdl:message>
+  <wsdl:message name="GetCardLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardLogExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardLogEx" />
+  </wsdl:message>
+  <wsdl:message name="GetCardLogExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardLogExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyCardLog" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyCardLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardLogExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyCardLogEx" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardLogExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyCardLogExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardLogEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyCardLogEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardLogEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyCardLogEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardLogEx3SoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyCardLogEx3" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardLogEx3SoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyCardLogEx3Response" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardApprovalLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyCardApprovalLog" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyCardApprovalLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyCardApprovalLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardLog" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardLogExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardLogEx" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardLogExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardLogExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardLogEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardLogEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardLogEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardLogEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardLogEx3SoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardLogEx3" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardLogEx3SoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardLogEx3Response" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardApprovalLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardApprovalLog" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyCardApprovalLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCardApprovalLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardLog" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardLogExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardLogEx" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardLogExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardLogExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardLogEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardLogEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardLogEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardLogEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardLogEx3SoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardLogEx3" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardLogEx3SoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardLogEx3Response" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardApprovalLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardApprovalLog" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodCardApprovalLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodCardApprovalLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardScrapRequestURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardScrapRequestURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCardScrapRequestURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardScrapRequestURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardManagementURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardManagementURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCardManagementURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardManagementURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardLogURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardLogURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCardLogURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardLogURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCorpIsMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCorpIsMember" />
+  </wsdl:message>
+  <wsdl:message name="CheckCorpIsMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCorpIsMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistCorpSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistCorp" />
+  </wsdl:message>
+  <wsdl:message name="RegistCorpSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistCorpResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserToCorpSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUserToCorp" />
+  </wsdl:message>
+  <wsdl:message name="AddUserToCorpSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserToCorpResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCorpInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCorpInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCorpInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCorpInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPWDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserPWD" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPWDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserPWDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCorpManagerSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeCorpManager" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCorpManagerSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeCorpManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCorpMemberContactsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCorpMemberContacts" />
+  </wsdl:message>
+  <wsdl:message name="GetCorpMemberContactsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCorpMemberContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmount" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountEx" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOP" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOPEx" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOPExResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckChargeableSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckChargeable" />
+  </wsdl:message>
+  <wsdl:message name="CheckChargeableSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckChargeableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCost" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCostResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCostEx" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCostExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCashChargeURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCashChargeURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCashChargeURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCashChargeURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateExpireDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateExpireDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateExpireDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateExpireDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCERTIsValidSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCERTIsValid" />
+  </wsdl:message>
+  <wsdl:message name="CheckCERTIsValidSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCERTIsValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBaroBillURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBaroBillURL" />
+  </wsdl:message>
+  <wsdl:message name="GetBaroBillURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBaroBillURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoginURL" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLoginURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistSMSFromNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistSMSFromNumber" />
+  </wsdl:message>
+  <wsdl:message name="RegistSMSFromNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistSMSFromNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSFromNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckSMSFromNumber" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSFromNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckSMSFromNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumbers" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumberURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumberURL" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumberURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumberURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckFaxFromNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckFaxFromNumber" />
+  </wsdl:message>
+  <wsdl:message name="CheckFaxFromNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckFaxFromNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumbers" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumberURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumberURL" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumberURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumberURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetErrStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetErrString" />
+  </wsdl:message>
+  <wsdl:message name="GetErrStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetErrStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BaroService_CARDSoap">
+    <wsdl:operation name="RegistCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 등록</wsdl:documentation>
+      <wsdl:input message="tns:RegistCardSoapIn" />
+      <wsdl:output message="tns:RegistCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistCardEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 등록 (수집주기 추가)</wsdl:documentation>
+      <wsdl:input message="tns:RegistCardExSoapIn" />
+      <wsdl:output message="tns:RegistCardExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistCardsEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 대량등록</wsdl:documentation>
+      <wsdl:input message="tns:RegistCardsExSoapIn" />
+      <wsdl:output message="tns:RegistCardsExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 수정</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCardSoapIn" />
+      <wsdl:output message="tns:UpdateCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 해지</wsdl:documentation>
+      <wsdl:input message="tns:StopCardSoapIn" />
+      <wsdl:output message="tns:StopCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelStopCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 해지취소 (해지 당월에만 가능)</wsdl:documentation>
+      <wsdl:input message="tns:CancelStopCardSoapIn" />
+      <wsdl:output message="tns:CancelStopCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReRegistCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 재신청 (해지 월이 지난 후)</wsdl:documentation>
+      <wsdl:input message="tns:ReRegistCardSoapIn" />
+      <wsdl:output message="tns:ReRegistCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistCardLogMemo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 내역 메모 등록</wsdl:documentation>
+      <wsdl:input message="tns:RegistCardLogMemoSoapIn" />
+      <wsdl:output message="tns:RegistCardLogMemoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 등록한 카드 목록 조회</wsdl:documentation>
+      <wsdl:input message="tns:GetCardSoapIn" />
+      <wsdl:output message="tns:GetCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 카드 목록 조회 (사용/해지 상태별 조회)</wsdl:documentation>
+      <wsdl:input message="tns:GetCardExSoapIn" />
+      <wsdl:output message="tns:GetCardExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 카드 정보 목록 조회 (사용/해지 상태별 조회)</wsdl:documentation>
+      <wsdl:input message="tns:GetCardEx2SoapIn" />
+      <wsdl:output message="tns:GetCardEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 즉시조회 요청</wsdl:documentation>
+      <wsdl:input message="tns:RefreshCardSoapIn" />
+      <wsdl:output message="tns:RefreshCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 카드 사용내역 조회</wsdl:documentation>
+      <wsdl:input message="tns:GetCardLogSoapIn" />
+      <wsdl:output message="tns:GetCardLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLogEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 카드 사용내역 조회 (가맹점 정보 확장)</wsdl:documentation>
+      <wsdl:input message="tns:GetCardLogExSoapIn" />
+      <wsdl:output message="tns:GetCardLogExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 일별 카드 사용내역 조회</wsdl:documentation>
+      <wsdl:input message="tns:GetDailyCardLogSoapIn" />
+      <wsdl:output message="tns:GetDailyCardLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLogEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 일별 카드 사용내역 조회 (가맹점 정보 확장)</wsdl:documentation>
+      <wsdl:input message="tns:GetDailyCardLogExSoapIn" />
+      <wsdl:output message="tns:GetDailyCardLogExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLogEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 일별 카드 사용내역 조회 (가맹점 정보 확장, 결제수단/할부개월수/통화코드 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetDailyCardLogEx2SoapIn" />
+      <wsdl:output message="tns:GetDailyCardLogEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLogEx3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 일별 카드 사용내역 조회 (가맹점 정보 확장, 결제수단/할부개월수/통화코드 추가, 메모추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetDailyCardLogEx3SoapIn" />
+      <wsdl:output message="tns:GetDailyCardLogEx3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardApprovalLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">일별 카드 사용내역 조회 (가맹점 정보 확장, 결제수단/할부개월수/통화코드 추가, 메모추가, 해외결제의 경우 KRW 금액 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetDailyCardApprovalLogSoapIn" />
+      <wsdl:output message="tns:GetDailyCardApprovalLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 월별 카드 사용내역 조회</wsdl:documentation>
+      <wsdl:input message="tns:GetMonthlyCardLogSoapIn" />
+      <wsdl:output message="tns:GetMonthlyCardLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLogEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 월별 카드 사용내역 조회 (가맹점 정보 확장)</wsdl:documentation>
+      <wsdl:input message="tns:GetMonthlyCardLogExSoapIn" />
+      <wsdl:output message="tns:GetMonthlyCardLogExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLogEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 월별 카드 사용내역 조회 (가맹점 정보 확장, 결제수단/할부개월수/통화코드 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetMonthlyCardLogEx2SoapIn" />
+      <wsdl:output message="tns:GetMonthlyCardLogEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLogEx3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 월별 카드 사용내역 조회 (가맹점 정보 확장, 결제수단/할부개월수/통화코드 추가, 메모추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetMonthlyCardLogEx3SoapIn" />
+      <wsdl:output message="tns:GetMonthlyCardLogEx3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardApprovalLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">월별 카드 사용내역 조회 (가맹점 정보 확장, 결제수단/할부개월수/통화코드 추가, 메모추가, 해외결제의 경우 KRW 금액 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetMonthlyCardApprovalLogSoapIn" />
+      <wsdl:output message="tns:GetMonthlyCardApprovalLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 카드 사용내역 조회 (기간지정)</wsdl:documentation>
+      <wsdl:input message="tns:GetPeriodCardLogSoapIn" />
+      <wsdl:output message="tns:GetPeriodCardLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLogEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 카드 사용내역 조회 (기간지정, 가맹점 정보 확장)</wsdl:documentation>
+      <wsdl:input message="tns:GetPeriodCardLogExSoapIn" />
+      <wsdl:output message="tns:GetPeriodCardLogExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLogEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 카드 사용내역 조회 (기간지정, 가맹점 정보 확장, 결제수단/할부개월수/통화코드 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetPeriodCardLogEx2SoapIn" />
+      <wsdl:output message="tns:GetPeriodCardLogEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLogEx3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 카드 사용내역 조회 (기간지정, 가맹점 정보 확장, 결제수단/할부개월수/통화코드 추가, 메모추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetPeriodCardLogEx3SoapIn" />
+      <wsdl:output message="tns:GetPeriodCardLogEx3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardApprovalLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 사용내역 조회 (기간지정, 가맹점 정보 확장, 결제수단/할부개월수/통화코드 추가, 메모추가, 해외결제의 경우 KRW 금액 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetPeriodCardApprovalLogSoapIn" />
+      <wsdl:output message="tns:GetPeriodCardApprovalLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardScrapRequestURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 카드조회 서비스 신청 URL</wsdl:documentation>
+      <wsdl:input message="tns:GetCardScrapRequestURLSoapIn" />
+      <wsdl:output message="tns:GetCardScrapRequestURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardManagementURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드번호 관리 URL</wsdl:documentation>
+      <wsdl:input message="tns:GetCardManagementURLSoapIn" />
+      <wsdl:output message="tns:GetCardManagementURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLogURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">카드 사용내역 조회 URL</wsdl:documentation>
+      <wsdl:input message="tns:GetCardLogURLSoapIn" />
+      <wsdl:output message="tns:GetCardLogURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCorpIsMember">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 가입여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckCorpIsMemberSoapIn" />
+      <wsdl:output message="tns:CheckCorpIsMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistCorp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 가입</wsdl:documentation>
+      <wsdl:input message="tns:RegistCorpSoapIn" />
+      <wsdl:output message="tns:RegistCorpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToCorp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 사용자 추가</wsdl:documentation>
+      <wsdl:input message="tns:AddUserToCorpSoapIn" />
+      <wsdl:output message="tns:AddUserToCorpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCorpInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 수정</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCorpInfoSoapIn" />
+      <wsdl:output message="tns:UpdateCorpInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 사용자 수정</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserInfoSoapIn" />
+      <wsdl:output message="tns:UpdateUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPWD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 사용자 비밀번호 변경</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserPWDSoapIn" />
+      <wsdl:output message="tns:UpdateUserPWDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCorpManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 관리자 변경</wsdl:documentation>
+      <wsdl:input message="tns:ChangeCorpManagerSoapIn" />
+      <wsdl:output message="tns:ChangeCorpManagerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCorpMemberContacts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 담당자 목록확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCorpMemberContactsSoapIn" />
+      <wsdl:output message="tns:GetCorpMemberContactsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountExSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">연동사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountOfInterOPSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountOfInterOPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOPEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">연동사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountOfInterOPExSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountOfInterOPExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckChargeable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">과금가능 여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckChargeableSoapIn" />
+      <wsdl:output message="tns:CheckChargeableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">단가 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetChargeUnitCostSoapIn" />
+      <wsdl:output message="tns:GetChargeUnitCostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCostEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">단가 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetChargeUnitCostExSoapIn" />
+      <wsdl:output message="tns:GetChargeUnitCostExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashChargeURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">포인트 충전 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetCashChargeURLSoapIn" />
+      <wsdl:output message="tns:GetCashChargeURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 공동인증서 등록일시 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateRegistDateSoapIn" />
+      <wsdl:output message="tns:GetCertificateRegistDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateExpireDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 공동인증서 만료일 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateExpireDateSoapIn" />
+      <wsdl:output message="tns:GetCertificateExpireDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCERTIsValid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 공동인증서 상태 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckCERTIsValidSoapIn" />
+      <wsdl:output message="tns:CheckCERTIsValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">공동인증서 등록 URL 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateRegistURLSoapIn" />
+      <wsdl:output message="tns:GetCertificateRegistURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBaroBillURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 링크 연결 URL확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBaroBillURLSoapIn" />
+      <wsdl:output message="tns:GetBaroBillURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 메인화면 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetLoginURLSoapIn" />
+      <wsdl:output message="tns:GetLoginURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistSMSFromNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 추가</wsdl:documentation>
+      <wsdl:input message="tns:RegistSMSFromNumberSoapIn" />
+      <wsdl:output message="tns:RegistSMSFromNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSFromNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 등록여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckSMSFromNumberSoapIn" />
+      <wsdl:output message="tns:CheckSMSFromNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumbers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 목록 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetSMSFromNumbersSoapIn" />
+      <wsdl:output message="tns:GetSMSFromNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumberURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 관리 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetSMSFromNumberURLSoapIn" />
+      <wsdl:output message="tns:GetSMSFromNumberURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFaxFromNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">팩스 발신번호 등록여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckFaxFromNumberSoapIn" />
+      <wsdl:output message="tns:CheckFaxFromNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumbers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">팩스 발신번호 목록 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxFromNumbersSoapIn" />
+      <wsdl:output message="tns:GetFaxFromNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumberURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">팩스 발신번호 관리 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxFromNumberURLSoapIn" />
+      <wsdl:output message="tns:GetFaxFromNumberURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">오류코드의 상세내용 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetErrStringSoapIn" />
+      <wsdl:output message="tns:GetErrStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ping</wsdl:documentation>
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BaroService_CARDSoap" type="tns:BaroService_CARDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistCard">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCardEx">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistCardEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCardsEx">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistCardsEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCard">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopCard">
+      <soap:operation soapAction="http://ws.baroservice.com/StopCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelStopCard">
+      <soap:operation soapAction="http://ws.baroservice.com/CancelStopCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReRegistCard">
+      <soap:operation soapAction="http://ws.baroservice.com/ReRegistCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCardLogMemo">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistCardLogMemo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCard">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCardEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCardEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCard">
+      <soap:operation soapAction="http://ws.baroservice.com/RefreshCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCardLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLogEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCardLogEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetDailyCardLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLogEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetDailyCardLogEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLogEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetDailyCardLogEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLogEx3">
+      <soap:operation soapAction="http://ws.baroservice.com/GetDailyCardLogEx3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardApprovalLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetDailyCardApprovalLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetMonthlyCardLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLogEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetMonthlyCardLogEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLogEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetMonthlyCardLogEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLogEx3">
+      <soap:operation soapAction="http://ws.baroservice.com/GetMonthlyCardLogEx3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardApprovalLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetMonthlyCardApprovalLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetPeriodCardLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLogEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetPeriodCardLogEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLogEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetPeriodCardLogEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLogEx3">
+      <soap:operation soapAction="http://ws.baroservice.com/GetPeriodCardLogEx3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardApprovalLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetPeriodCardApprovalLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardScrapRequestURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCardScrapRequestURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardManagementURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCardManagementURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLogURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCardLogURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCorpIsMember">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckCorpIsMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCorp">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistCorp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToCorp">
+      <soap:operation soapAction="http://ws.baroservice.com/AddUserToCorp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCorpInfo">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateCorpInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPWD">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateUserPWD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCorpManager">
+      <soap:operation soapAction="http://ws.baroservice.com/ChangeCorpManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorpMemberContacts">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCorpMemberContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmount">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOP">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOPEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOPEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckChargeable">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckChargeable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCost">
+      <soap:operation soapAction="http://ws.baroservice.com/GetChargeUnitCost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCostEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetChargeUnitCostEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashChargeURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCashChargeURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistDate">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCertificateRegistDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateExpireDate">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCertificateExpireDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCERTIsValid">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckCERTIsValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCertificateRegistURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaroBillURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBaroBillURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetLoginURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistSMSFromNumber">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSFromNumber">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumbers">
+      <soap:operation soapAction="http://ws.baroservice.com/GetSMSFromNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumberURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetSMSFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFaxFromNumber">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckFaxFromNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumbers">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxFromNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumberURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrString">
+      <soap:operation soapAction="http://ws.baroservice.com/GetErrString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://ws.baroservice.com/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BaroService_CARDSoap12" type="tns:BaroService_CARDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistCard">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCardEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistCardEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCardsEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistCardsEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCard">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopCard">
+      <soap12:operation soapAction="http://ws.baroservice.com/StopCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelStopCard">
+      <soap12:operation soapAction="http://ws.baroservice.com/CancelStopCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReRegistCard">
+      <soap12:operation soapAction="http://ws.baroservice.com/ReRegistCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCardLogMemo">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistCardLogMemo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCard">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCardEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCardEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCard">
+      <soap12:operation soapAction="http://ws.baroservice.com/RefreshCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCardLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLogEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCardLogEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetDailyCardLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLogEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetDailyCardLogEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLogEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetDailyCardLogEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardLogEx3">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetDailyCardLogEx3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyCardApprovalLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetDailyCardApprovalLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetMonthlyCardLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLogEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetMonthlyCardLogEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLogEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetMonthlyCardLogEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardLogEx3">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetMonthlyCardLogEx3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCardApprovalLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetMonthlyCardApprovalLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetPeriodCardLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLogEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetPeriodCardLogEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLogEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetPeriodCardLogEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardLogEx3">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetPeriodCardLogEx3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodCardApprovalLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetPeriodCardApprovalLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardScrapRequestURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCardScrapRequestURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardManagementURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCardManagementURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLogURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCardLogURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCorpIsMember">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckCorpIsMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCorp">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistCorp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToCorp">
+      <soap12:operation soapAction="http://ws.baroservice.com/AddUserToCorp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCorpInfo">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateCorpInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPWD">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateUserPWD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCorpManager">
+      <soap12:operation soapAction="http://ws.baroservice.com/ChangeCorpManager" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorpMemberContacts">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCorpMemberContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmount">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOP">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOPEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOPEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckChargeable">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckChargeable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCost">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetChargeUnitCost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCostEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetChargeUnitCostEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashChargeURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCashChargeURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistDate">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCertificateRegistDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateExpireDate">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCertificateExpireDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCERTIsValid">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckCERTIsValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCertificateRegistURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaroBillURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBaroBillURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetLoginURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistSMSFromNumber">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSFromNumber">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumbers">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetSMSFromNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumberURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetSMSFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFaxFromNumber">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckFaxFromNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumbers">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxFromNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumberURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrString">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetErrString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://ws.baroservice.com/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BaroService_CARD">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 카드조회 서비스</wsdl:documentation>
+    <wsdl:port name="BaroService_CARDSoap" binding="tns:BaroService_CARDSoap">
+      <soap:address location="https://testws.baroservice.com/CARD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BaroService_CARDSoap12" binding="tns:BaroService_CARDSoap12">
+      <soap12:address location="https://testws.baroservice.com/CARD.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

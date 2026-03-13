@@ -1,0 +1,20 @@
+
+/** GetDailyBankAccountLogEx */
+export interface GetDailyBankAccountLogEx {
+    /** s:string */
+    CERTKEY?: string;
+    /** s:string */
+    CorpNum?: string;
+    /** s:string */
+    ID?: string;
+    /** s:string */
+    BankAccountNum?: string;
+    /** s:string */
+    BaseDate?: string;
+    /** s:int */
+    CountPerPage?: number;
+    /** s:int */
+    CurrentPage?: number;
+    /** s:int */
+    OrderDirection?: number;
+}

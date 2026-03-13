@@ -1,0 +1,18 @@
+{
+  "name": "barobill-sdk-monorepo",
+  "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "scripts": {
+    "build": "turbo build",
+    "generate:types": "tsx scripts/generate-types.ts",
+    "generate:wrapper": "tsx scripts/generate-wrapper.ts",
+    "generate": "pnpm generate:types && pnpm generate:wrapper"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.0",
+    "turbo": "^2.4.0",
+    "typescript": "^5.9.3",
+    "wsdl-tsclient": "^1.7.1"
+  }
+}

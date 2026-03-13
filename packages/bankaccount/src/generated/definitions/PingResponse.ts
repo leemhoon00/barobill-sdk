@@ -1,0 +1,4 @@
+
+/** PingResponse */
+export interface PingResponse {
+}

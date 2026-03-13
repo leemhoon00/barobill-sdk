@@ -1,0 +1,32 @@
+{
+  "name": "@barobill-sdk/core",
+  "version": "1.0.0",
+  "description": "바로빌 SDK 공통 코어 모듈",
+  "license": "ISC",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leemhoon00/barobill-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leemhoon00/barobill-sdk/issues"
+  },
+  "homepage": "https://github.com/leemhoon00/barobill-sdk#readme",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup"
+  },
+  "dependencies": {
+    "soap": "^1.6.3"
+  }
+}

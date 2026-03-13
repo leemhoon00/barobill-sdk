@@ -1,0 +1,3110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.baroservice.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://ws.baroservice.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 계좌조회 서비스</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.baroservice.com/">
+      <s:element name="RegistBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CollectCycle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bank" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentityNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistBankAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistBankAccountEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CollectCycle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bank" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentityNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ForeignCurrencyCodes" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistBankAccountExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistBankAccountExResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistBankAccountsEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccounts" type="tns:ArrayOfBankAccountEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBankAccountEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankAccountEx" nillable="true" type="tns:BankAccountEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankAccountEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CollectCycle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountPwd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebPwd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdentityNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForeignCurrencyCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistBankAccountsExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistBankAccountsExResult" type="tns:BankAccountRegistResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BankAccountRegistResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountCheckResults" type="tns:ArrayOfBankAccountCheckResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBankAccountCheckResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankAccountCheckResult" nillable="true" type="tns:BankAccountCheckResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankAccountCheckResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentityNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateBankAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBankAccountEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentityNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ForeignCurrencyCodes" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBankAccountExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateBankAccountExResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StopBankAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelStopBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelStopBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelStopBankAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReRegistBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReRegistBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReRegistBankAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistBankAccountLogMemo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransRefKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Memo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistBankAccountLogMemoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistBankAccountLogMemoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankAccountResult" type="tns:ArrayOfBankAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBankAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankAccount" nillable="true" type="tns:BankAccount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBankAccountEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AvailOnly" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankAccountExResult" type="tns:ArrayOfBankAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AvailOnly" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankAccountEx2Result" type="tns:ArrayOfBankAccountEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RefreshBankAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankAccountLogResult" type="tns:PagedBankAccountLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedBankAccountLog">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountLogList" type="tns:ArrayOfBankAccountLog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBankAccountLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankAccountLog" nillable="true" type="tns:BankAccountLog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankAccountLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Withdraw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Deposit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Balance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransOffice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransRemark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MgtRemark1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MgtRemark2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBankAccountLogEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountLogExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankAccountLogExResult" type="tns:PagedBankAccountLogEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedBankAccountLogEx">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountLogList" type="tns:ArrayOfBankAccountLogEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBankAccountLogEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankAccountLogEx" nillable="true" type="tns:BankAccountLogEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankAccountLogEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Withdraw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Deposit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Balance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransOffice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransRemark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransRefKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MgtRemark1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MgtRemark2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDailyBankAccountLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyBankAccountLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyBankAccountLogResult" type="tns:PagedBankAccountLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyBankAccountLogEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyBankAccountLogExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyBankAccountLogExResult" type="tns:PagedBankAccountLogEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyBankAccountLogEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransDirection" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyBankAccountLogEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyBankAccountLogEx2Result" type="tns:PagedBankAccountLogEx2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedBankAccountLogEx2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountLogList" type="tns:ArrayOfBankAccountLogEx2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBankAccountLogEx2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankAccountLogEx2" nillable="true" type="tns:BankAccountLogEx2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankAccountLogEx2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransDirection" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Withdraw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Deposit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Balance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransOffice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransRemark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransRefKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MgtRemark1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MgtRemark2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Memo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDailyBankAccountTransLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransDirection" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyBankAccountTransLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyBankAccountTransLogResult" type="tns:PagedBankAccountTransLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedBankAccountTransLog">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountLogList" type="tns:ArrayOfBankAccountTransLog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBankAccountTransLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankAccountTransLog" nillable="true" type="tns:BankAccountTransLog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankAccountTransLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransRefKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransDirection" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Withdraw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Deposit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Balance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransOffice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransRemark1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransRemark2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CmsCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Memo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMonthlyBankAccountLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseMonth" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyBankAccountLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyBankAccountLogResult" type="tns:PagedBankAccountLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyBankAccountLogEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseMonth" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyBankAccountLogExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyBankAccountLogExResult" type="tns:PagedBankAccountLogEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyBankAccountLogEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseMonth" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransDirection" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyBankAccountLogEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyBankAccountLogEx2Result" type="tns:PagedBankAccountLogEx2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyBankAccountTransLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaseMonth" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransDirection" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyBankAccountTransLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyBankAccountTransLogResult" type="tns:PagedBankAccountTransLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodBankAccountLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodBankAccountLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodBankAccountLogResult" type="tns:PagedBankAccountLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodBankAccountLogEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodBankAccountLogExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodBankAccountLogExResult" type="tns:PagedBankAccountLogEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodBankAccountLogEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransDirection" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodBankAccountLogEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodBankAccountLogEx2Result" type="tns:PagedBankAccountLogEx2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodBankAccountTransLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransDirection" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodBankAccountTransLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodBankAccountTransLogResult" type="tns:PagedBankAccountTransLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountScrapRequestURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountScrapRequestURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankAccountScrapRequestURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountManagementURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountManagementURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankAccountManagementURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountLogURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountLogURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankAccountLogURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCorpIsMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckCorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCorpIsMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCorpIsMemberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCorp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CEOName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JuminNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCorpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistCorpResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserToCorp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JuminNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserToCorpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddUserToCorpResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCorpInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CEOName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCorpInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCorpInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JuminNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUserInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPWD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPWDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUserPWDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCorpManager">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newManagerID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCorpManagerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeCorpManagerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorpMemberContacts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckCorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorpMemberContactsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCorpMemberContactsResult" type="tns:ArrayOfContact" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Contact" nillable="true" type="tns:Contact" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBalanceCostAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountExResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountOfInterOPResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOPEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOPExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountOfInterOPExResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckChargeable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DocType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckChargeableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckChargeableResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ChargeCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetChargeUnitCostResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCostEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ChargeCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCostExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetChargeUnitCostExResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashChargeURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashChargeURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCashChargeURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateRegistDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateExpireDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateExpireDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateExpireDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCERTIsValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCERTIsValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCERTIsValidResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateRegistURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBaroBillURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TOGO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBaroBillURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBaroBillURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLoginURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistSMSFromNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistSMSFromNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistSMSFromNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSFromNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSFromNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckSMSFromNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSFromNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSFromNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSMSFromNumbersResult" type="tns:ArrayOfFromNumber" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFromNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FromNumber" nillable="true" type="tns:FromNumber" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FromNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSMSFromNumberURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSFromNumberURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSMSFromNumberURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFaxFromNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFaxFromNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckFaxFromNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxFromNumbersResult" type="tns:ArrayOfFromNumber" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumberURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumberURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxFromNumberURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ErrCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetErrStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ping">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegistBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="RegistBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistBankAccountExSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistBankAccountEx" />
+  </wsdl:message>
+  <wsdl:message name="RegistBankAccountExSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistBankAccountExResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistBankAccountsExSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistBankAccountsEx" />
+  </wsdl:message>
+  <wsdl:message name="RegistBankAccountsExSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistBankAccountsExResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBankAccountExSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBankAccountEx" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBankAccountExSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBankAccountExResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:StopBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="StopBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:StopBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelStopBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelStopBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="CancelStopBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelStopBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReRegistBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:ReRegistBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="ReRegistBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:ReRegistBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistBankAccountLogMemoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistBankAccountLogMemo" />
+  </wsdl:message>
+  <wsdl:message name="RegistBankAccountLogMemoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistBankAccountLogMemoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankAccountEx" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankAccountExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankAccountEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankAccountEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="RefreshBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:RefreshBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="RefreshBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:RefreshBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankAccountLog" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankAccountLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountLogExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankAccountLogEx" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountLogExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankAccountLogExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyBankAccountLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyBankAccountLog" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyBankAccountLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyBankAccountLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyBankAccountLogExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyBankAccountLogEx" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyBankAccountLogExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyBankAccountLogExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyBankAccountLogEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyBankAccountLogEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyBankAccountLogEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyBankAccountLogEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyBankAccountTransLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyBankAccountTransLog" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyBankAccountTransLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyBankAccountTransLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyBankAccountLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyBankAccountLog" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyBankAccountLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyBankAccountLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyBankAccountLogExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyBankAccountLogEx" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyBankAccountLogExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyBankAccountLogExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyBankAccountLogEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyBankAccountLogEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyBankAccountLogEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyBankAccountLogEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyBankAccountTransLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyBankAccountTransLog" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyBankAccountTransLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyBankAccountTransLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodBankAccountLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodBankAccountLog" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodBankAccountLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodBankAccountLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodBankAccountLogExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodBankAccountLogEx" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodBankAccountLogExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodBankAccountLogExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodBankAccountLogEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodBankAccountLogEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodBankAccountLogEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodBankAccountLogEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodBankAccountTransLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodBankAccountTransLog" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodBankAccountTransLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodBankAccountTransLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountScrapRequestURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankAccountScrapRequestURL" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountScrapRequestURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankAccountScrapRequestURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountManagementURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankAccountManagementURL" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountManagementURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankAccountManagementURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountLogURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankAccountLogURL" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountLogURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankAccountLogURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCorpIsMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCorpIsMember" />
+  </wsdl:message>
+  <wsdl:message name="CheckCorpIsMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCorpIsMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistCorpSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistCorp" />
+  </wsdl:message>
+  <wsdl:message name="RegistCorpSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistCorpResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserToCorpSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUserToCorp" />
+  </wsdl:message>
+  <wsdl:message name="AddUserToCorpSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserToCorpResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCorpInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCorpInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCorpInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCorpInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPWDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserPWD" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPWDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserPWDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCorpManagerSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeCorpManager" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCorpManagerSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeCorpManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCorpMemberContactsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCorpMemberContacts" />
+  </wsdl:message>
+  <wsdl:message name="GetCorpMemberContactsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCorpMemberContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmount" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountEx" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOP" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOPEx" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOPExResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckChargeableSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckChargeable" />
+  </wsdl:message>
+  <wsdl:message name="CheckChargeableSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckChargeableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCost" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCostResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCostEx" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCostExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCashChargeURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCashChargeURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCashChargeURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCashChargeURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateExpireDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateExpireDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateExpireDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateExpireDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCERTIsValidSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCERTIsValid" />
+  </wsdl:message>
+  <wsdl:message name="CheckCERTIsValidSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCERTIsValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBaroBillURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBaroBillURL" />
+  </wsdl:message>
+  <wsdl:message name="GetBaroBillURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBaroBillURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoginURL" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLoginURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistSMSFromNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistSMSFromNumber" />
+  </wsdl:message>
+  <wsdl:message name="RegistSMSFromNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistSMSFromNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSFromNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckSMSFromNumber" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSFromNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckSMSFromNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumbers" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumberURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumberURL" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumberURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumberURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckFaxFromNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckFaxFromNumber" />
+  </wsdl:message>
+  <wsdl:message name="CheckFaxFromNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckFaxFromNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumbers" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumberURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumberURL" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumberURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumberURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetErrStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetErrString" />
+  </wsdl:message>
+  <wsdl:message name="GetErrStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetErrStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BaroService_BANKACCOUNTSoap">
+    <wsdl:operation name="RegistBankAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 계좌 등록</wsdl:documentation>
+      <wsdl:input message="tns:RegistBankAccountSoapIn" />
+      <wsdl:output message="tns:RegistBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistBankAccountEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌 등록 (외화코드 추가)</wsdl:documentation>
+      <wsdl:input message="tns:RegistBankAccountExSoapIn" />
+      <wsdl:output message="tns:RegistBankAccountExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistBankAccountsEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌 대량등록</wsdl:documentation>
+      <wsdl:input message="tns:RegistBankAccountsExSoapIn" />
+      <wsdl:output message="tns:RegistBankAccountsExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 계좌 수정</wsdl:documentation>
+      <wsdl:input message="tns:UpdateBankAccountSoapIn" />
+      <wsdl:output message="tns:UpdateBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccountEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌 수정 (외화코드 추가)</wsdl:documentation>
+      <wsdl:input message="tns:UpdateBankAccountExSoapIn" />
+      <wsdl:output message="tns:UpdateBankAccountExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopBankAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌 해지</wsdl:documentation>
+      <wsdl:input message="tns:StopBankAccountSoapIn" />
+      <wsdl:output message="tns:StopBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelStopBankAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌 해지취소 (해지 당월에만 가능)</wsdl:documentation>
+      <wsdl:input message="tns:CancelStopBankAccountSoapIn" />
+      <wsdl:output message="tns:CancelStopBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReRegistBankAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌 재신청 (해지 월이 지난 후)</wsdl:documentation>
+      <wsdl:input message="tns:ReRegistBankAccountSoapIn" />
+      <wsdl:output message="tns:ReRegistBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistBankAccountLogMemo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌 내역 메모 등록</wsdl:documentation>
+      <wsdl:input message="tns:RegistBankAccountLogMemoSoapIn" />
+      <wsdl:output message="tns:RegistBankAccountLogMemoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 등록한 계좌 목록 조회</wsdl:documentation>
+      <wsdl:input message="tns:GetBankAccountSoapIn" />
+      <wsdl:output message="tns:GetBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 계좌 목록 조회 (사용/해지 상태별 조회)</wsdl:documentation>
+      <wsdl:input message="tns:GetBankAccountExSoapIn" />
+      <wsdl:output message="tns:GetBankAccountExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 계좌 정보 목록 조회 (사용/해지 상태별 조회)</wsdl:documentation>
+      <wsdl:input message="tns:GetBankAccountEx2SoapIn" />
+      <wsdl:output message="tns:GetBankAccountEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshBankAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌 즉시조회 요청</wsdl:documentation>
+      <wsdl:input message="tns:RefreshBankAccountSoapIn" />
+      <wsdl:output message="tns:RefreshBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 계좌 입출금내역 조회</wsdl:documentation>
+      <wsdl:input message="tns:GetBankAccountLogSoapIn" />
+      <wsdl:output message="tns:GetBankAccountLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountLogEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 계좌 입출금내역 조회 (고유키 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetBankAccountLogExSoapIn" />
+      <wsdl:output message="tns:GetBankAccountLogExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 일별 계좌 입출금내역 조회</wsdl:documentation>
+      <wsdl:input message="tns:GetDailyBankAccountLogSoapIn" />
+      <wsdl:output message="tns:GetDailyBankAccountLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountLogEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 일별 계좌 입출금내역 조회 (고유키 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetDailyBankAccountLogExSoapIn" />
+      <wsdl:output message="tns:GetDailyBankAccountLogExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountLogEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 일별 계좌 입출금내역 조회 (고유키 추가, 입출금 구분 추가, 메모 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetDailyBankAccountLogEx2SoapIn" />
+      <wsdl:output message="tns:GetDailyBankAccountLogEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountTransLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">일별 계좌 입출금내역 조회 (고유키 추가, 입출금 구분 추가, 메모 추가, 통화코드 추가, CMS코드 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetDailyBankAccountTransLogSoapIn" />
+      <wsdl:output message="tns:GetDailyBankAccountTransLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 월별 계좌 입출금내역 조회</wsdl:documentation>
+      <wsdl:input message="tns:GetMonthlyBankAccountLogSoapIn" />
+      <wsdl:output message="tns:GetMonthlyBankAccountLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountLogEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 월별 계좌 입출금내역 조회 (고유키 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetMonthlyBankAccountLogExSoapIn" />
+      <wsdl:output message="tns:GetMonthlyBankAccountLogExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountLogEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 월별 계좌 입출금내역 조회 (고유키 추가, 입출금 구분 추가, 메모 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetMonthlyBankAccountLogEx2SoapIn" />
+      <wsdl:output message="tns:GetMonthlyBankAccountLogEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountTransLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">월별 계좌 입출금내역 조회 (고유키 추가, 입출금 구분 추가, 메모 추가, 통화코드 추가, CMS코드 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetMonthlyBankAccountTransLogSoapIn" />
+      <wsdl:output message="tns:GetMonthlyBankAccountTransLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 계좌 입출금내역 조회</wsdl:documentation>
+      <wsdl:input message="tns:GetPeriodBankAccountLogSoapIn" />
+      <wsdl:output message="tns:GetPeriodBankAccountLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountLogEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 계좌 입출금내역 조회 (고유키 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetPeriodBankAccountLogExSoapIn" />
+      <wsdl:output message="tns:GetPeriodBankAccountLogExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountLogEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 계좌 입출금내역 조회 (고유키 추가, 입출금 구분 추가, 메모 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetPeriodBankAccountLogEx2SoapIn" />
+      <wsdl:output message="tns:GetPeriodBankAccountLogEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountTransLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌 입출금내역 조회 (고유키 추가, 입출금 구분 추가, 메모 추가, 통화코드 추가, CMS코드 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetPeriodBankAccountTransLogSoapIn" />
+      <wsdl:output message="tns:GetPeriodBankAccountTransLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountScrapRequestURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) 계좌조회 서비스 신청 URL</wsdl:documentation>
+      <wsdl:input message="tns:GetBankAccountScrapRequestURLSoapIn" />
+      <wsdl:output message="tns:GetBankAccountScrapRequestURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountManagementURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">계좌번호 관리 URL</wsdl:documentation>
+      <wsdl:input message="tns:GetBankAccountManagementURLSoapIn" />
+      <wsdl:output message="tns:GetBankAccountManagementURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountLogURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">입출금내역 URL</wsdl:documentation>
+      <wsdl:input message="tns:GetBankAccountLogURLSoapIn" />
+      <wsdl:output message="tns:GetBankAccountLogURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCorpIsMember">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 가입여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckCorpIsMemberSoapIn" />
+      <wsdl:output message="tns:CheckCorpIsMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistCorp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 가입</wsdl:documentation>
+      <wsdl:input message="tns:RegistCorpSoapIn" />
+      <wsdl:output message="tns:RegistCorpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToCorp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 사용자 추가</wsdl:documentation>
+      <wsdl:input message="tns:AddUserToCorpSoapIn" />
+      <wsdl:output message="tns:AddUserToCorpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCorpInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 수정</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCorpInfoSoapIn" />
+      <wsdl:output message="tns:UpdateCorpInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 사용자 수정</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserInfoSoapIn" />
+      <wsdl:output message="tns:UpdateUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPWD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 사용자 비밀번호 변경</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserPWDSoapIn" />
+      <wsdl:output message="tns:UpdateUserPWDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCorpManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 관리자 변경</wsdl:documentation>
+      <wsdl:input message="tns:ChangeCorpManagerSoapIn" />
+      <wsdl:output message="tns:ChangeCorpManagerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCorpMemberContacts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 담당자 목록확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCorpMemberContactsSoapIn" />
+      <wsdl:output message="tns:GetCorpMemberContactsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountExSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">연동사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountOfInterOPSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountOfInterOPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOPEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">연동사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountOfInterOPExSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountOfInterOPExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckChargeable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">과금가능 여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckChargeableSoapIn" />
+      <wsdl:output message="tns:CheckChargeableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">단가 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetChargeUnitCostSoapIn" />
+      <wsdl:output message="tns:GetChargeUnitCostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCostEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">단가 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetChargeUnitCostExSoapIn" />
+      <wsdl:output message="tns:GetChargeUnitCostExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashChargeURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">포인트 충전 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetCashChargeURLSoapIn" />
+      <wsdl:output message="tns:GetCashChargeURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 공동인증서 등록일시 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateRegistDateSoapIn" />
+      <wsdl:output message="tns:GetCertificateRegistDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateExpireDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 공동인증서 만료일 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateExpireDateSoapIn" />
+      <wsdl:output message="tns:GetCertificateExpireDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCERTIsValid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 공동인증서 상태 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckCERTIsValidSoapIn" />
+      <wsdl:output message="tns:CheckCERTIsValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">공동인증서 등록 URL 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateRegistURLSoapIn" />
+      <wsdl:output message="tns:GetCertificateRegistURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBaroBillURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 링크 연결 URL확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBaroBillURLSoapIn" />
+      <wsdl:output message="tns:GetBaroBillURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 메인화면 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetLoginURLSoapIn" />
+      <wsdl:output message="tns:GetLoginURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistSMSFromNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 추가</wsdl:documentation>
+      <wsdl:input message="tns:RegistSMSFromNumberSoapIn" />
+      <wsdl:output message="tns:RegistSMSFromNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSFromNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 등록여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckSMSFromNumberSoapIn" />
+      <wsdl:output message="tns:CheckSMSFromNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumbers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 목록 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetSMSFromNumbersSoapIn" />
+      <wsdl:output message="tns:GetSMSFromNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumberURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 관리 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetSMSFromNumberURLSoapIn" />
+      <wsdl:output message="tns:GetSMSFromNumberURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFaxFromNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">팩스 발신번호 등록여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckFaxFromNumberSoapIn" />
+      <wsdl:output message="tns:CheckFaxFromNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumbers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">팩스 발신번호 목록 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxFromNumbersSoapIn" />
+      <wsdl:output message="tns:GetFaxFromNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumberURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">팩스 발신번호 관리 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxFromNumberURLSoapIn" />
+      <wsdl:output message="tns:GetFaxFromNumberURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">오류코드의 상세내용 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetErrStringSoapIn" />
+      <wsdl:output message="tns:GetErrStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ping</wsdl:documentation>
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BaroService_BANKACCOUNTSoap" type="tns:BaroService_BANKACCOUNTSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistBankAccount">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistBankAccountEx">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistBankAccountEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistBankAccountsEx">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistBankAccountsEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccount">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccountEx">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateBankAccountEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopBankAccount">
+      <soap:operation soapAction="http://ws.baroservice.com/StopBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelStopBankAccount">
+      <soap:operation soapAction="http://ws.baroservice.com/CancelStopBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReRegistBankAccount">
+      <soap:operation soapAction="http://ws.baroservice.com/ReRegistBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistBankAccountLogMemo">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistBankAccountLogMemo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBankAccountEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBankAccountEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshBankAccount">
+      <soap:operation soapAction="http://ws.baroservice.com/RefreshBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBankAccountLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountLogEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBankAccountLogEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetDailyBankAccountLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountLogEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetDailyBankAccountLogEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountLogEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetDailyBankAccountLogEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountTransLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetDailyBankAccountTransLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetMonthlyBankAccountLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountLogEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetMonthlyBankAccountLogEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountLogEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetMonthlyBankAccountLogEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountTransLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetMonthlyBankAccountTransLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetPeriodBankAccountLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountLogEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetPeriodBankAccountLogEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountLogEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetPeriodBankAccountLogEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountTransLog">
+      <soap:operation soapAction="http://ws.baroservice.com/GetPeriodBankAccountTransLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountScrapRequestURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBankAccountScrapRequestURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountManagementURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBankAccountManagementURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountLogURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBankAccountLogURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCorpIsMember">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckCorpIsMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCorp">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistCorp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToCorp">
+      <soap:operation soapAction="http://ws.baroservice.com/AddUserToCorp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCorpInfo">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateCorpInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPWD">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateUserPWD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCorpManager">
+      <soap:operation soapAction="http://ws.baroservice.com/ChangeCorpManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorpMemberContacts">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCorpMemberContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmount">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOP">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOPEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOPEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckChargeable">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckChargeable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCost">
+      <soap:operation soapAction="http://ws.baroservice.com/GetChargeUnitCost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCostEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetChargeUnitCostEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashChargeURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCashChargeURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistDate">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCertificateRegistDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateExpireDate">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCertificateExpireDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCERTIsValid">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckCERTIsValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCertificateRegistURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaroBillURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBaroBillURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetLoginURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistSMSFromNumber">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSFromNumber">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumbers">
+      <soap:operation soapAction="http://ws.baroservice.com/GetSMSFromNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumberURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetSMSFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFaxFromNumber">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckFaxFromNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumbers">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxFromNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumberURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrString">
+      <soap:operation soapAction="http://ws.baroservice.com/GetErrString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://ws.baroservice.com/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BaroService_BANKACCOUNTSoap12" type="tns:BaroService_BANKACCOUNTSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistBankAccount">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistBankAccountEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistBankAccountEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistBankAccountsEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistBankAccountsEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccount">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankAccountEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateBankAccountEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopBankAccount">
+      <soap12:operation soapAction="http://ws.baroservice.com/StopBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelStopBankAccount">
+      <soap12:operation soapAction="http://ws.baroservice.com/CancelStopBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReRegistBankAccount">
+      <soap12:operation soapAction="http://ws.baroservice.com/ReRegistBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistBankAccountLogMemo">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistBankAccountLogMemo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBankAccountEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBankAccountEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshBankAccount">
+      <soap12:operation soapAction="http://ws.baroservice.com/RefreshBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBankAccountLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountLogEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBankAccountLogEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetDailyBankAccountLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountLogEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetDailyBankAccountLogEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountLogEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetDailyBankAccountLogEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyBankAccountTransLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetDailyBankAccountTransLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetMonthlyBankAccountLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountLogEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetMonthlyBankAccountLogEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountLogEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetMonthlyBankAccountLogEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyBankAccountTransLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetMonthlyBankAccountTransLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetPeriodBankAccountLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountLogEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetPeriodBankAccountLogEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountLogEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetPeriodBankAccountLogEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodBankAccountTransLog">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetPeriodBankAccountTransLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountScrapRequestURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBankAccountScrapRequestURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountManagementURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBankAccountManagementURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccountLogURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBankAccountLogURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCorpIsMember">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckCorpIsMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCorp">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistCorp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToCorp">
+      <soap12:operation soapAction="http://ws.baroservice.com/AddUserToCorp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCorpInfo">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateCorpInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPWD">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateUserPWD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCorpManager">
+      <soap12:operation soapAction="http://ws.baroservice.com/ChangeCorpManager" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorpMemberContacts">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCorpMemberContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmount">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOP">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOPEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOPEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckChargeable">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckChargeable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCost">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetChargeUnitCost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCostEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetChargeUnitCostEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashChargeURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCashChargeURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistDate">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCertificateRegistDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateExpireDate">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCertificateExpireDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCERTIsValid">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckCERTIsValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCertificateRegistURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaroBillURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBaroBillURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetLoginURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistSMSFromNumber">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSFromNumber">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumbers">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetSMSFromNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumberURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetSMSFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFaxFromNumber">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckFaxFromNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumbers">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxFromNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumberURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrString">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetErrString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://ws.baroservice.com/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BaroService_BANKACCOUNT">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 계좌조회 서비스</wsdl:documentation>
+    <wsdl:port name="BaroService_BANKACCOUNTSoap" binding="tns:BaroService_BANKACCOUNTSoap">
+      <soap:address location="https://testws.baroservice.com/BANKACCOUNT.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BaroService_BANKACCOUNTSoap12" binding="tns:BaroService_BANKACCOUNTSoap12">
+      <soap12:address location="https://testws.baroservice.com/BANKACCOUNT.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

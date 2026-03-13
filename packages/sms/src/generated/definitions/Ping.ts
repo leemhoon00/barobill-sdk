@@ -1,0 +1,4 @@
+
+/** Ping */
+export interface Ping {
+}

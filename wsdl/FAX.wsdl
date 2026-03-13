@@ -1,0 +1,2485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.baroservice.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://ws.baroservice.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 FAX 발송서비스</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.baroservice.com/">
+      <s:element name="SendFaxFromFTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenderID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveCorp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendDT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFaxFromFTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendFaxFromFTPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFaxesFromFTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenderID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SendCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfFaxMessage" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendDT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFaxMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FaxMessage" nillable="true" type="tns:FaxMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FaxMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendFileName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendPageCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuccessPageCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendResult" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiveCorp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendState" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendFaxesFromFTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendFaxesFromFTPResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendFaxFromFTPEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenderID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileNames" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveCorp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendDT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFaxFromFTPExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendFaxFromFTPExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFaxesFromFTPEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenderID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileNames" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="SendCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfFaxMessage" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendDT" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFaxesFromFTPExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendFaxesFromFTPExResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReSendFax">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenderID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReSendFaxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReSendFaxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReSendFaxEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SenderID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReSendFaxExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReSendFaxExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelReservedFaxMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelReservedFaxMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelReservedFaxMessageResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetFaxSendStateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxMessageResult" type="tns:FaxMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxMessageEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxMessageExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxMessageExResult" type="tns:FaxMessageEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FaxMessageEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendFileName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendPageCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuccessPageCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendResult" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiveCorp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendState" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="fileURLs" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFaxMessageEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxMessageEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxMessageEx2Result" type="tns:FaxMessageEx2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FaxMessageEx2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendFileName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendPageCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuccessPageCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendResult" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiveCorp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverNum" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReserveYN" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReserveDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendState" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="fileURLs" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFaxSendMessages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKeyList" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendMessagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxSendMessagesResult" type="tns:ArrayOfFaxMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendMessagesEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKeyList" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendMessagesExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxSendMessagesExResult" type="tns:ArrayOfFaxMessageEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFaxMessageEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FaxMessageEx" nillable="true" type="tns:FaxMessageEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFaxMessagesEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKeyList" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxMessagesEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxMessagesEx2Result" type="tns:ArrayOfFaxMessageEx2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFaxMessageEx2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FaxMessageEx2" nillable="true" type="tns:FaxMessageEx2" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFaxSendMessagesByRefKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendMessagesByRefKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxSendMessagesByRefKeyResult" type="tns:ArrayOfFaxMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendMessagesByRefKeyEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendMessagesByRefKeyExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxSendMessagesByRefKeyExResult" type="tns:ArrayOfFaxMessageEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxMessagesByRefKeyEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxMessagesByRefKeyEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxMessagesByRefKeyEx2Result" type="tns:ArrayOfFaxMessageEx2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendMessagesByPaging">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxSendMessagesByPagingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxSendMessagesByPagingResult" type="tns:PagedFaxMessages" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedFaxMessages">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountPerPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPageNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageList" type="tns:ArrayOfFaxMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFaxHistoryURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxHistoryURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxHistoryURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFileURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SendKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFileURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxFileURLResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCorpIsMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckCorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCorpIsMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCorpIsMemberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCorp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CEOName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JuminNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistCorpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistCorpResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserToCorp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JuminNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserToCorpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddUserToCorpResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCorpInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CEOName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BizClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCorpInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCorpInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JuminNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUserInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPWD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPWDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUserPWDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCorpManager">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newManagerID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCorpManagerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeCorpManagerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorpMemberContacts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckCorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorpMemberContactsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCorpMemberContactsResult" type="tns:ArrayOfContact" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Contact" nillable="true" type="tns:Contact" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TEL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBalanceCostAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountExResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountOfInterOPResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOPEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceCostAmountOfInterOPExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBalanceCostAmountOfInterOPExResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckChargeable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DocType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckChargeableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckChargeableResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ChargeCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetChargeUnitCostResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCostEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ChargeCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeUnitCostExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetChargeUnitCostExResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashChargeURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashChargeURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCashChargeURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateRegistDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateExpireDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateExpireDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateExpireDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCERTIsValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCERTIsValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCERTIsValidResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateRegistURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateRegistURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBaroBillURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TOGO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBaroBillURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBaroBillURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLoginURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistSMSFromNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistSMSFromNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistSMSFromNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSFromNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSFromNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckSMSFromNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSFromNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSFromNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSMSFromNumbersResult" type="tns:ArrayOfFromNumber" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFromNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FromNumber" nillable="true" type="tns:FromNumber" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FromNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSMSFromNumberURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSFromNumberURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSMSFromNumberURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFaxFromNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFaxFromNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckFaxFromNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxFromNumbersResult" type="tns:ArrayOfFromNumber" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumberURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorpNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFaxFromNumberURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFaxFromNumberURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERTKEY" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ErrCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetErrStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ping">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendFaxFromFTPSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFaxFromFTP" />
+  </wsdl:message>
+  <wsdl:message name="SendFaxFromFTPSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFaxFromFTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFaxesFromFTPSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFaxesFromFTP" />
+  </wsdl:message>
+  <wsdl:message name="SendFaxesFromFTPSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFaxesFromFTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFaxFromFTPExSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFaxFromFTPEx" />
+  </wsdl:message>
+  <wsdl:message name="SendFaxFromFTPExSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFaxFromFTPExResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFaxesFromFTPExSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFaxesFromFTPEx" />
+  </wsdl:message>
+  <wsdl:message name="SendFaxesFromFTPExSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFaxesFromFTPExResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReSendFaxSoapIn">
+    <wsdl:part name="parameters" element="tns:ReSendFax" />
+  </wsdl:message>
+  <wsdl:message name="ReSendFaxSoapOut">
+    <wsdl:part name="parameters" element="tns:ReSendFaxResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReSendFaxExSoapIn">
+    <wsdl:part name="parameters" element="tns:ReSendFaxEx" />
+  </wsdl:message>
+  <wsdl:message name="ReSendFaxExSoapOut">
+    <wsdl:part name="parameters" element="tns:ReSendFaxExResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelReservedFaxMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelReservedFaxMessage" />
+  </wsdl:message>
+  <wsdl:message name="CancelReservedFaxMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelReservedFaxMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxSendState" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendStateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxSendStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessageExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxMessageEx" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessageExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxMessageExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessageEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxMessageEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessageEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxMessageEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessages" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessagesEx" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessagesExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessagesEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxMessagesEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessagesEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxMessagesEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesByRefKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessagesByRefKey" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesByRefKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessagesByRefKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesByRefKeyExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessagesByRefKeyEx" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesByRefKeyExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessagesByRefKeyExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessagesByRefKeyEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxMessagesByRefKeyEx2" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxMessagesByRefKeyEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxMessagesByRefKeyEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesByPagingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessagesByPaging" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxSendMessagesByPagingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxSendMessagesByPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxHistoryURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxHistoryURL" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxHistoryURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxHistoryURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFileURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxFileURL" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFileURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxFileURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCorpIsMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCorpIsMember" />
+  </wsdl:message>
+  <wsdl:message name="CheckCorpIsMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCorpIsMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistCorpSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistCorp" />
+  </wsdl:message>
+  <wsdl:message name="RegistCorpSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistCorpResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserToCorpSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUserToCorp" />
+  </wsdl:message>
+  <wsdl:message name="AddUserToCorpSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserToCorpResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCorpInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCorpInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCorpInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCorpInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPWDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserPWD" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPWDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserPWDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCorpManagerSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeCorpManager" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCorpManagerSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeCorpManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCorpMemberContactsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCorpMemberContacts" />
+  </wsdl:message>
+  <wsdl:message name="GetCorpMemberContactsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCorpMemberContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmount" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountEx" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOP" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOPEx" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceCostAmountOfInterOPExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceCostAmountOfInterOPExResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckChargeableSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckChargeable" />
+  </wsdl:message>
+  <wsdl:message name="CheckChargeableSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckChargeableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCost" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCostResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCostEx" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeUnitCostExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChargeUnitCostExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCashChargeURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCashChargeURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCashChargeURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCashChargeURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateExpireDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateExpireDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateExpireDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateExpireDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCERTIsValidSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCERTIsValid" />
+  </wsdl:message>
+  <wsdl:message name="CheckCERTIsValidSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCERTIsValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateRegistURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateRegistURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBaroBillURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBaroBillURL" />
+  </wsdl:message>
+  <wsdl:message name="GetBaroBillURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBaroBillURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoginURL" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLoginURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistSMSFromNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistSMSFromNumber" />
+  </wsdl:message>
+  <wsdl:message name="RegistSMSFromNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistSMSFromNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSFromNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckSMSFromNumber" />
+  </wsdl:message>
+  <wsdl:message name="CheckSMSFromNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckSMSFromNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumbers" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumberURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumberURL" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSFromNumberURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSMSFromNumberURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckFaxFromNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckFaxFromNumber" />
+  </wsdl:message>
+  <wsdl:message name="CheckFaxFromNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckFaxFromNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumbers" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumberURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumberURL" />
+  </wsdl:message>
+  <wsdl:message name="GetFaxFromNumberURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFaxFromNumberURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetErrStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetErrString" />
+  </wsdl:message>
+  <wsdl:message name="GetErrStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetErrStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BaroService_FAXSoap">
+    <wsdl:operation name="SendFaxFromFTP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 전송 (단일파일) [FTP 업로드가 선행되어야 합니다.]</wsdl:documentation>
+      <wsdl:input message="tns:SendFaxFromFTPSoapIn" />
+      <wsdl:output message="tns:SendFaxFromFTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFaxesFromFTP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 대량전송 (단일파일) [FTP 업로드가 선행되어야 합니다.]</wsdl:documentation>
+      <wsdl:input message="tns:SendFaxesFromFTPSoapIn" />
+      <wsdl:output message="tns:SendFaxesFromFTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFaxFromFTPEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 전송 (다량파일) [FTP 업로드가 선행되어야 합니다.]</wsdl:documentation>
+      <wsdl:input message="tns:SendFaxFromFTPExSoapIn" />
+      <wsdl:output message="tns:SendFaxFromFTPExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFaxesFromFTPEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 대량전송 (다량파일) [FTP 업로드가 선행되어야 합니다.]</wsdl:documentation>
+      <wsdl:input message="tns:SendFaxesFromFTPExSoapIn" />
+      <wsdl:output message="tns:SendFaxesFromFTPExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReSendFax">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 재전송</wsdl:documentation>
+      <wsdl:input message="tns:ReSendFaxSoapIn" />
+      <wsdl:output message="tns:ReSendFaxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReSendFaxEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 재전송</wsdl:documentation>
+      <wsdl:input message="tns:ReSendFaxExSoapIn" />
+      <wsdl:output message="tns:ReSendFaxExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelReservedFaxMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">예약 전송 팩스 취소</wsdl:documentation>
+      <wsdl:input message="tns:CancelReservedFaxMessageSoapIn" />
+      <wsdl:output message="tns:CancelReservedFaxMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 전송 상태 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxSendStateSoapIn" />
+      <wsdl:output message="tns:GetFaxSendStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) FAX 전송 메시지 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxMessageSoapIn" />
+      <wsdl:output message="tns:GetFaxMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessageEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) FAX 전송 메시지 확인 (팩스파일 다운로드 URL 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxMessageExSoapIn" />
+      <wsdl:output message="tns:GetFaxMessageExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessageEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 전송 메시지 확인 (예약정보, 완료일시 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxMessageEx2SoapIn" />
+      <wsdl:output message="tns:GetFaxMessageEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) FAX 전송 메시지 대량 확인[100건]</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxSendMessagesSoapIn" />
+      <wsdl:output message="tns:GetFaxSendMessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) FAX 전송 메시지 대량 확인[100건] (팩스파일 다운로드 URL 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxSendMessagesExSoapIn" />
+      <wsdl:output message="tns:GetFaxSendMessagesExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessagesEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 전송 메시지 대량 확인[100건] (예약정보, 완료일시 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxMessagesEx2SoapIn" />
+      <wsdl:output message="tns:GetFaxMessagesEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesByRefKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) FAX 전송 메시지 확인[연동참조번호]</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxSendMessagesByRefKeySoapIn" />
+      <wsdl:output message="tns:GetFaxSendMessagesByRefKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesByRefKeyEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(구버전) FAX 전송 메시지 확인[연동참조번호] (팩스파일 다운로드 URL 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxSendMessagesByRefKeyExSoapIn" />
+      <wsdl:output message="tns:GetFaxSendMessagesByRefKeyExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessagesByRefKeyEx2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 전송 메시지 확인[연동참조번호] (예약정보, 완료일시 추가)</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxMessagesByRefKeyEx2SoapIn" />
+      <wsdl:output message="tns:GetFaxMessagesByRefKeyEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesByPaging">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">페이징에 의한 관련 메시지 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxSendMessagesByPagingSoapIn" />
+      <wsdl:output message="tns:GetFaxSendMessagesByPagingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxHistoryURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 전송 내역 조회 팝업</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxHistoryURLSoapIn" />
+      <wsdl:output message="tns:GetFaxHistoryURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFileURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FAX 파일 다운로드 URL</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxFileURLSoapIn" />
+      <wsdl:output message="tns:GetFaxFileURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCorpIsMember">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 가입여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckCorpIsMemberSoapIn" />
+      <wsdl:output message="tns:CheckCorpIsMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistCorp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 가입</wsdl:documentation>
+      <wsdl:input message="tns:RegistCorpSoapIn" />
+      <wsdl:output message="tns:RegistCorpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToCorp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 사용자 추가</wsdl:documentation>
+      <wsdl:input message="tns:AddUserToCorpSoapIn" />
+      <wsdl:output message="tns:AddUserToCorpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCorpInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 수정</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCorpInfoSoapIn" />
+      <wsdl:output message="tns:UpdateCorpInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 사용자 수정</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserInfoSoapIn" />
+      <wsdl:output message="tns:UpdateUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPWD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 사용자 비밀번호 변경</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserPWDSoapIn" />
+      <wsdl:output message="tns:UpdateUserPWDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCorpManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 관리자 변경</wsdl:documentation>
+      <wsdl:input message="tns:ChangeCorpManagerSoapIn" />
+      <wsdl:output message="tns:ChangeCorpManagerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCorpMemberContacts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 담당자 목록확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCorpMemberContactsSoapIn" />
+      <wsdl:output message="tns:GetCorpMemberContactsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">회원사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountExSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">연동사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountOfInterOPSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountOfInterOPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOPEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">연동사 충전잔액 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBalanceCostAmountOfInterOPExSoapIn" />
+      <wsdl:output message="tns:GetBalanceCostAmountOfInterOPExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckChargeable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">과금가능 여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckChargeableSoapIn" />
+      <wsdl:output message="tns:CheckChargeableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">단가 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetChargeUnitCostSoapIn" />
+      <wsdl:output message="tns:GetChargeUnitCostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCostEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">단가 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetChargeUnitCostExSoapIn" />
+      <wsdl:output message="tns:GetChargeUnitCostExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashChargeURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">포인트 충전 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetCashChargeURLSoapIn" />
+      <wsdl:output message="tns:GetCashChargeURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 공동인증서 등록일시 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateRegistDateSoapIn" />
+      <wsdl:output message="tns:GetCertificateRegistDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateExpireDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 공동인증서 만료일 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateExpireDateSoapIn" />
+      <wsdl:output message="tns:GetCertificateExpireDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCERTIsValid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">등록한 공동인증서 상태 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckCERTIsValidSoapIn" />
+      <wsdl:output message="tns:CheckCERTIsValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">공동인증서 등록 URL 확인</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateRegistURLSoapIn" />
+      <wsdl:output message="tns:GetCertificateRegistURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBaroBillURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 링크 연결 URL확인</wsdl:documentation>
+      <wsdl:input message="tns:GetBaroBillURLSoapIn" />
+      <wsdl:output message="tns:GetBaroBillURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 메인화면 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetLoginURLSoapIn" />
+      <wsdl:output message="tns:GetLoginURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistSMSFromNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 추가</wsdl:documentation>
+      <wsdl:input message="tns:RegistSMSFromNumberSoapIn" />
+      <wsdl:output message="tns:RegistSMSFromNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSFromNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 등록여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckSMSFromNumberSoapIn" />
+      <wsdl:output message="tns:CheckSMSFromNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumbers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 목록 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetSMSFromNumbersSoapIn" />
+      <wsdl:output message="tns:GetSMSFromNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumberURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">문자 발신번호 관리 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetSMSFromNumberURLSoapIn" />
+      <wsdl:output message="tns:GetSMSFromNumberURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFaxFromNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">팩스 발신번호 등록여부 확인</wsdl:documentation>
+      <wsdl:input message="tns:CheckFaxFromNumberSoapIn" />
+      <wsdl:output message="tns:CheckFaxFromNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumbers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">팩스 발신번호 목록 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxFromNumbersSoapIn" />
+      <wsdl:output message="tns:GetFaxFromNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumberURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">팩스 발신번호 관리 URL 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetFaxFromNumberURLSoapIn" />
+      <wsdl:output message="tns:GetFaxFromNumberURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">오류코드의 상세내용 반환</wsdl:documentation>
+      <wsdl:input message="tns:GetErrStringSoapIn" />
+      <wsdl:output message="tns:GetErrStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ping</wsdl:documentation>
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BaroService_FAXSoap" type="tns:BaroService_FAXSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendFaxFromFTP">
+      <soap:operation soapAction="http://ws.baroservice.com/SendFaxFromFTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFaxesFromFTP">
+      <soap:operation soapAction="http://ws.baroservice.com/SendFaxesFromFTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFaxFromFTPEx">
+      <soap:operation soapAction="http://ws.baroservice.com/SendFaxFromFTPEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFaxesFromFTPEx">
+      <soap:operation soapAction="http://ws.baroservice.com/SendFaxesFromFTPEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReSendFax">
+      <soap:operation soapAction="http://ws.baroservice.com/ReSendFax" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReSendFaxEx">
+      <soap:operation soapAction="http://ws.baroservice.com/ReSendFaxEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelReservedFaxMessage">
+      <soap:operation soapAction="http://ws.baroservice.com/CancelReservedFaxMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendState">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxSendState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessage">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessageEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxMessageEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessageEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxMessageEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessages">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxSendMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxSendMessagesEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessagesEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxMessagesEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesByRefKey">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxSendMessagesByRefKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesByRefKeyEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxSendMessagesByRefKeyEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessagesByRefKeyEx2">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxMessagesByRefKeyEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesByPaging">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxSendMessagesByPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxHistoryURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxHistoryURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFileURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxFileURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCorpIsMember">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckCorpIsMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCorp">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistCorp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToCorp">
+      <soap:operation soapAction="http://ws.baroservice.com/AddUserToCorp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCorpInfo">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateCorpInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPWD">
+      <soap:operation soapAction="http://ws.baroservice.com/UpdateUserPWD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCorpManager">
+      <soap:operation soapAction="http://ws.baroservice.com/ChangeCorpManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorpMemberContacts">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCorpMemberContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmount">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOP">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOPEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOPEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckChargeable">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckChargeable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCost">
+      <soap:operation soapAction="http://ws.baroservice.com/GetChargeUnitCost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCostEx">
+      <soap:operation soapAction="http://ws.baroservice.com/GetChargeUnitCostEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashChargeURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCashChargeURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistDate">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCertificateRegistDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateExpireDate">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCertificateExpireDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCERTIsValid">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckCERTIsValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetCertificateRegistURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaroBillURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetBaroBillURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetLoginURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistSMSFromNumber">
+      <soap:operation soapAction="http://ws.baroservice.com/RegistSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSFromNumber">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumbers">
+      <soap:operation soapAction="http://ws.baroservice.com/GetSMSFromNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumberURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetSMSFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFaxFromNumber">
+      <soap:operation soapAction="http://ws.baroservice.com/CheckFaxFromNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumbers">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxFromNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumberURL">
+      <soap:operation soapAction="http://ws.baroservice.com/GetFaxFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrString">
+      <soap:operation soapAction="http://ws.baroservice.com/GetErrString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://ws.baroservice.com/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BaroService_FAXSoap12" type="tns:BaroService_FAXSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendFaxFromFTP">
+      <soap12:operation soapAction="http://ws.baroservice.com/SendFaxFromFTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFaxesFromFTP">
+      <soap12:operation soapAction="http://ws.baroservice.com/SendFaxesFromFTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFaxFromFTPEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/SendFaxFromFTPEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFaxesFromFTPEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/SendFaxesFromFTPEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReSendFax">
+      <soap12:operation soapAction="http://ws.baroservice.com/ReSendFax" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReSendFaxEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/ReSendFaxEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelReservedFaxMessage">
+      <soap12:operation soapAction="http://ws.baroservice.com/CancelReservedFaxMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendState">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxSendState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessage">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessageEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxMessageEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessageEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxMessageEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessages">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxSendMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxSendMessagesEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessagesEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxMessagesEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesByRefKey">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxSendMessagesByRefKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesByRefKeyEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxSendMessagesByRefKeyEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxMessagesByRefKeyEx2">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxMessagesByRefKeyEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxSendMessagesByPaging">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxSendMessagesByPaging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxHistoryURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxHistoryURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFileURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxFileURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCorpIsMember">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckCorpIsMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistCorp">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistCorp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToCorp">
+      <soap12:operation soapAction="http://ws.baroservice.com/AddUserToCorp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCorpInfo">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateCorpInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPWD">
+      <soap12:operation soapAction="http://ws.baroservice.com/UpdateUserPWD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCorpManager">
+      <soap12:operation soapAction="http://ws.baroservice.com/ChangeCorpManager" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorpMemberContacts">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCorpMemberContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmount">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOP">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceCostAmountOfInterOPEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBalanceCostAmountOfInterOPEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckChargeable">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckChargeable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCost">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetChargeUnitCost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeUnitCostEx">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetChargeUnitCostEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashChargeURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCashChargeURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistDate">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCertificateRegistDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateExpireDate">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCertificateExpireDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCERTIsValid">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckCERTIsValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateRegistURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetCertificateRegistURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaroBillURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetBaroBillURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetLoginURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistSMSFromNumber">
+      <soap12:operation soapAction="http://ws.baroservice.com/RegistSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSFromNumber">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckSMSFromNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumbers">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetSMSFromNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMSFromNumberURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetSMSFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFaxFromNumber">
+      <soap12:operation soapAction="http://ws.baroservice.com/CheckFaxFromNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumbers">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxFromNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaxFromNumberURL">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetFaxFromNumberURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrString">
+      <soap12:operation soapAction="http://ws.baroservice.com/GetErrString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://ws.baroservice.com/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BaroService_FAX">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">바로빌 FAX 발송서비스</wsdl:documentation>
+    <wsdl:port name="BaroService_FAXSoap" binding="tns:BaroService_FAXSoap">
+      <soap:address location="https://testws.baroservice.com/FAX.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BaroService_FAXSoap12" binding="tns:BaroService_FAXSoap12">
+      <soap12:address location="https://testws.baroservice.com/FAX.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
