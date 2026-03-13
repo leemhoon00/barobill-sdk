@@ -1,0 +1,136 @@
+# @barobill-sdk
+
+바로빌 API TypeScript SDK - 모듈별 분리 버전
+
+기존 `barobill-sdk` 패키지를 기능별로 분리하여 필요한 모듈만 설치할 수 있습니다.
+
+## 패키지 목록
+
+| 패키지 | 설명 | 설치 |
+|--------|------|------|
+| `@barobill-sdk/ti` | 전자세금계산서 (홈택스 매입매출조회 포함) | `npm i @barobill-sdk/ti` |
+| `@barobill-sdk/cashbill` | 현금영수증 (홈택스 매입매출조회 포함) | `npm i @barobill-sdk/cashbill` |
+| `@barobill-sdk/edoc` | 전자문서 | `npm i @barobill-sdk/edoc` |
+| `@barobill-sdk/card` | 카드조회 | `npm i @barobill-sdk/card` |
+| `@barobill-sdk/bankaccount` | 계좌조회 | `npm i @barobill-sdk/bankaccount` |
+| `@barobill-sdk/corpstate` | 사업자등록 상태조회 | `npm i @barobill-sdk/corpstate` |
+| `@barobill-sdk/sms` | 문자전송 | `npm i @barobill-sdk/sms` |
+| `@barobill-sdk/fax` | 팩스전송 | `npm i @barobill-sdk/fax` |
+| `@barobill-sdk/kakaotalk` | 카카오톡전송 | `npm i @barobill-sdk/kakaotalk` |
+
+## 사용법
+
+### 클라이언트 초기화
+
+```typescript
+import { SmsClient } from '@barobill-sdk/sms';
+
+const client = await SmsClient.create({
+  certKey: 'your-cert-key',
+  corpNum: '1234567890',  // 파트너 사업자등록번호
+  test: true,              // true: 테스트 환경, false: 운영 환경 (기본값: false)
+});
+```
+
+- `certKey`: 바로빌 인증키
+- `corpNum`: 파트너 사업자등록번호 (모든 API 호출에 자동 주입)
+- `test`: `true`이면 `testws.baroservice.com`, `false`이면 `ws.baroservice.com` 사용
+
+### API 호출
+
+```typescript
+// 문자 전송
+const result = await client.sendSMSMessage({
+  FromNumber: '01012345678',
+  ToNumber: '01098765432',
+  Contents: '안녕하세요',
+});
+```
+
+`CERTKEY`와 `CorpNum`은 클라이언트 초기화 시 설정한 값이 자동으로 주입되므로 별도로 전달할 필요가 없습니다.
+
+### 전자세금계산서 예시
+
+```typescript
+import { TiClient } from '@barobill-sdk/ti';
+
+const client = await TiClient.create({
+  certKey: 'your-cert-key',
+  corpNum: '1234567890',
+});
+
+// 세금계산서 발행
+const result = await client.registAndIssueTaxInvoice({
+  Invoice: {
+    InvoicerParty: {
+      MgtNum: '20240101-001',
+      CorpNum: '1234567890',
+      CorpName: '테스트회사',
+      // ...
+    },
+    InvoiceeParty: {
+      CorpNum: '0987654321',
+      CorpName: '거래처',
+      // ...
+    },
+    // ...
+  },
+});
+```
+
+### 현금영수증 예시
+
+```typescript
+import { CashbillClient } from '@barobill-sdk/cashbill';
+
+const client = await CashbillClient.create({
+  certKey: 'your-cert-key',
+  corpNum: '1234567890',
+  test: true,
+});
+
+const result = await client.registCashbill({
+  // ...
+});
+```
+
+## 클라이언트 목록
+
+| 패키지 | 클라이언트 클래스 |
+|--------|------------------|
+| `@barobill-sdk/ti` | `TiClient` |
+| `@barobill-sdk/cashbill` | `CashbillClient` |
+| `@barobill-sdk/edoc` | `EdocClient` |
+| `@barobill-sdk/card` | `CardClient` |
+| `@barobill-sdk/bankaccount` | `BankAccountClient` |
+| `@barobill-sdk/corpstate` | `CorpStateClient` |
+| `@barobill-sdk/sms` | `SmsClient` |
+| `@barobill-sdk/fax` | `FaxClient` |
+| `@barobill-sdk/kakaotalk` | `KakaoTalkClient` |
+
+## API 엔드포인트
+
+| 환경 | URL |
+|------|-----|
+| 테스트 | `https://testws.baroservice.com/{SERVICE}.asmx?wsdl` |
+| 운영 | `https://ws.baroservice.com/{SERVICE}.asmx?wsdl` |
+
+## 개발
+
+```bash
+# 의존성 설치
+pnpm install
+
+# 전체 빌드
+pnpm build
+
+# WSDL에서 타입 재생성
+pnpm generate:types
+
+# wrapper 클라이언트 재생성
+pnpm generate:wrapper
+```
+
+## License
+
+ISC
