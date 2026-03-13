@@ -115,7 +115,9 @@ const result = await client.registCashbill({
 | 테스트 | `https://testws.baroservice.com/{SERVICE}.asmx?wsdl` |
 | 운영 | `https://ws.baroservice.com/{SERVICE}.asmx?wsdl` |
 
-## 개발
+## Contributing (SDK 개발자용)
+
+이 SDK 자체를 수정하거나 바로빌 API 변경에 대응할 때 사용합니다.
 
 ```bash
 # 의존성 설치
@@ -124,7 +126,7 @@ pnpm install
 # 전체 빌드
 pnpm build
 
-# WSDL에서 타입 재생성
+# WSDL에서 타입 재생성 (바로빌 API 변경 시)
 pnpm generate:types
 
 # wrapper 클라이언트 재생성
