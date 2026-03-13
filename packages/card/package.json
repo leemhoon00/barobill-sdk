@@ -1,6 +1,6 @@
 {
   "name": "@barobill-sdk/card",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "바로빌 카드조회 API SDK",
   "license": "ISC",
   "author": "",
@@ -22,7 +22,9 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup"
   },

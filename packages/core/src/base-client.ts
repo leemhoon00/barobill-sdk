@@ -18,7 +18,7 @@ export abstract class BaseBarobillClient {
     return this;
   }
 
-  /** CERTKEY + CorpNum 자동 주입 */
+  /** CERTKEY 자동 주입, CorpNum은 params에 있으면 그 값 사용, 없으면 기본값 사용 */
   protected async call<TResult>(
     methodName: string,
     params: Record<string, any>,

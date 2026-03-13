@@ -106,103 +106,103 @@ export class SmsClient extends BaseBarobillClient {
     return client;
   }
 
-  async sendMessage(params: Omit<SendMessage, 'CERTKEY' | 'CorpNum'>): Promise<SendMessageResponse> {
+  async sendMessage(params: Omit<SendMessage, 'CERTKEY'> & { CorpNum?: string }): Promise<SendMessageResponse> {
     return this.call<SendMessageResponse>('SendMessage', params);
   }
 
-  async sendMessages(params: Omit<SendMessages, 'CERTKEY' | 'CorpNum'>): Promise<SendMessagesResponse> {
+  async sendMessages(params: Omit<SendMessages, 'CERTKEY'> & { CorpNum?: string }): Promise<SendMessagesResponse> {
     return this.call<SendMessagesResponse>('SendMessages', params);
   }
 
-  async sendSMSMessage(params: Omit<SendSmsMessage, 'CERTKEY' | 'CorpNum'>): Promise<SendSmsMessageResponse> {
+  async sendSMSMessage(params: Omit<SendSmsMessage, 'CERTKEY'> & { CorpNum?: string }): Promise<SendSmsMessageResponse> {
     return this.call<SendSmsMessageResponse>('SendSMSMessage', params);
   }
 
-  async sendLMSMessage(params: Omit<SendLmsMessage, 'CERTKEY' | 'CorpNum'>): Promise<SendLmsMessageResponse> {
+  async sendLMSMessage(params: Omit<SendLmsMessage, 'CERTKEY'> & { CorpNum?: string }): Promise<SendLmsMessageResponse> {
     return this.call<SendLmsMessageResponse>('SendLMSMessage', params);
   }
 
-  async sendMMSMessage(params: Omit<SendMmsMessage, 'CERTKEY' | 'CorpNum'>): Promise<SendMmsMessageResponse> {
+  async sendMMSMessage(params: Omit<SendMmsMessage, 'CERTKEY'> & { CorpNum?: string }): Promise<SendMmsMessageResponse> {
     return this.call<SendMmsMessageResponse>('SendMMSMessage', params);
   }
 
-  async sendMMSMessageFromFTP(params: Omit<SendMmsMessageFromFtp, 'CERTKEY' | 'CorpNum'>): Promise<SendMmsMessageFromFtpResponse> {
+  async sendMMSMessageFromFTP(params: Omit<SendMmsMessageFromFtp, 'CERTKEY'> & { CorpNum?: string }): Promise<SendMmsMessageFromFtpResponse> {
     return this.call<SendMmsMessageFromFtpResponse>('SendMMSMessageFromFTP', params);
   }
 
-  async cancelReservedSMSMessage(params: Omit<CancelReservedSmsMessage, 'CERTKEY' | 'CorpNum'>): Promise<CancelReservedSmsMessageResponse> {
+  async cancelReservedSMSMessage(params: Omit<CancelReservedSmsMessage, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelReservedSmsMessageResponse> {
     return this.call<CancelReservedSmsMessageResponse>('CancelReservedSMSMessage', params);
   }
 
-  async cancelReservedSMSMessageByReceiptNum(params: Omit<CancelReservedSmsMessageByReceiptNum, 'CERTKEY' | 'CorpNum'>): Promise<CancelReservedSmsMessageByReceiptNumResponse> {
+  async cancelReservedSMSMessageByReceiptNum(params: Omit<CancelReservedSmsMessageByReceiptNum, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelReservedSmsMessageByReceiptNumResponse> {
     return this.call<CancelReservedSmsMessageByReceiptNumResponse>('CancelReservedSMSMessageByReceiptNum', params);
   }
 
-  async getSMSSendState(params: Omit<GetSmsSendState, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsSendStateResponse> {
+  async getSMSSendState(params: Omit<GetSmsSendState, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsSendStateResponse> {
     return this.call<GetSmsSendStateResponse>('GetSMSSendState', params);
   }
 
-  async getSMSSendMessage(params: Omit<GetSmsSendMessage, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsSendMessageResponse> {
+  async getSMSSendMessage(params: Omit<GetSmsSendMessage, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsSendMessageResponse> {
     return this.call<GetSmsSendMessageResponse>('GetSMSSendMessage', params);
   }
 
-  async getSMSSendMessages(params: Omit<GetSmsSendMessages, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsSendMessagesResponse> {
+  async getSMSSendMessages(params: Omit<GetSmsSendMessages, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsSendMessagesResponse> {
     return this.call<GetSmsSendMessagesResponse>('GetSMSSendMessages', params);
   }
 
-  async getMessagesByReceiptNum(params: Omit<GetMessagesByReceiptNum, 'CERTKEY' | 'CorpNum'>): Promise<GetMessagesByReceiptNumResponse> {
+  async getMessagesByReceiptNum(params: Omit<GetMessagesByReceiptNum, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMessagesByReceiptNumResponse> {
     return this.call<GetMessagesByReceiptNumResponse>('GetMessagesByReceiptNum', params);
   }
 
-  async getSMSSendMessagesByRefKey(params: Omit<GetSmsSendMessagesByRefKey, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsSendMessagesByRefKeyResponse> {
+  async getSMSSendMessagesByRefKey(params: Omit<GetSmsSendMessagesByRefKey, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsSendMessagesByRefKeyResponse> {
     return this.call<GetSmsSendMessagesByRefKeyResponse>('GetSMSSendMessagesByRefKey', params);
   }
 
-  async getSMSSendMessagesByPaging(params: Omit<GetSmsSendMessagesByPaging, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsSendMessagesByPagingResponse> {
+  async getSMSSendMessagesByPaging(params: Omit<GetSmsSendMessagesByPaging, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsSendMessagesByPagingResponse> {
     return this.call<GetSmsSendMessagesByPagingResponse>('GetSMSSendMessagesByPaging', params);
   }
 
-  async getSMSHistoryURL(params: Omit<GetSmsHistoryUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsHistoryUrlResponse> {
+  async getSMSHistoryURL(params: Omit<GetSmsHistoryUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsHistoryUrlResponse> {
     return this.call<GetSmsHistoryUrlResponse>('GetSMSHistoryURL', params);
   }
 
-  async checkCorpIsMember(params: Omit<CheckCorpIsMember, 'CERTKEY' | 'CorpNum'>): Promise<CheckCorpIsMemberResponse> {
+  async checkCorpIsMember(params: Omit<CheckCorpIsMember, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckCorpIsMemberResponse> {
     return this.call<CheckCorpIsMemberResponse>('CheckCorpIsMember', params);
   }
 
-  async registCorp(params: Omit<RegistCorp, 'CERTKEY' | 'CorpNum'>): Promise<RegistCorpResponse> {
+  async registCorp(params: Omit<RegistCorp, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCorpResponse> {
     return this.call<RegistCorpResponse>('RegistCorp', params);
   }
 
-  async addUserToCorp(params: Omit<AddUserToCorp, 'CERTKEY' | 'CorpNum'>): Promise<AddUserToCorpResponse> {
+  async addUserToCorp(params: Omit<AddUserToCorp, 'CERTKEY'> & { CorpNum?: string }): Promise<AddUserToCorpResponse> {
     return this.call<AddUserToCorpResponse>('AddUserToCorp', params);
   }
 
-  async updateCorpInfo(params: Omit<UpdateCorpInfo, 'CERTKEY' | 'CorpNum'>): Promise<UpdateCorpInfoResponse> {
+  async updateCorpInfo(params: Omit<UpdateCorpInfo, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateCorpInfoResponse> {
     return this.call<UpdateCorpInfoResponse>('UpdateCorpInfo', params);
   }
 
-  async updateUserInfo(params: Omit<UpdateUserInfo, 'CERTKEY' | 'CorpNum'>): Promise<UpdateUserInfoResponse> {
+  async updateUserInfo(params: Omit<UpdateUserInfo, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateUserInfoResponse> {
     return this.call<UpdateUserInfoResponse>('UpdateUserInfo', params);
   }
 
-  async updateUserPWD(params: Omit<UpdateUserPwd, 'CERTKEY' | 'CorpNum'>): Promise<UpdateUserPwdResponse> {
+  async updateUserPWD(params: Omit<UpdateUserPwd, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateUserPwdResponse> {
     return this.call<UpdateUserPwdResponse>('UpdateUserPWD', params);
   }
 
-  async changeCorpManager(params: Omit<ChangeCorpManager, 'CERTKEY' | 'CorpNum'>): Promise<ChangeCorpManagerResponse> {
+  async changeCorpManager(params: Omit<ChangeCorpManager, 'CERTKEY'> & { CorpNum?: string }): Promise<ChangeCorpManagerResponse> {
     return this.call<ChangeCorpManagerResponse>('ChangeCorpManager', params);
   }
 
-  async getCorpMemberContacts(params: Omit<GetCorpMemberContacts, 'CERTKEY' | 'CorpNum'>): Promise<GetCorpMemberContactsResponse> {
+  async getCorpMemberContacts(params: Omit<GetCorpMemberContacts, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCorpMemberContactsResponse> {
     return this.call<GetCorpMemberContactsResponse>('GetCorpMemberContacts', params);
   }
 
-  async getBalanceCostAmount(params: Omit<GetBalanceCostAmount, 'CERTKEY' | 'CorpNum'>): Promise<GetBalanceCostAmountResponse> {
+  async getBalanceCostAmount(params: Omit<GetBalanceCostAmount, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBalanceCostAmountResponse> {
     return this.call<GetBalanceCostAmountResponse>('GetBalanceCostAmount', params);
   }
 
-  async getBalanceCostAmountEx(params: Omit<GetBalanceCostAmountEx, 'CERTKEY' | 'CorpNum'>): Promise<GetBalanceCostAmountExResponse> {
+  async getBalanceCostAmountEx(params: Omit<GetBalanceCostAmountEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBalanceCostAmountExResponse> {
     return this.call<GetBalanceCostAmountExResponse>('GetBalanceCostAmountEx', params);
   }
 
@@ -214,71 +214,71 @@ export class SmsClient extends BaseBarobillClient {
     return this.callWithCertKeyOnly<GetBalanceCostAmountOfInterOpExResponse>('GetBalanceCostAmountOfInterOPEx', params);
   }
 
-  async checkChargeable(params: Omit<CheckChargeable, 'CERTKEY' | 'CorpNum'>): Promise<CheckChargeableResponse> {
+  async checkChargeable(params: Omit<CheckChargeable, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckChargeableResponse> {
     return this.call<CheckChargeableResponse>('CheckChargeable', params);
   }
 
-  async getChargeUnitCost(params: Omit<GetChargeUnitCost, 'CERTKEY' | 'CorpNum'>): Promise<GetChargeUnitCostResponse> {
+  async getChargeUnitCost(params: Omit<GetChargeUnitCost, 'CERTKEY'> & { CorpNum?: string }): Promise<GetChargeUnitCostResponse> {
     return this.call<GetChargeUnitCostResponse>('GetChargeUnitCost', params);
   }
 
-  async getChargeUnitCostEx(params: Omit<GetChargeUnitCostEx, 'CERTKEY' | 'CorpNum'>): Promise<GetChargeUnitCostExResponse> {
+  async getChargeUnitCostEx(params: Omit<GetChargeUnitCostEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetChargeUnitCostExResponse> {
     return this.call<GetChargeUnitCostExResponse>('GetChargeUnitCostEx', params);
   }
 
-  async getCashChargeURL(params: Omit<GetCashChargeUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCashChargeUrlResponse> {
+  async getCashChargeURL(params: Omit<GetCashChargeUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashChargeUrlResponse> {
     return this.call<GetCashChargeUrlResponse>('GetCashChargeURL', params);
   }
 
-  async getCertificateRegistDate(params: Omit<GetCertificateRegistDate, 'CERTKEY' | 'CorpNum'>): Promise<GetCertificateRegistDateResponse> {
+  async getCertificateRegistDate(params: Omit<GetCertificateRegistDate, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCertificateRegistDateResponse> {
     return this.call<GetCertificateRegistDateResponse>('GetCertificateRegistDate', params);
   }
 
-  async getCertificateExpireDate(params: Omit<GetCertificateExpireDate, 'CERTKEY' | 'CorpNum'>): Promise<GetCertificateExpireDateResponse> {
+  async getCertificateExpireDate(params: Omit<GetCertificateExpireDate, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCertificateExpireDateResponse> {
     return this.call<GetCertificateExpireDateResponse>('GetCertificateExpireDate', params);
   }
 
-  async checkCERTIsValid(params: Omit<CheckCertIsValid, 'CERTKEY' | 'CorpNum'>): Promise<CheckCertIsValidResponse> {
+  async checkCERTIsValid(params: Omit<CheckCertIsValid, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckCertIsValidResponse> {
     return this.call<CheckCertIsValidResponse>('CheckCERTIsValid', params);
   }
 
-  async getCertificateRegistURL(params: Omit<GetCertificateRegistUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCertificateRegistUrlResponse> {
+  async getCertificateRegistURL(params: Omit<GetCertificateRegistUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCertificateRegistUrlResponse> {
     return this.call<GetCertificateRegistUrlResponse>('GetCertificateRegistURL', params);
   }
 
-  async getBaroBillURL(params: Omit<GetBaroBillUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetBaroBillUrlResponse> {
+  async getBaroBillURL(params: Omit<GetBaroBillUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBaroBillUrlResponse> {
     return this.call<GetBaroBillUrlResponse>('GetBaroBillURL', params);
   }
 
-  async getLoginURL(params: Omit<GetLoginUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetLoginUrlResponse> {
+  async getLoginURL(params: Omit<GetLoginUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetLoginUrlResponse> {
     return this.call<GetLoginUrlResponse>('GetLoginURL', params);
   }
 
-  async registSMSFromNumber(params: Omit<RegistSmsFromNumber, 'CERTKEY' | 'CorpNum'>): Promise<RegistSmsFromNumberResponse> {
+  async registSMSFromNumber(params: Omit<RegistSmsFromNumber, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistSmsFromNumberResponse> {
     return this.call<RegistSmsFromNumberResponse>('RegistSMSFromNumber', params);
   }
 
-  async checkSMSFromNumber(params: Omit<CheckSmsFromNumber, 'CERTKEY' | 'CorpNum'>): Promise<CheckSmsFromNumberResponse> {
+  async checkSMSFromNumber(params: Omit<CheckSmsFromNumber, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckSmsFromNumberResponse> {
     return this.call<CheckSmsFromNumberResponse>('CheckSMSFromNumber', params);
   }
 
-  async getSMSFromNumbers(params: Omit<GetSmsFromNumbers, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsFromNumbersResponse> {
+  async getSMSFromNumbers(params: Omit<GetSmsFromNumbers, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsFromNumbersResponse> {
     return this.call<GetSmsFromNumbersResponse>('GetSMSFromNumbers', params);
   }
 
-  async getSMSFromNumberURL(params: Omit<GetSmsFromNumberUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsFromNumberUrlResponse> {
+  async getSMSFromNumberURL(params: Omit<GetSmsFromNumberUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsFromNumberUrlResponse> {
     return this.call<GetSmsFromNumberUrlResponse>('GetSMSFromNumberURL', params);
   }
 
-  async checkFaxFromNumber(params: Omit<CheckFaxFromNumber, 'CERTKEY' | 'CorpNum'>): Promise<CheckFaxFromNumberResponse> {
+  async checkFaxFromNumber(params: Omit<CheckFaxFromNumber, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckFaxFromNumberResponse> {
     return this.call<CheckFaxFromNumberResponse>('CheckFaxFromNumber', params);
   }
 
-  async getFaxFromNumbers(params: Omit<GetFaxFromNumbers, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxFromNumbersResponse> {
+  async getFaxFromNumbers(params: Omit<GetFaxFromNumbers, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxFromNumbersResponse> {
     return this.call<GetFaxFromNumbersResponse>('GetFaxFromNumbers', params);
   }
 
-  async getFaxFromNumberURL(params: Omit<GetFaxFromNumberUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxFromNumberUrlResponse> {
+  async getFaxFromNumberURL(params: Omit<GetFaxFromNumberUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxFromNumberUrlResponse> {
     return this.call<GetFaxFromNumberUrlResponse>('GetFaxFromNumberURL', params);
   }
 

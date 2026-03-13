@@ -214,323 +214,323 @@ export class CashbillClient extends BaseBarobillClient {
     return client;
   }
 
-  async checkMgtKeyIsExists(params: Omit<CheckMgtKeyIsExists, 'CERTKEY' | 'CorpNum'>): Promise<CheckMgtKeyIsExistsResponse> {
+  async checkMgtKeyIsExists(params: Omit<CheckMgtKeyIsExists, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckMgtKeyIsExistsResponse> {
     return this.call<CheckMgtKeyIsExistsResponse>('CheckMgtKeyIsExists', params);
   }
 
-  async checkIsValidCashBill(params: Omit<CheckIsValidCashBill, 'CERTKEY' | 'CorpNum'>): Promise<CheckIsValidCashBillResponse> {
+  async checkIsValidCashBill(params: Omit<CheckIsValidCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckIsValidCashBillResponse> {
     return this.call<CheckIsValidCashBillResponse>('CheckIsValidCashBill', params);
   }
 
-  async checkIsValidCashBillEx(params: Omit<CheckIsValidCashBillEx, 'CERTKEY' | 'CorpNum'>): Promise<CheckIsValidCashBillExResponse> {
+  async checkIsValidCashBillEx(params: Omit<CheckIsValidCashBillEx, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckIsValidCashBillExResponse> {
     return this.call<CheckIsValidCashBillExResponse>('CheckIsValidCashBillEx', params);
   }
 
-  async registCashBill(params: Omit<RegistCashBill, 'CERTKEY' | 'CorpNum'>): Promise<RegistCashBillResponse> {
+  async registCashBill(params: Omit<RegistCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCashBillResponse> {
     return this.call<RegistCashBillResponse>('RegistCashBill', params);
   }
 
-  async registCashBillEx(params: Omit<RegistCashBillEx, 'CERTKEY' | 'CorpNum'>): Promise<RegistCashBillExResponse> {
+  async registCashBillEx(params: Omit<RegistCashBillEx, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCashBillExResponse> {
     return this.call<RegistCashBillExResponse>('RegistCashBillEx', params);
   }
 
-  async updateCashBill(params: Omit<UpdateCashBill, 'CERTKEY' | 'CorpNum'>): Promise<UpdateCashBillResponse> {
+  async updateCashBill(params: Omit<UpdateCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateCashBillResponse> {
     return this.call<UpdateCashBillResponse>('UpdateCashBill', params);
   }
 
-  async updateCashBillEx(params: Omit<UpdateCashBillEx, 'CERTKEY' | 'CorpNum'>): Promise<UpdateCashBillExResponse> {
+  async updateCashBillEx(params: Omit<UpdateCashBillEx, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateCashBillExResponse> {
     return this.call<UpdateCashBillExResponse>('UpdateCashBillEx', params);
   }
 
-  async deleteCashBill(params: Omit<DeleteCashBill, 'CERTKEY' | 'CorpNum'>): Promise<DeleteCashBillResponse> {
+  async deleteCashBill(params: Omit<DeleteCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<DeleteCashBillResponse> {
     return this.call<DeleteCashBillResponse>('DeleteCashBill', params);
   }
 
-  async issueCashBill(params: Omit<IssueCashBill, 'CERTKEY' | 'CorpNum'>): Promise<IssueCashBillResponse> {
+  async issueCashBill(params: Omit<IssueCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<IssueCashBillResponse> {
     return this.call<IssueCashBillResponse>('IssueCashBill', params);
   }
 
-  async cancelCashBill(params: Omit<CancelCashBill, 'CERTKEY' | 'CorpNum'>): Promise<CancelCashBillResponse> {
+  async cancelCashBill(params: Omit<CancelCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelCashBillResponse> {
     return this.call<CancelCashBillResponse>('CancelCashBill', params);
   }
 
-  async cancelCashBillPartial(params: Omit<CancelCashBillPartial, 'CERTKEY' | 'CorpNum'>): Promise<CancelCashBillPartialResponse> {
+  async cancelCashBillPartial(params: Omit<CancelCashBillPartial, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelCashBillPartialResponse> {
     return this.call<CancelCashBillPartialResponse>('CancelCashBillPartial', params);
   }
 
-  async cancelCashBillEx(params: Omit<CancelCashBillEx, 'CERTKEY' | 'CorpNum'>): Promise<CancelCashBillExResponse> {
+  async cancelCashBillEx(params: Omit<CancelCashBillEx, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelCashBillExResponse> {
     return this.call<CancelCashBillExResponse>('CancelCashBillEx', params);
   }
 
-  async cancelCashBillPartialEx(params: Omit<CancelCashBillPartialEx, 'CERTKEY' | 'CorpNum'>): Promise<CancelCashBillPartialExResponse> {
+  async cancelCashBillPartialEx(params: Omit<CancelCashBillPartialEx, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelCashBillPartialExResponse> {
     return this.call<CancelCashBillPartialExResponse>('CancelCashBillPartialEx', params);
   }
 
-  async cancelCashBillBeforeNTSSend(params: Omit<CancelCashBillBeforeNtsSend, 'CERTKEY' | 'CorpNum'>): Promise<CancelCashBillBeforeNtsSendResponse> {
+  async cancelCashBillBeforeNTSSend(params: Omit<CancelCashBillBeforeNtsSend, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelCashBillBeforeNtsSendResponse> {
     return this.call<CancelCashBillBeforeNtsSendResponse>('CancelCashBillBeforeNTSSend', params);
   }
 
-  async getCancelableAmount(params: Omit<GetCancelableAmount, 'CERTKEY' | 'CorpNum'>): Promise<GetCancelableAmountResponse> {
+  async getCancelableAmount(params: Omit<GetCancelableAmount, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCancelableAmountResponse> {
     return this.call<GetCancelableAmountResponse>('GetCancelableAmount', params);
   }
 
-  async registAndIssueCashBill(params: Omit<RegistAndIssueCashBill, 'CERTKEY' | 'CorpNum'>): Promise<RegistAndIssueCashBillResponse> {
+  async registAndIssueCashBill(params: Omit<RegistAndIssueCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistAndIssueCashBillResponse> {
     return this.call<RegistAndIssueCashBillResponse>('RegistAndIssueCashBill', params);
   }
 
-  async getCashBill(params: Omit<GetCashBill, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillResponse> {
+  async getCashBill(params: Omit<GetCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillResponse> {
     return this.call<GetCashBillResponse>('GetCashBill', params);
   }
 
-  async getCashBillEx(params: Omit<GetCashBillEx, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillExResponse> {
+  async getCashBillEx(params: Omit<GetCashBillEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillExResponse> {
     return this.call<GetCashBillExResponse>('GetCashBillEx', params);
   }
 
-  async getCashBillExNK(params: Omit<GetCashBillExNk, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillExNkResponse> {
+  async getCashBillExNK(params: Omit<GetCashBillExNk, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillExNkResponse> {
     return this.call<GetCashBillExNkResponse>('GetCashBillExNK', params);
   }
 
-  async getCashBillState(params: Omit<GetCashBillState, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillStateResponse> {
+  async getCashBillState(params: Omit<GetCashBillState, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillStateResponse> {
     return this.call<GetCashBillStateResponse>('GetCashBillState', params);
   }
 
-  async getCashBillStates(params: Omit<GetCashBillStates, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillStatesResponse> {
+  async getCashBillStates(params: Omit<GetCashBillStates, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillStatesResponse> {
     return this.call<GetCashBillStatesResponse>('GetCashBillStates', params);
   }
 
-  async getCashBillLog(params: Omit<GetCashBillLog, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillLogResponse> {
+  async getCashBillLog(params: Omit<GetCashBillLog, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillLogResponse> {
     return this.call<GetCashBillLogResponse>('GetCashBillLog', params);
   }
 
-  async getCancelCashBills(params: Omit<GetCancelCashBills, 'CERTKEY' | 'CorpNum'>): Promise<GetCancelCashBillsResponse> {
+  async getCancelCashBills(params: Omit<GetCancelCashBills, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCancelCashBillsResponse> {
     return this.call<GetCancelCashBillsResponse>('GetCancelCashBills', params);
   }
 
-  async sendEmailEx(params: Omit<SendEmailEx, 'CERTKEY' | 'CorpNum'>): Promise<SendEmailExResponse> {
+  async sendEmailEx(params: Omit<SendEmailEx, 'CERTKEY'> & { CorpNum?: string }): Promise<SendEmailExResponse> {
     return this.call<SendEmailExResponse>('SendEmailEx', params);
   }
 
-  async sendMessageEx(params: Omit<SendMessageEx, 'CERTKEY' | 'CorpNum'>): Promise<SendMessageExResponse> {
+  async sendMessageEx(params: Omit<SendMessageEx, 'CERTKEY'> & { CorpNum?: string }): Promise<SendMessageExResponse> {
     return this.call<SendMessageExResponse>('SendMessageEx', params);
   }
 
-  async sendFaxEx(params: Omit<SendFaxEx, 'CERTKEY' | 'CorpNum'>): Promise<SendFaxExResponse> {
+  async sendFaxEx(params: Omit<SendFaxEx, 'CERTKEY'> & { CorpNum?: string }): Promise<SendFaxExResponse> {
     return this.call<SendFaxExResponse>('SendFaxEx', params);
   }
 
-  async sendEmail(params: Omit<SendEmail, 'CERTKEY' | 'CorpNum'>): Promise<SendEmailResponse> {
+  async sendEmail(params: Omit<SendEmail, 'CERTKEY'> & { CorpNum?: string }): Promise<SendEmailResponse> {
     return this.call<SendEmailResponse>('SendEmail', params);
   }
 
-  async sendSMS(params: Omit<SendSms, 'CERTKEY' | 'CorpNum'>): Promise<SendSmsResponse> {
+  async sendSMS(params: Omit<SendSms, 'CERTKEY'> & { CorpNum?: string }): Promise<SendSmsResponse> {
     return this.call<SendSmsResponse>('SendSMS', params);
   }
 
-  async sendFax(params: Omit<SendFax, 'CERTKEY' | 'CorpNum'>): Promise<SendFaxResponse> {
+  async sendFax(params: Omit<SendFax, 'CERTKEY'> & { CorpNum?: string }): Promise<SendFaxResponse> {
     return this.call<SendFaxResponse>('SendFax', params);
   }
 
-  async getBaroBillURL(params: Omit<GetBaroBillUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetBaroBillUrlResponse> {
+  async getBaroBillURL(params: Omit<GetBaroBillUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBaroBillUrlResponse> {
     return this.call<GetBaroBillUrlResponse>('GetBaroBillURL', params);
   }
 
-  async getCashBillPopUpURL(params: Omit<GetCashBillPopUpUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillPopUpUrlResponse> {
+  async getCashBillPopUpURL(params: Omit<GetCashBillPopUpUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillPopUpUrlResponse> {
     return this.call<GetCashBillPopUpUrlResponse>('GetCashBillPopUpURL', params);
   }
 
-  async getCashBillPopUpURLNK(params: Omit<GetCashBillPopUpUrlnk, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillPopUpUrlnkResponse> {
+  async getCashBillPopUpURLNK(params: Omit<GetCashBillPopUpUrlnk, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillPopUpUrlnkResponse> {
     return this.call<GetCashBillPopUpUrlnkResponse>('GetCashBillPopUpURLNK', params);
   }
 
-  async getCashBillPrintURL(params: Omit<GetCashBillPrintUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillPrintUrlResponse> {
+  async getCashBillPrintURL(params: Omit<GetCashBillPrintUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillPrintUrlResponse> {
     return this.call<GetCashBillPrintUrlResponse>('GetCashBillPrintURL', params);
   }
 
-  async getCashBillPrintURLNK(params: Omit<GetCashBillPrintUrlnk, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillPrintUrlnkResponse> {
+  async getCashBillPrintURLNK(params: Omit<GetCashBillPrintUrlnk, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillPrintUrlnkResponse> {
     return this.call<GetCashBillPrintUrlnkResponse>('GetCashBillPrintURLNK', params);
   }
 
-  async getCashBillsPrintURL(params: Omit<GetCashBillsPrintUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillsPrintUrlResponse> {
+  async getCashBillsPrintURL(params: Omit<GetCashBillsPrintUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillsPrintUrlResponse> {
     return this.call<GetCashBillsPrintUrlResponse>('GetCashBillsPrintURL', params);
   }
 
-  async getCashBillMailURL(params: Omit<GetCashBillMailUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillMailUrlResponse> {
+  async getCashBillMailURL(params: Omit<GetCashBillMailUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillMailUrlResponse> {
     return this.call<GetCashBillMailUrlResponse>('GetCashBillMailURL', params);
   }
 
-  async getCashBillMailURLNK(params: Omit<GetCashBillMailUrlnk, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillMailUrlnkResponse> {
+  async getCashBillMailURLNK(params: Omit<GetCashBillMailUrlnk, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillMailUrlnkResponse> {
     return this.call<GetCashBillMailUrlnkResponse>('GetCashBillMailURLNK', params);
   }
 
-  async getCashBillSalesList(params: Omit<GetCashBillSalesList, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillSalesListResponse> {
+  async getCashBillSalesList(params: Omit<GetCashBillSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillSalesListResponse> {
     return this.call<GetCashBillSalesListResponse>('GetCashBillSalesList', params);
   }
 
-  async getCashBillSalesListEx(params: Omit<GetCashBillSalesListEx, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillSalesListExResponse> {
+  async getCashBillSalesListEx(params: Omit<GetCashBillSalesListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillSalesListExResponse> {
     return this.call<GetCashBillSalesListExResponse>('GetCashBillSalesListEx', params);
   }
 
-  async getCashBillPurchaseList(params: Omit<GetCashBillPurchaseList, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillPurchaseListResponse> {
+  async getCashBillPurchaseList(params: Omit<GetCashBillPurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillPurchaseListResponse> {
     return this.call<GetCashBillPurchaseListResponse>('GetCashBillPurchaseList', params);
   }
 
-  async getCashBillPurchaseListEx(params: Omit<GetCashBillPurchaseListEx, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillPurchaseListExResponse> {
+  async getCashBillPurchaseListEx(params: Omit<GetCashBillPurchaseListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillPurchaseListExResponse> {
     return this.call<GetCashBillPurchaseListExResponse>('GetCashBillPurchaseListEx', params);
   }
 
-  async getDailyCashBillSalesList(params: Omit<GetDailyCashBillSalesList, 'CERTKEY' | 'CorpNum'>): Promise<GetDailyCashBillSalesListResponse> {
+  async getDailyCashBillSalesList(params: Omit<GetDailyCashBillSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCashBillSalesListResponse> {
     return this.call<GetDailyCashBillSalesListResponse>('GetDailyCashBillSalesList', params);
   }
 
-  async getDailyCashBillSalesListEx(params: Omit<GetDailyCashBillSalesListEx, 'CERTKEY' | 'CorpNum'>): Promise<GetDailyCashBillSalesListExResponse> {
+  async getDailyCashBillSalesListEx(params: Omit<GetDailyCashBillSalesListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCashBillSalesListExResponse> {
     return this.call<GetDailyCashBillSalesListExResponse>('GetDailyCashBillSalesListEx', params);
   }
 
-  async getDailyCashBillPurchaseList(params: Omit<GetDailyCashBillPurchaseList, 'CERTKEY' | 'CorpNum'>): Promise<GetDailyCashBillPurchaseListResponse> {
+  async getDailyCashBillPurchaseList(params: Omit<GetDailyCashBillPurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCashBillPurchaseListResponse> {
     return this.call<GetDailyCashBillPurchaseListResponse>('GetDailyCashBillPurchaseList', params);
   }
 
-  async getDailyCashBillPurchaseListEx(params: Omit<GetDailyCashBillPurchaseListEx, 'CERTKEY' | 'CorpNum'>): Promise<GetDailyCashBillPurchaseListExResponse> {
+  async getDailyCashBillPurchaseListEx(params: Omit<GetDailyCashBillPurchaseListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCashBillPurchaseListExResponse> {
     return this.call<GetDailyCashBillPurchaseListExResponse>('GetDailyCashBillPurchaseListEx', params);
   }
 
-  async getMonthlyCashBillSalesList(params: Omit<GetMonthlyCashBillSalesList, 'CERTKEY' | 'CorpNum'>): Promise<GetMonthlyCashBillSalesListResponse> {
+  async getMonthlyCashBillSalesList(params: Omit<GetMonthlyCashBillSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCashBillSalesListResponse> {
     return this.call<GetMonthlyCashBillSalesListResponse>('GetMonthlyCashBillSalesList', params);
   }
 
-  async getMonthlyCashBillSalesListEx(params: Omit<GetMonthlyCashBillSalesListEx, 'CERTKEY' | 'CorpNum'>): Promise<GetMonthlyCashBillSalesListExResponse> {
+  async getMonthlyCashBillSalesListEx(params: Omit<GetMonthlyCashBillSalesListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCashBillSalesListExResponse> {
     return this.call<GetMonthlyCashBillSalesListExResponse>('GetMonthlyCashBillSalesListEx', params);
   }
 
-  async getMonthlyCashBillPurchaseList(params: Omit<GetMonthlyCashBillPurchaseList, 'CERTKEY' | 'CorpNum'>): Promise<GetMonthlyCashBillPurchaseListResponse> {
+  async getMonthlyCashBillPurchaseList(params: Omit<GetMonthlyCashBillPurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCashBillPurchaseListResponse> {
     return this.call<GetMonthlyCashBillPurchaseListResponse>('GetMonthlyCashBillPurchaseList', params);
   }
 
-  async getMonthlyCashBillPurchaseListEx(params: Omit<GetMonthlyCashBillPurchaseListEx, 'CERTKEY' | 'CorpNum'>): Promise<GetMonthlyCashBillPurchaseListExResponse> {
+  async getMonthlyCashBillPurchaseListEx(params: Omit<GetMonthlyCashBillPurchaseListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCashBillPurchaseListExResponse> {
     return this.call<GetMonthlyCashBillPurchaseListExResponse>('GetMonthlyCashBillPurchaseListEx', params);
   }
 
-  async getPeriodCashBillSalesList(params: Omit<GetPeriodCashBillSalesList, 'CERTKEY' | 'CorpNum'>): Promise<GetPeriodCashBillSalesListResponse> {
+  async getPeriodCashBillSalesList(params: Omit<GetPeriodCashBillSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCashBillSalesListResponse> {
     return this.call<GetPeriodCashBillSalesListResponse>('GetPeriodCashBillSalesList', params);
   }
 
-  async getPeriodCashBillSalesListEx(params: Omit<GetPeriodCashBillSalesListEx, 'CERTKEY' | 'CorpNum'>): Promise<GetPeriodCashBillSalesListExResponse> {
+  async getPeriodCashBillSalesListEx(params: Omit<GetPeriodCashBillSalesListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCashBillSalesListExResponse> {
     return this.call<GetPeriodCashBillSalesListExResponse>('GetPeriodCashBillSalesListEx', params);
   }
 
-  async getPeriodCashBillPurchaseList(params: Omit<GetPeriodCashBillPurchaseList, 'CERTKEY' | 'CorpNum'>): Promise<GetPeriodCashBillPurchaseListResponse> {
+  async getPeriodCashBillPurchaseList(params: Omit<GetPeriodCashBillPurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCashBillPurchaseListResponse> {
     return this.call<GetPeriodCashBillPurchaseListResponse>('GetPeriodCashBillPurchaseList', params);
   }
 
-  async getPeriodCashBillPurchaseListEx(params: Omit<GetPeriodCashBillPurchaseListEx, 'CERTKEY' | 'CorpNum'>): Promise<GetPeriodCashBillPurchaseListExResponse> {
+  async getPeriodCashBillPurchaseListEx(params: Omit<GetPeriodCashBillPurchaseListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCashBillPurchaseListExResponse> {
     return this.call<GetPeriodCashBillPurchaseListExResponse>('GetPeriodCashBillPurchaseListEx', params);
   }
 
-  async getCashBillSalesListByID(params: Omit<GetCashBillSalesListById, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillSalesListByIdResponse> {
+  async getCashBillSalesListByID(params: Omit<GetCashBillSalesListById, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillSalesListByIdResponse> {
     return this.call<GetCashBillSalesListByIdResponse>('GetCashBillSalesListByID', params);
   }
 
-  async getCashBillPurchaseListByID(params: Omit<GetCashBillPurchaseListById, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillPurchaseListByIdResponse> {
+  async getCashBillPurchaseListByID(params: Omit<GetCashBillPurchaseListById, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillPurchaseListByIdResponse> {
     return this.call<GetCashBillPurchaseListByIdResponse>('GetCashBillPurchaseListByID', params);
   }
 
-  async registCashBillScrap(params: Omit<RegistCashBillScrap, 'CERTKEY' | 'CorpNum'>): Promise<RegistCashBillScrapResponse> {
+  async registCashBillScrap(params: Omit<RegistCashBillScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCashBillScrapResponse> {
     return this.call<RegistCashBillScrapResponse>('RegistCashBillScrap', params);
   }
 
-  async registCashBillScrapEx(params: Omit<RegistCashBillScrapEx, 'CERTKEY' | 'CorpNum'>): Promise<RegistCashBillScrapExResponse> {
+  async registCashBillScrapEx(params: Omit<RegistCashBillScrapEx, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCashBillScrapExResponse> {
     return this.call<RegistCashBillScrapExResponse>('RegistCashBillScrapEx', params);
   }
 
-  async updateCashBillScrap(params: Omit<UpdateCashBillScrap, 'CERTKEY' | 'CorpNum'>): Promise<UpdateCashBillScrapResponse> {
+  async updateCashBillScrap(params: Omit<UpdateCashBillScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateCashBillScrapResponse> {
     return this.call<UpdateCashBillScrapResponse>('UpdateCashBillScrap', params);
   }
 
-  async updateCashBillScrapEx(params: Omit<UpdateCashBillScrapEx, 'CERTKEY' | 'CorpNum'>): Promise<UpdateCashBillScrapExResponse> {
+  async updateCashBillScrapEx(params: Omit<UpdateCashBillScrapEx, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateCashBillScrapExResponse> {
     return this.call<UpdateCashBillScrapExResponse>('UpdateCashBillScrapEx', params);
   }
 
-  async stopCashBillScrap(params: Omit<StopCashBillScrap, 'CERTKEY' | 'CorpNum'>): Promise<StopCashBillScrapResponse> {
+  async stopCashBillScrap(params: Omit<StopCashBillScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<StopCashBillScrapResponse> {
     return this.call<StopCashBillScrapResponse>('StopCashBillScrap', params);
   }
 
-  async cancelStopCashBillScrap(params: Omit<CancelStopCashBillScrap, 'CERTKEY' | 'CorpNum'>): Promise<CancelStopCashBillScrapResponse> {
+  async cancelStopCashBillScrap(params: Omit<CancelStopCashBillScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelStopCashBillScrapResponse> {
     return this.call<CancelStopCashBillScrapResponse>('CancelStopCashBillScrap', params);
   }
 
-  async reRegistCashBillScrap(params: Omit<ReRegistCashBillScrap, 'CERTKEY' | 'CorpNum'>): Promise<ReRegistCashBillScrapResponse> {
+  async reRegistCashBillScrap(params: Omit<ReRegistCashBillScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<ReRegistCashBillScrapResponse> {
     return this.call<ReRegistCashBillScrapResponse>('ReRegistCashBillScrap', params);
   }
 
-  async getCashBillScrapRequestURL(params: Omit<GetCashBillScrapRequestUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCashBillScrapRequestUrlResponse> {
+  async getCashBillScrapRequestURL(params: Omit<GetCashBillScrapRequestUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillScrapRequestUrlResponse> {
     return this.call<GetCashBillScrapRequestUrlResponse>('GetCashBillScrapRequestURL', params);
   }
 
-  async refreshCashBillScrap(params: Omit<RefreshCashBillScrap, 'CERTKEY' | 'CorpNum'>): Promise<RefreshCashBillScrapResponse> {
+  async refreshCashBillScrap(params: Omit<RefreshCashBillScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<RefreshCashBillScrapResponse> {
     return this.call<RefreshCashBillScrapResponse>('RefreshCashBillScrap', params);
   }
 
-  async makeDocLinkage(params: Omit<MakeDocLinkage, 'CERTKEY' | 'CorpNum'>): Promise<MakeDocLinkageResponse> {
+  async makeDocLinkage(params: Omit<MakeDocLinkage, 'CERTKEY'> & { CorpNum?: string }): Promise<MakeDocLinkageResponse> {
     return this.call<MakeDocLinkageResponse>('MakeDocLinkage', params);
   }
 
-  async removeDocLinkage(params: Omit<RemoveDocLinkage, 'CERTKEY' | 'CorpNum'>): Promise<RemoveDocLinkageResponse> {
+  async removeDocLinkage(params: Omit<RemoveDocLinkage, 'CERTKEY'> & { CorpNum?: string }): Promise<RemoveDocLinkageResponse> {
     return this.call<RemoveDocLinkageResponse>('RemoveDocLinkage', params);
   }
 
-  async getLinkedDocs(params: Omit<GetLinkedDocs, 'CERTKEY' | 'CorpNum'>): Promise<GetLinkedDocsResponse> {
+  async getLinkedDocs(params: Omit<GetLinkedDocs, 'CERTKEY'> & { CorpNum?: string }): Promise<GetLinkedDocsResponse> {
     return this.call<GetLinkedDocsResponse>('GetLinkedDocs', params);
   }
 
-  async getJicInRegistURL(params: Omit<GetJicInRegistUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetJicInRegistUrlResponse> {
+  async getJicInRegistURL(params: Omit<GetJicInRegistUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetJicInRegistUrlResponse> {
     return this.call<GetJicInRegistUrlResponse>('GetJicInRegistURL', params);
   }
 
-  async getBusinessLicenseRegistURL(params: Omit<GetBusinessLicenseRegistUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetBusinessLicenseRegistUrlResponse> {
+  async getBusinessLicenseRegistURL(params: Omit<GetBusinessLicenseRegistUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBusinessLicenseRegistUrlResponse> {
     return this.call<GetBusinessLicenseRegistUrlResponse>('GetBusinessLicenseRegistURL', params);
   }
 
-  async getBankBookRegistURL(params: Omit<GetBankBookRegistUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetBankBookRegistUrlResponse> {
+  async getBankBookRegistURL(params: Omit<GetBankBookRegistUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBankBookRegistUrlResponse> {
     return this.call<GetBankBookRegistUrlResponse>('GetBankBookRegistURL', params);
   }
 
-  async checkCorpIsMember(params: Omit<CheckCorpIsMember, 'CERTKEY' | 'CorpNum'>): Promise<CheckCorpIsMemberResponse> {
+  async checkCorpIsMember(params: Omit<CheckCorpIsMember, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckCorpIsMemberResponse> {
     return this.call<CheckCorpIsMemberResponse>('CheckCorpIsMember', params);
   }
 
-  async registCorp(params: Omit<RegistCorp, 'CERTKEY' | 'CorpNum'>): Promise<RegistCorpResponse> {
+  async registCorp(params: Omit<RegistCorp, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCorpResponse> {
     return this.call<RegistCorpResponse>('RegistCorp', params);
   }
 
-  async addUserToCorp(params: Omit<AddUserToCorp, 'CERTKEY' | 'CorpNum'>): Promise<AddUserToCorpResponse> {
+  async addUserToCorp(params: Omit<AddUserToCorp, 'CERTKEY'> & { CorpNum?: string }): Promise<AddUserToCorpResponse> {
     return this.call<AddUserToCorpResponse>('AddUserToCorp', params);
   }
 
-  async updateCorpInfo(params: Omit<UpdateCorpInfo, 'CERTKEY' | 'CorpNum'>): Promise<UpdateCorpInfoResponse> {
+  async updateCorpInfo(params: Omit<UpdateCorpInfo, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateCorpInfoResponse> {
     return this.call<UpdateCorpInfoResponse>('UpdateCorpInfo', params);
   }
 
-  async updateUserInfo(params: Omit<UpdateUserInfo, 'CERTKEY' | 'CorpNum'>): Promise<UpdateUserInfoResponse> {
+  async updateUserInfo(params: Omit<UpdateUserInfo, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateUserInfoResponse> {
     return this.call<UpdateUserInfoResponse>('UpdateUserInfo', params);
   }
 
-  async updateUserPWD(params: Omit<UpdateUserPwd, 'CERTKEY' | 'CorpNum'>): Promise<UpdateUserPwdResponse> {
+  async updateUserPWD(params: Omit<UpdateUserPwd, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateUserPwdResponse> {
     return this.call<UpdateUserPwdResponse>('UpdateUserPWD', params);
   }
 
-  async changeCorpManager(params: Omit<ChangeCorpManager, 'CERTKEY' | 'CorpNum'>): Promise<ChangeCorpManagerResponse> {
+  async changeCorpManager(params: Omit<ChangeCorpManager, 'CERTKEY'> & { CorpNum?: string }): Promise<ChangeCorpManagerResponse> {
     return this.call<ChangeCorpManagerResponse>('ChangeCorpManager', params);
   }
 
-  async getCorpMemberContacts(params: Omit<GetCorpMemberContacts, 'CERTKEY' | 'CorpNum'>): Promise<GetCorpMemberContactsResponse> {
+  async getCorpMemberContacts(params: Omit<GetCorpMemberContacts, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCorpMemberContactsResponse> {
     return this.call<GetCorpMemberContactsResponse>('GetCorpMemberContacts', params);
   }
 
-  async getBalanceCostAmount(params: Omit<GetBalanceCostAmount, 'CERTKEY' | 'CorpNum'>): Promise<GetBalanceCostAmountResponse> {
+  async getBalanceCostAmount(params: Omit<GetBalanceCostAmount, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBalanceCostAmountResponse> {
     return this.call<GetBalanceCostAmountResponse>('GetBalanceCostAmount', params);
   }
 
-  async getBalanceCostAmountEx(params: Omit<GetBalanceCostAmountEx, 'CERTKEY' | 'CorpNum'>): Promise<GetBalanceCostAmountExResponse> {
+  async getBalanceCostAmountEx(params: Omit<GetBalanceCostAmountEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBalanceCostAmountExResponse> {
     return this.call<GetBalanceCostAmountExResponse>('GetBalanceCostAmountEx', params);
   }
 
@@ -542,67 +542,67 @@ export class CashbillClient extends BaseBarobillClient {
     return this.callWithCertKeyOnly<GetBalanceCostAmountOfInterOpExResponse>('GetBalanceCostAmountOfInterOPEx', params);
   }
 
-  async checkChargeable(params: Omit<CheckChargeable, 'CERTKEY' | 'CorpNum'>): Promise<CheckChargeableResponse> {
+  async checkChargeable(params: Omit<CheckChargeable, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckChargeableResponse> {
     return this.call<CheckChargeableResponse>('CheckChargeable', params);
   }
 
-  async getChargeUnitCost(params: Omit<GetChargeUnitCost, 'CERTKEY' | 'CorpNum'>): Promise<GetChargeUnitCostResponse> {
+  async getChargeUnitCost(params: Omit<GetChargeUnitCost, 'CERTKEY'> & { CorpNum?: string }): Promise<GetChargeUnitCostResponse> {
     return this.call<GetChargeUnitCostResponse>('GetChargeUnitCost', params);
   }
 
-  async getChargeUnitCostEx(params: Omit<GetChargeUnitCostEx, 'CERTKEY' | 'CorpNum'>): Promise<GetChargeUnitCostExResponse> {
+  async getChargeUnitCostEx(params: Omit<GetChargeUnitCostEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetChargeUnitCostExResponse> {
     return this.call<GetChargeUnitCostExResponse>('GetChargeUnitCostEx', params);
   }
 
-  async getCashChargeURL(params: Omit<GetCashChargeUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCashChargeUrlResponse> {
+  async getCashChargeURL(params: Omit<GetCashChargeUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashChargeUrlResponse> {
     return this.call<GetCashChargeUrlResponse>('GetCashChargeURL', params);
   }
 
-  async getCertificateRegistDate(params: Omit<GetCertificateRegistDate, 'CERTKEY' | 'CorpNum'>): Promise<GetCertificateRegistDateResponse> {
+  async getCertificateRegistDate(params: Omit<GetCertificateRegistDate, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCertificateRegistDateResponse> {
     return this.call<GetCertificateRegistDateResponse>('GetCertificateRegistDate', params);
   }
 
-  async getCertificateExpireDate(params: Omit<GetCertificateExpireDate, 'CERTKEY' | 'CorpNum'>): Promise<GetCertificateExpireDateResponse> {
+  async getCertificateExpireDate(params: Omit<GetCertificateExpireDate, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCertificateExpireDateResponse> {
     return this.call<GetCertificateExpireDateResponse>('GetCertificateExpireDate', params);
   }
 
-  async checkCERTIsValid(params: Omit<CheckCertIsValid, 'CERTKEY' | 'CorpNum'>): Promise<CheckCertIsValidResponse> {
+  async checkCERTIsValid(params: Omit<CheckCertIsValid, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckCertIsValidResponse> {
     return this.call<CheckCertIsValidResponse>('CheckCERTIsValid', params);
   }
 
-  async getCertificateRegistURL(params: Omit<GetCertificateRegistUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCertificateRegistUrlResponse> {
+  async getCertificateRegistURL(params: Omit<GetCertificateRegistUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCertificateRegistUrlResponse> {
     return this.call<GetCertificateRegistUrlResponse>('GetCertificateRegistURL', params);
   }
 
-  async getLoginURL(params: Omit<GetLoginUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetLoginUrlResponse> {
+  async getLoginURL(params: Omit<GetLoginUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetLoginUrlResponse> {
     return this.call<GetLoginUrlResponse>('GetLoginURL', params);
   }
 
-  async registSMSFromNumber(params: Omit<RegistSmsFromNumber, 'CERTKEY' | 'CorpNum'>): Promise<RegistSmsFromNumberResponse> {
+  async registSMSFromNumber(params: Omit<RegistSmsFromNumber, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistSmsFromNumberResponse> {
     return this.call<RegistSmsFromNumberResponse>('RegistSMSFromNumber', params);
   }
 
-  async checkSMSFromNumber(params: Omit<CheckSmsFromNumber, 'CERTKEY' | 'CorpNum'>): Promise<CheckSmsFromNumberResponse> {
+  async checkSMSFromNumber(params: Omit<CheckSmsFromNumber, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckSmsFromNumberResponse> {
     return this.call<CheckSmsFromNumberResponse>('CheckSMSFromNumber', params);
   }
 
-  async getSMSFromNumbers(params: Omit<GetSmsFromNumbers, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsFromNumbersResponse> {
+  async getSMSFromNumbers(params: Omit<GetSmsFromNumbers, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsFromNumbersResponse> {
     return this.call<GetSmsFromNumbersResponse>('GetSMSFromNumbers', params);
   }
 
-  async getSMSFromNumberURL(params: Omit<GetSmsFromNumberUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsFromNumberUrlResponse> {
+  async getSMSFromNumberURL(params: Omit<GetSmsFromNumberUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsFromNumberUrlResponse> {
     return this.call<GetSmsFromNumberUrlResponse>('GetSMSFromNumberURL', params);
   }
 
-  async checkFaxFromNumber(params: Omit<CheckFaxFromNumber, 'CERTKEY' | 'CorpNum'>): Promise<CheckFaxFromNumberResponse> {
+  async checkFaxFromNumber(params: Omit<CheckFaxFromNumber, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckFaxFromNumberResponse> {
     return this.call<CheckFaxFromNumberResponse>('CheckFaxFromNumber', params);
   }
 
-  async getFaxFromNumbers(params: Omit<GetFaxFromNumbers, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxFromNumbersResponse> {
+  async getFaxFromNumbers(params: Omit<GetFaxFromNumbers, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxFromNumbersResponse> {
     return this.call<GetFaxFromNumbersResponse>('GetFaxFromNumbers', params);
   }
 
-  async getFaxFromNumberURL(params: Omit<GetFaxFromNumberUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxFromNumberUrlResponse> {
+  async getFaxFromNumberURL(params: Omit<GetFaxFromNumberUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxFromNumberUrlResponse> {
     return this.call<GetFaxFromNumberUrlResponse>('GetFaxFromNumberURL', params);
   }
 

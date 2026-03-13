@@ -116,123 +116,123 @@ export class FaxClient extends BaseBarobillClient {
     return client;
   }
 
-  async sendFaxFromFTP(params: Omit<SendFaxFromFtp, 'CERTKEY' | 'CorpNum'>): Promise<SendFaxFromFtpResponse> {
+  async sendFaxFromFTP(params: Omit<SendFaxFromFtp, 'CERTKEY'> & { CorpNum?: string }): Promise<SendFaxFromFtpResponse> {
     return this.call<SendFaxFromFtpResponse>('SendFaxFromFTP', params);
   }
 
-  async sendFaxesFromFTP(params: Omit<SendFaxesFromFtp, 'CERTKEY' | 'CorpNum'>): Promise<SendFaxesFromFtpResponse> {
+  async sendFaxesFromFTP(params: Omit<SendFaxesFromFtp, 'CERTKEY'> & { CorpNum?: string }): Promise<SendFaxesFromFtpResponse> {
     return this.call<SendFaxesFromFtpResponse>('SendFaxesFromFTP', params);
   }
 
-  async sendFaxFromFTPEx(params: Omit<SendFaxFromFtpEx, 'CERTKEY' | 'CorpNum'>): Promise<SendFaxFromFtpExResponse> {
+  async sendFaxFromFTPEx(params: Omit<SendFaxFromFtpEx, 'CERTKEY'> & { CorpNum?: string }): Promise<SendFaxFromFtpExResponse> {
     return this.call<SendFaxFromFtpExResponse>('SendFaxFromFTPEx', params);
   }
 
-  async sendFaxesFromFTPEx(params: Omit<SendFaxesFromFtpEx, 'CERTKEY' | 'CorpNum'>): Promise<SendFaxesFromFtpExResponse> {
+  async sendFaxesFromFTPEx(params: Omit<SendFaxesFromFtpEx, 'CERTKEY'> & { CorpNum?: string }): Promise<SendFaxesFromFtpExResponse> {
     return this.call<SendFaxesFromFtpExResponse>('SendFaxesFromFTPEx', params);
   }
 
-  async reSendFax(params: Omit<ReSendFax, 'CERTKEY' | 'CorpNum'>): Promise<ReSendFaxResponse> {
+  async reSendFax(params: Omit<ReSendFax, 'CERTKEY'> & { CorpNum?: string }): Promise<ReSendFaxResponse> {
     return this.call<ReSendFaxResponse>('ReSendFax', params);
   }
 
-  async reSendFaxEx(params: Omit<ReSendFaxEx, 'CERTKEY' | 'CorpNum'>): Promise<ReSendFaxExResponse> {
+  async reSendFaxEx(params: Omit<ReSendFaxEx, 'CERTKEY'> & { CorpNum?: string }): Promise<ReSendFaxExResponse> {
     return this.call<ReSendFaxExResponse>('ReSendFaxEx', params);
   }
 
-  async cancelReservedFaxMessage(params: Omit<CancelReservedFaxMessage, 'CERTKEY' | 'CorpNum'>): Promise<CancelReservedFaxMessageResponse> {
+  async cancelReservedFaxMessage(params: Omit<CancelReservedFaxMessage, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelReservedFaxMessageResponse> {
     return this.call<CancelReservedFaxMessageResponse>('CancelReservedFaxMessage', params);
   }
 
-  async getFaxSendState(params: Omit<GetFaxSendState, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxSendStateResponse> {
+  async getFaxSendState(params: Omit<GetFaxSendState, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendStateResponse> {
     return this.call<GetFaxSendStateResponse>('GetFaxSendState', params);
   }
 
-  async getFaxMessage(params: Omit<GetFaxMessage, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxMessageResponse> {
+  async getFaxMessage(params: Omit<GetFaxMessage, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxMessageResponse> {
     return this.call<GetFaxMessageResponse>('GetFaxMessage', params);
   }
 
-  async getFaxMessageEx(params: Omit<GetFaxMessageEx, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxMessageExResponse> {
+  async getFaxMessageEx(params: Omit<GetFaxMessageEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxMessageExResponse> {
     return this.call<GetFaxMessageExResponse>('GetFaxMessageEx', params);
   }
 
-  async getFaxMessageEx2(params: Omit<GetFaxMessageEx2, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxMessageEx2Response> {
+  async getFaxMessageEx2(params: Omit<GetFaxMessageEx2, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxMessageEx2Response> {
     return this.call<GetFaxMessageEx2Response>('GetFaxMessageEx2', params);
   }
 
-  async getFaxSendMessages(params: Omit<GetFaxSendMessages, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxSendMessagesResponse> {
+  async getFaxSendMessages(params: Omit<GetFaxSendMessages, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendMessagesResponse> {
     return this.call<GetFaxSendMessagesResponse>('GetFaxSendMessages', params);
   }
 
-  async getFaxSendMessagesEx(params: Omit<GetFaxSendMessagesEx, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxSendMessagesExResponse> {
+  async getFaxSendMessagesEx(params: Omit<GetFaxSendMessagesEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendMessagesExResponse> {
     return this.call<GetFaxSendMessagesExResponse>('GetFaxSendMessagesEx', params);
   }
 
-  async getFaxMessagesEx2(params: Omit<GetFaxMessagesEx2, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxMessagesEx2Response> {
+  async getFaxMessagesEx2(params: Omit<GetFaxMessagesEx2, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxMessagesEx2Response> {
     return this.call<GetFaxMessagesEx2Response>('GetFaxMessagesEx2', params);
   }
 
-  async getFaxSendMessagesByRefKey(params: Omit<GetFaxSendMessagesByRefKey, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxSendMessagesByRefKeyResponse> {
+  async getFaxSendMessagesByRefKey(params: Omit<GetFaxSendMessagesByRefKey, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendMessagesByRefKeyResponse> {
     return this.call<GetFaxSendMessagesByRefKeyResponse>('GetFaxSendMessagesByRefKey', params);
   }
 
-  async getFaxSendMessagesByRefKeyEx(params: Omit<GetFaxSendMessagesByRefKeyEx, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxSendMessagesByRefKeyExResponse> {
+  async getFaxSendMessagesByRefKeyEx(params: Omit<GetFaxSendMessagesByRefKeyEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendMessagesByRefKeyExResponse> {
     return this.call<GetFaxSendMessagesByRefKeyExResponse>('GetFaxSendMessagesByRefKeyEx', params);
   }
 
-  async getFaxMessagesByRefKeyEx2(params: Omit<GetFaxMessagesByRefKeyEx2, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxMessagesByRefKeyEx2Response> {
+  async getFaxMessagesByRefKeyEx2(params: Omit<GetFaxMessagesByRefKeyEx2, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxMessagesByRefKeyEx2Response> {
     return this.call<GetFaxMessagesByRefKeyEx2Response>('GetFaxMessagesByRefKeyEx2', params);
   }
 
-  async getFaxSendMessagesByPaging(params: Omit<GetFaxSendMessagesByPaging, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxSendMessagesByPagingResponse> {
+  async getFaxSendMessagesByPaging(params: Omit<GetFaxSendMessagesByPaging, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendMessagesByPagingResponse> {
     return this.call<GetFaxSendMessagesByPagingResponse>('GetFaxSendMessagesByPaging', params);
   }
 
-  async getFaxHistoryURL(params: Omit<GetFaxHistoryUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxHistoryUrlResponse> {
+  async getFaxHistoryURL(params: Omit<GetFaxHistoryUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxHistoryUrlResponse> {
     return this.call<GetFaxHistoryUrlResponse>('GetFaxHistoryURL', params);
   }
 
-  async getFaxFileURL(params: Omit<GetFaxFileUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxFileUrlResponse> {
+  async getFaxFileURL(params: Omit<GetFaxFileUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxFileUrlResponse> {
     return this.call<GetFaxFileUrlResponse>('GetFaxFileURL', params);
   }
 
-  async checkCorpIsMember(params: Omit<CheckCorpIsMember, 'CERTKEY' | 'CorpNum'>): Promise<CheckCorpIsMemberResponse> {
+  async checkCorpIsMember(params: Omit<CheckCorpIsMember, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckCorpIsMemberResponse> {
     return this.call<CheckCorpIsMemberResponse>('CheckCorpIsMember', params);
   }
 
-  async registCorp(params: Omit<RegistCorp, 'CERTKEY' | 'CorpNum'>): Promise<RegistCorpResponse> {
+  async registCorp(params: Omit<RegistCorp, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCorpResponse> {
     return this.call<RegistCorpResponse>('RegistCorp', params);
   }
 
-  async addUserToCorp(params: Omit<AddUserToCorp, 'CERTKEY' | 'CorpNum'>): Promise<AddUserToCorpResponse> {
+  async addUserToCorp(params: Omit<AddUserToCorp, 'CERTKEY'> & { CorpNum?: string }): Promise<AddUserToCorpResponse> {
     return this.call<AddUserToCorpResponse>('AddUserToCorp', params);
   }
 
-  async updateCorpInfo(params: Omit<UpdateCorpInfo, 'CERTKEY' | 'CorpNum'>): Promise<UpdateCorpInfoResponse> {
+  async updateCorpInfo(params: Omit<UpdateCorpInfo, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateCorpInfoResponse> {
     return this.call<UpdateCorpInfoResponse>('UpdateCorpInfo', params);
   }
 
-  async updateUserInfo(params: Omit<UpdateUserInfo, 'CERTKEY' | 'CorpNum'>): Promise<UpdateUserInfoResponse> {
+  async updateUserInfo(params: Omit<UpdateUserInfo, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateUserInfoResponse> {
     return this.call<UpdateUserInfoResponse>('UpdateUserInfo', params);
   }
 
-  async updateUserPWD(params: Omit<UpdateUserPwd, 'CERTKEY' | 'CorpNum'>): Promise<UpdateUserPwdResponse> {
+  async updateUserPWD(params: Omit<UpdateUserPwd, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateUserPwdResponse> {
     return this.call<UpdateUserPwdResponse>('UpdateUserPWD', params);
   }
 
-  async changeCorpManager(params: Omit<ChangeCorpManager, 'CERTKEY' | 'CorpNum'>): Promise<ChangeCorpManagerResponse> {
+  async changeCorpManager(params: Omit<ChangeCorpManager, 'CERTKEY'> & { CorpNum?: string }): Promise<ChangeCorpManagerResponse> {
     return this.call<ChangeCorpManagerResponse>('ChangeCorpManager', params);
   }
 
-  async getCorpMemberContacts(params: Omit<GetCorpMemberContacts, 'CERTKEY' | 'CorpNum'>): Promise<GetCorpMemberContactsResponse> {
+  async getCorpMemberContacts(params: Omit<GetCorpMemberContacts, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCorpMemberContactsResponse> {
     return this.call<GetCorpMemberContactsResponse>('GetCorpMemberContacts', params);
   }
 
-  async getBalanceCostAmount(params: Omit<GetBalanceCostAmount, 'CERTKEY' | 'CorpNum'>): Promise<GetBalanceCostAmountResponse> {
+  async getBalanceCostAmount(params: Omit<GetBalanceCostAmount, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBalanceCostAmountResponse> {
     return this.call<GetBalanceCostAmountResponse>('GetBalanceCostAmount', params);
   }
 
-  async getBalanceCostAmountEx(params: Omit<GetBalanceCostAmountEx, 'CERTKEY' | 'CorpNum'>): Promise<GetBalanceCostAmountExResponse> {
+  async getBalanceCostAmountEx(params: Omit<GetBalanceCostAmountEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBalanceCostAmountExResponse> {
     return this.call<GetBalanceCostAmountExResponse>('GetBalanceCostAmountEx', params);
   }
 
@@ -244,71 +244,71 @@ export class FaxClient extends BaseBarobillClient {
     return this.callWithCertKeyOnly<GetBalanceCostAmountOfInterOpExResponse>('GetBalanceCostAmountOfInterOPEx', params);
   }
 
-  async checkChargeable(params: Omit<CheckChargeable, 'CERTKEY' | 'CorpNum'>): Promise<CheckChargeableResponse> {
+  async checkChargeable(params: Omit<CheckChargeable, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckChargeableResponse> {
     return this.call<CheckChargeableResponse>('CheckChargeable', params);
   }
 
-  async getChargeUnitCost(params: Omit<GetChargeUnitCost, 'CERTKEY' | 'CorpNum'>): Promise<GetChargeUnitCostResponse> {
+  async getChargeUnitCost(params: Omit<GetChargeUnitCost, 'CERTKEY'> & { CorpNum?: string }): Promise<GetChargeUnitCostResponse> {
     return this.call<GetChargeUnitCostResponse>('GetChargeUnitCost', params);
   }
 
-  async getChargeUnitCostEx(params: Omit<GetChargeUnitCostEx, 'CERTKEY' | 'CorpNum'>): Promise<GetChargeUnitCostExResponse> {
+  async getChargeUnitCostEx(params: Omit<GetChargeUnitCostEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetChargeUnitCostExResponse> {
     return this.call<GetChargeUnitCostExResponse>('GetChargeUnitCostEx', params);
   }
 
-  async getCashChargeURL(params: Omit<GetCashChargeUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCashChargeUrlResponse> {
+  async getCashChargeURL(params: Omit<GetCashChargeUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashChargeUrlResponse> {
     return this.call<GetCashChargeUrlResponse>('GetCashChargeURL', params);
   }
 
-  async getCertificateRegistDate(params: Omit<GetCertificateRegistDate, 'CERTKEY' | 'CorpNum'>): Promise<GetCertificateRegistDateResponse> {
+  async getCertificateRegistDate(params: Omit<GetCertificateRegistDate, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCertificateRegistDateResponse> {
     return this.call<GetCertificateRegistDateResponse>('GetCertificateRegistDate', params);
   }
 
-  async getCertificateExpireDate(params: Omit<GetCertificateExpireDate, 'CERTKEY' | 'CorpNum'>): Promise<GetCertificateExpireDateResponse> {
+  async getCertificateExpireDate(params: Omit<GetCertificateExpireDate, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCertificateExpireDateResponse> {
     return this.call<GetCertificateExpireDateResponse>('GetCertificateExpireDate', params);
   }
 
-  async checkCERTIsValid(params: Omit<CheckCertIsValid, 'CERTKEY' | 'CorpNum'>): Promise<CheckCertIsValidResponse> {
+  async checkCERTIsValid(params: Omit<CheckCertIsValid, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckCertIsValidResponse> {
     return this.call<CheckCertIsValidResponse>('CheckCERTIsValid', params);
   }
 
-  async getCertificateRegistURL(params: Omit<GetCertificateRegistUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetCertificateRegistUrlResponse> {
+  async getCertificateRegistURL(params: Omit<GetCertificateRegistUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCertificateRegistUrlResponse> {
     return this.call<GetCertificateRegistUrlResponse>('GetCertificateRegistURL', params);
   }
 
-  async getBaroBillURL(params: Omit<GetBaroBillUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetBaroBillUrlResponse> {
+  async getBaroBillURL(params: Omit<GetBaroBillUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBaroBillUrlResponse> {
     return this.call<GetBaroBillUrlResponse>('GetBaroBillURL', params);
   }
 
-  async getLoginURL(params: Omit<GetLoginUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetLoginUrlResponse> {
+  async getLoginURL(params: Omit<GetLoginUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetLoginUrlResponse> {
     return this.call<GetLoginUrlResponse>('GetLoginURL', params);
   }
 
-  async registSMSFromNumber(params: Omit<RegistSmsFromNumber, 'CERTKEY' | 'CorpNum'>): Promise<RegistSmsFromNumberResponse> {
+  async registSMSFromNumber(params: Omit<RegistSmsFromNumber, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistSmsFromNumberResponse> {
     return this.call<RegistSmsFromNumberResponse>('RegistSMSFromNumber', params);
   }
 
-  async checkSMSFromNumber(params: Omit<CheckSmsFromNumber, 'CERTKEY' | 'CorpNum'>): Promise<CheckSmsFromNumberResponse> {
+  async checkSMSFromNumber(params: Omit<CheckSmsFromNumber, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckSmsFromNumberResponse> {
     return this.call<CheckSmsFromNumberResponse>('CheckSMSFromNumber', params);
   }
 
-  async getSMSFromNumbers(params: Omit<GetSmsFromNumbers, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsFromNumbersResponse> {
+  async getSMSFromNumbers(params: Omit<GetSmsFromNumbers, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsFromNumbersResponse> {
     return this.call<GetSmsFromNumbersResponse>('GetSMSFromNumbers', params);
   }
 
-  async getSMSFromNumberURL(params: Omit<GetSmsFromNumberUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetSmsFromNumberUrlResponse> {
+  async getSMSFromNumberURL(params: Omit<GetSmsFromNumberUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetSmsFromNumberUrlResponse> {
     return this.call<GetSmsFromNumberUrlResponse>('GetSMSFromNumberURL', params);
   }
 
-  async checkFaxFromNumber(params: Omit<CheckFaxFromNumber, 'CERTKEY' | 'CorpNum'>): Promise<CheckFaxFromNumberResponse> {
+  async checkFaxFromNumber(params: Omit<CheckFaxFromNumber, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckFaxFromNumberResponse> {
     return this.call<CheckFaxFromNumberResponse>('CheckFaxFromNumber', params);
   }
 
-  async getFaxFromNumbers(params: Omit<GetFaxFromNumbers, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxFromNumbersResponse> {
+  async getFaxFromNumbers(params: Omit<GetFaxFromNumbers, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxFromNumbersResponse> {
     return this.call<GetFaxFromNumbersResponse>('GetFaxFromNumbers', params);
   }
 
-  async getFaxFromNumberURL(params: Omit<GetFaxFromNumberUrl, 'CERTKEY' | 'CorpNum'>): Promise<GetFaxFromNumberUrlResponse> {
+  async getFaxFromNumberURL(params: Omit<GetFaxFromNumberUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxFromNumberUrlResponse> {
     return this.call<GetFaxFromNumberUrlResponse>('GetFaxFromNumberURL', params);
   }
 

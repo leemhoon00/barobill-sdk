@@ -98,7 +98,7 @@ function toCamelCase(name: string): string {
 function getParamType(paramTypeName: string, authMode: 'both' | 'certKeyOnly' | 'none'): string {
   switch (authMode) {
     case 'both':
-      return `Omit<${paramTypeName}, 'CERTKEY' | 'CorpNum'>`;
+      return `Omit<${paramTypeName}, 'CERTKEY'> & { CorpNum?: string }`;
     case 'certKeyOnly':
       return `Omit<${paramTypeName}, 'CERTKEY'>`;
     case 'none':
