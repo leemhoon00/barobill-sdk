@@ -1,8 +1,6 @@
 # @barobill-sdk
 
-바로빌 API TypeScript SDK - 모듈별 분리 버전
-
-기존 `barobill-sdk` 패키지를 기능별로 분리하여 필요한 모듈만 설치할 수 있습니다.
+바로빌 API TypeScript SDK
 
 ## 패키지 목록
 
