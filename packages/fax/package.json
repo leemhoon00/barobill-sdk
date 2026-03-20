@@ -1,6 +1,6 @@
 {
   "name": "@barobill-sdk/fax",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "바로빌 팩스전송 API SDK",
   "license": "ISC",
   "author": "",
