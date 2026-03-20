@@ -1,20 +1,23 @@
 # @barobill-sdk
 
-바로빌 API TypeScript SDK
+바로빌 API TypeScript SDK (비공식)
+
+> **이 패키지는 바로빌의 공식 SDK가 아닌, 비공식 SDK입니다.**
+> 바로빌 API의 공식 문서는 [바로빌 API 레퍼런스](https://dev.barobill.co.kr/docs/references/%EB%B0%94%EB%A1%9C%EB%B9%8C-API-%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4-%EA%B0%9C%EC%9A%94)를 참고해 주세요.
 
 ## 패키지 목록
 
-| 패키지 | 설명 | 설치 |
-|--------|------|------|
-| `@barobill-sdk/ti` | 전자세금계산서 (홈택스 매입매출조회 포함) | `npm i @barobill-sdk/ti` |
-| `@barobill-sdk/cashbill` | 현금영수증 (홈택스 매입매출조회 포함) | `npm i @barobill-sdk/cashbill` |
-| `@barobill-sdk/edoc` | 전자문서 | `npm i @barobill-sdk/edoc` |
-| `@barobill-sdk/card` | 카드조회 | `npm i @barobill-sdk/card` |
-| `@barobill-sdk/bankaccount` | 계좌조회 | `npm i @barobill-sdk/bankaccount` |
-| `@barobill-sdk/corpstate` | 사업자등록 상태조회 | `npm i @barobill-sdk/corpstate` |
-| `@barobill-sdk/sms` | 문자전송 | `npm i @barobill-sdk/sms` |
-| `@barobill-sdk/fax` | 팩스전송 | `npm i @barobill-sdk/fax` |
-| `@barobill-sdk/kakaotalk` | 카카오톡전송 | `npm i @barobill-sdk/kakaotalk` |
+| 패키지                      | 설명                                      | 설치                              |
+| --------------------------- | ----------------------------------------- | --------------------------------- |
+| `@barobill-sdk/ti`          | 전자세금계산서 (홈택스 매입매출조회 포함) | `npm i @barobill-sdk/ti`          |
+| `@barobill-sdk/cashbill`    | 현금영수증 (홈택스 매입매출조회 포함)     | `npm i @barobill-sdk/cashbill`    |
+| `@barobill-sdk/edoc`        | 전자문서                                  | `npm i @barobill-sdk/edoc`        |
+| `@barobill-sdk/card`        | 카드조회                                  | `npm i @barobill-sdk/card`        |
+| `@barobill-sdk/bankaccount` | 계좌조회                                  | `npm i @barobill-sdk/bankaccount` |
+| `@barobill-sdk/corpstate`   | 사업자등록 상태조회                       | `npm i @barobill-sdk/corpstate`   |
+| `@barobill-sdk/sms`         | 문자전송                                  | `npm i @barobill-sdk/sms`         |
+| `@barobill-sdk/fax`         | 팩스전송                                  | `npm i @barobill-sdk/fax`         |
+| `@barobill-sdk/kakaotalk`   | 카카오톡전송                              | `npm i @barobill-sdk/kakaotalk`   |
 
 ## 사용법
 
@@ -26,8 +29,8 @@ import { SmsClient } from '@barobill-sdk/sms';
 // 기본 사업자번호를 설정하는 경우
 const client = await SmsClient.create({
   certKey: 'your-cert-key',
-  corpNum: '1234567890',  // 기본 사업자등록번호 (선택)
-  test: true,              // true: 테스트 환경, false: 운영 환경 (기본값: false)
+  corpNum: '1234567890', // 기본 사업자등록번호 (선택)
+  test: true, // true: 테스트 환경, false: 운영 환경 (기본값: false)
 });
 
 // certKey만으로 초기화 (사업자번호를 매 호출 시 전달)
@@ -107,24 +110,24 @@ const result = await client.registCashbill({
 
 ## 클라이언트 목록
 
-| 패키지 | 클라이언트 클래스 |
-|--------|------------------|
-| `@barobill-sdk/ti` | `TiClient` |
-| `@barobill-sdk/cashbill` | `CashbillClient` |
-| `@barobill-sdk/edoc` | `EdocClient` |
-| `@barobill-sdk/card` | `CardClient` |
+| 패키지                      | 클라이언트 클래스   |
+| --------------------------- | ------------------- |
+| `@barobill-sdk/ti`          | `TiClient`          |
+| `@barobill-sdk/cashbill`    | `CashbillClient`    |
+| `@barobill-sdk/edoc`        | `EdocClient`        |
+| `@barobill-sdk/card`        | `CardClient`        |
 | `@barobill-sdk/bankaccount` | `BankAccountClient` |
-| `@barobill-sdk/corpstate` | `CorpStateClient` |
-| `@barobill-sdk/sms` | `SmsClient` |
-| `@barobill-sdk/fax` | `FaxClient` |
-| `@barobill-sdk/kakaotalk` | `KakaoTalkClient` |
+| `@barobill-sdk/corpstate`   | `CorpStateClient`   |
+| `@barobill-sdk/sms`         | `SmsClient`         |
+| `@barobill-sdk/fax`         | `FaxClient`         |
+| `@barobill-sdk/kakaotalk`   | `KakaoTalkClient`   |
 
 ## API 엔드포인트
 
-| 환경 | URL |
-|------|-----|
+| 환경   | URL                                                  |
+| ------ | ---------------------------------------------------- |
 | 테스트 | `https://testws.baroservice.com/{SERVICE}.asmx?wsdl` |
-| 운영 | `https://ws.baroservice.com/{SERVICE}.asmx?wsdl` |
+| 운영   | `https://ws.baroservice.com/{SERVICE}.asmx?wsdl`     |
 
 ## Contributing (SDK 개발자용)
 
