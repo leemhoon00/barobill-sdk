@@ -164,6 +164,12 @@ const DEPRECATED_METHODS: Record<string, Record<string, string>> = {
     SendSMS: '구버전 API입니다. `sendMessageEx`를 사용하세요.',
     SendFax: '구버전 API입니다. `sendFaxEx`를 사용하세요.',
   },
+  corpstate: {
+    GetCorpStateScrapRequestURL:
+      '구버전 API입니다. 사업자등록 상태조회 서비스 과금정책 변경으로 더 이상 사용되지 않습니다. 다른 API 서비스를 이용하면 사업자등록 상태조회 API를 무료로 사용할 수 있습니다.',
+    GetCorpState: '구버전 API입니다. `getCorpStateEx`를 사용하세요.',
+    GetCorpStates: '구버전 API입니다. `getCorpStatesEx`를 사용하세요.',
+  },
 };
 
 /**

@@ -86,6 +86,9 @@ export class CorpStateClient extends BaseBarobillClient {
     return client;
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getCorpStateEx`를 사용하세요.
+   */
   async getCorpState(params: Omit<GetCorpState, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCorpStateResponse> {
     return this.call<GetCorpStateResponse>('GetCorpState', params);
   }
@@ -94,6 +97,9 @@ export class CorpStateClient extends BaseBarobillClient {
     return this.call<GetCorpStateExResponse>('GetCorpStateEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getCorpStatesEx`를 사용하세요.
+   */
   async getCorpStates(params: Omit<GetCorpStates, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCorpStatesResponse> {
     return this.call<GetCorpStatesResponse>('GetCorpStates', params);
   }
@@ -102,6 +108,9 @@ export class CorpStateClient extends BaseBarobillClient {
     return this.call<GetCorpStatesExResponse>('GetCorpStatesEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 사업자등록 상태조회 서비스 과금정책 변경으로 더 이상 사용되지 않습니다. 다른 API 서비스를 이용하면 사업자등록 상태조회 API를 무료로 사용할 수 있습니다.
+   */
   async getCorpStateScrapRequestURL(params: Omit<GetCorpStateScrapRequestUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCorpStateScrapRequestUrlResponse> {
     return this.call<GetCorpStateScrapRequestUrlResponse>('GetCorpStateScrapRequestURL', params);
   }
