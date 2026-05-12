@@ -214,18 +214,30 @@ export class CashbillClient extends BaseBarobillClient {
     return client;
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.
+   */
   async checkMgtKeyIsExists(params: Omit<CheckMgtKeyIsExists, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckMgtKeyIsExistsResponse> {
     return this.call<CheckMgtKeyIsExistsResponse>('CheckMgtKeyIsExists', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.
+   */
   async checkIsValidCashBill(params: Omit<CheckIsValidCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckIsValidCashBillResponse> {
     return this.call<CheckIsValidCashBillResponse>('CheckIsValidCashBill', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.
+   */
   async checkIsValidCashBillEx(params: Omit<CheckIsValidCashBillEx, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckIsValidCashBillExResponse> {
     return this.call<CheckIsValidCashBillExResponse>('CheckIsValidCashBillEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registCashBillEx`를 사용하세요.
+   */
   async registCashBill(params: Omit<RegistCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCashBillResponse> {
     return this.call<RegistCashBillResponse>('RegistCashBill', params);
   }
@@ -234,6 +246,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<RegistCashBillExResponse>('RegistCashBillEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `updateCashBillEx`를 사용하세요.
+   */
   async updateCashBill(params: Omit<UpdateCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateCashBillResponse> {
     return this.call<UpdateCashBillResponse>('UpdateCashBill', params);
   }
@@ -250,10 +265,16 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<IssueCashBillResponse>('IssueCashBill', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `cancelCashBillEx`를 사용하세요.
+   */
   async cancelCashBill(params: Omit<CancelCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelCashBillResponse> {
     return this.call<CancelCashBillResponse>('CancelCashBill', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `cancelCashBillPartialEx`를 사용하세요.
+   */
   async cancelCashBillPartial(params: Omit<CancelCashBillPartial, 'CERTKEY'> & { CorpNum?: string }): Promise<CancelCashBillPartialResponse> {
     return this.call<CancelCashBillPartialResponse>('CancelCashBillPartial', params);
   }
@@ -278,6 +299,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<RegistAndIssueCashBillResponse>('RegistAndIssueCashBill', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getCashBillEx`를 사용하세요.
+   */
   async getCashBill(params: Omit<GetCashBill, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillResponse> {
     return this.call<GetCashBillResponse>('GetCashBill', params);
   }
@@ -318,14 +342,23 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<SendFaxExResponse>('SendFaxEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `sendEmailEx`를 사용하세요.
+   */
   async sendEmail(params: Omit<SendEmail, 'CERTKEY'> & { CorpNum?: string }): Promise<SendEmailResponse> {
     return this.call<SendEmailResponse>('SendEmail', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `sendMessageEx`를 사용하세요.
+   */
   async sendSMS(params: Omit<SendSms, 'CERTKEY'> & { CorpNum?: string }): Promise<SendSmsResponse> {
     return this.call<SendSmsResponse>('SendSMS', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `sendFaxEx`를 사용하세요.
+   */
   async sendFax(params: Omit<SendFax, 'CERTKEY'> & { CorpNum?: string }): Promise<SendFaxResponse> {
     return this.call<SendFaxResponse>('SendFax', params);
   }
@@ -362,6 +395,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<GetCashBillMailUrlnkResponse>('GetCashBillMailURLNK', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCashBillSalesListEx`를 사용하세요.
+   */
   async getCashBillSalesList(params: Omit<GetCashBillSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillSalesListResponse> {
     return this.call<GetCashBillSalesListResponse>('GetCashBillSalesList', params);
   }
@@ -370,6 +406,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<GetCashBillSalesListExResponse>('GetCashBillSalesListEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCashBillPurchaseListEx`를 사용하세요.
+   */
   async getCashBillPurchaseList(params: Omit<GetCashBillPurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCashBillPurchaseListResponse> {
     return this.call<GetCashBillPurchaseListResponse>('GetCashBillPurchaseList', params);
   }
@@ -378,6 +417,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<GetCashBillPurchaseListExResponse>('GetCashBillPurchaseListEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCashBillSalesListEx`를 사용하세요.
+   */
   async getDailyCashBillSalesList(params: Omit<GetDailyCashBillSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCashBillSalesListResponse> {
     return this.call<GetDailyCashBillSalesListResponse>('GetDailyCashBillSalesList', params);
   }
@@ -386,6 +428,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<GetDailyCashBillSalesListExResponse>('GetDailyCashBillSalesListEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCashBillPurchaseListEx`를 사용하세요.
+   */
   async getDailyCashBillPurchaseList(params: Omit<GetDailyCashBillPurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCashBillPurchaseListResponse> {
     return this.call<GetDailyCashBillPurchaseListResponse>('GetDailyCashBillPurchaseList', params);
   }
@@ -394,6 +439,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<GetDailyCashBillPurchaseListExResponse>('GetDailyCashBillPurchaseListEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyCashBillSalesListEx`를 사용하세요.
+   */
   async getMonthlyCashBillSalesList(params: Omit<GetMonthlyCashBillSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCashBillSalesListResponse> {
     return this.call<GetMonthlyCashBillSalesListResponse>('GetMonthlyCashBillSalesList', params);
   }
@@ -402,6 +450,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<GetMonthlyCashBillSalesListExResponse>('GetMonthlyCashBillSalesListEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyCashBillPurchaseListEx`를 사용하세요.
+   */
   async getMonthlyCashBillPurchaseList(params: Omit<GetMonthlyCashBillPurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCashBillPurchaseListResponse> {
     return this.call<GetMonthlyCashBillPurchaseListResponse>('GetMonthlyCashBillPurchaseList', params);
   }
@@ -410,6 +461,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<GetMonthlyCashBillPurchaseListExResponse>('GetMonthlyCashBillPurchaseListEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodCashBillSalesListEx`를 사용하세요.
+   */
   async getPeriodCashBillSalesList(params: Omit<GetPeriodCashBillSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCashBillSalesListResponse> {
     return this.call<GetPeriodCashBillSalesListResponse>('GetPeriodCashBillSalesList', params);
   }
@@ -418,6 +472,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<GetPeriodCashBillSalesListExResponse>('GetPeriodCashBillSalesListEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodCashBillPurchaseListEx`를 사용하세요.
+   */
   async getPeriodCashBillPurchaseList(params: Omit<GetPeriodCashBillPurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCashBillPurchaseListResponse> {
     return this.call<GetPeriodCashBillPurchaseListResponse>('GetPeriodCashBillPurchaseList', params);
   }
