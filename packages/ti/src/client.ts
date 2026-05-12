@@ -746,6 +746,9 @@ export class TiClient extends BaseBarobillClient {
     return this.callWithCertKeyOnly<GetEmailPublicKeysResponse>('GetEmailPublicKeys', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registTaxInvoiceScrapEx`를 사용하세요.
+   */
   async registTaxInvoiceScrap(params: Omit<RegistTaxInvoiceScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistTaxInvoiceScrapResponse> {
     return this.call<RegistTaxInvoiceScrapResponse>('RegistTaxInvoiceScrap', params);
   }
@@ -754,6 +757,9 @@ export class TiClient extends BaseBarobillClient {
     return this.call<RegistTaxInvoiceScrapExResponse>('RegistTaxInvoiceScrapEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `updateTaxInvoiceScrapEx`를 사용하세요.
+   */
   async updateTaxInvoiceScrap(params: Omit<UpdateTaxInvoiceScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateTaxInvoiceScrapResponse> {
     return this.call<UpdateTaxInvoiceScrapResponse>('UpdateTaxInvoiceScrap', params);
   }

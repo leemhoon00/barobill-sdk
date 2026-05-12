@@ -491,6 +491,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<GetCashBillPurchaseListByIdResponse>('GetCashBillPurchaseListByID', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registCashBillScrapEx`를 사용하세요.
+   */
   async registCashBillScrap(params: Omit<RegistCashBillScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCashBillScrapResponse> {
     return this.call<RegistCashBillScrapResponse>('RegistCashBillScrap', params);
   }
@@ -499,6 +502,9 @@ export class CashbillClient extends BaseBarobillClient {
     return this.call<RegistCashBillScrapExResponse>('RegistCashBillScrapEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `updateCashBillScrapEx`를 사용하세요.
+   */
   async updateCashBillScrap(params: Omit<UpdateCashBillScrap, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateCashBillScrapResponse> {
     return this.call<UpdateCashBillScrapResponse>('UpdateCashBillScrap', params);
   }

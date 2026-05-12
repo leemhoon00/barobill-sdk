@@ -113,6 +113,10 @@ const DEPRECATED_METHODS: Record<string, Record<string, string>> = {
     ReSendSMS: '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
     SendInvoiceSMS: '구버전 API입니다. `sendMessageEx`를 사용하세요.',
     SendInvoiceFax: '구버전 API입니다. `sendFaxEx`를 사용하세요.',
+    RegistTaxInvoiceScrap:
+      '구버전 API입니다. `registTaxInvoiceScrapEx`를 사용하세요.',
+    UpdateTaxInvoiceScrap:
+      '구버전 API입니다. `updateTaxInvoiceScrapEx`를 사용하세요.',
   },
   cashbill: {
     CheckMgtKeyIsExists:
@@ -146,6 +150,10 @@ const DEPRECATED_METHODS: Record<string, Record<string, string>> = {
     SendEmail: '구버전 API입니다. `sendEmailEx`를 사용하세요.',
     SendSMS: '구버전 API입니다. `sendMessageEx`를 사용하세요.',
     SendFax: '구버전 API입니다. `sendFaxEx`를 사용하세요.',
+    RegistCashBillScrap:
+      '구버전 API입니다. `registCashBillScrapEx`를 사용하세요.',
+    UpdateCashBillScrap:
+      '구버전 API입니다. `updateCashBillScrapEx`를 사용하세요.',
   },
   edoc: {
     CheckMgtKeyIsExists:
