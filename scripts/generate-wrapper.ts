@@ -34,48 +34,55 @@ interface MethodInfo {
 }
 
 /**
- * Deprecated SOAP method names per https://dev.barobill.co.kr docs ("구버전 API").
- * Keyed by SOAP method name (case-sensitive); value is the JSDoc @deprecated message.
+ * 모든 서비스에 공통으로 존재하는 구버전 SOAP 메서드.
+ * (공통 요금/인증 관련 API — 9개 WSDL 모두에 동일 이름으로 노출됨)
  */
-const DEPRECATED_METHODS: Record<string, string> = {
+const COMMON_DEPRECATED_METHODS: Record<string, string> = {
   GetBalanceCostAmount: '구버전 API입니다. `getBalanceCostAmountEx`를 사용하세요.',
   GetBalanceCostAmountOfInterOP: '구버전 API입니다. `getBalanceCostAmountOfInterOPEx`를 사용하세요.',
   GetChargeUnitCost: '구버전 API입니다. `getChargeUnitCostEx`를 사용하세요.',
   CheckChargeable: '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
+};
 
-  // 세금계산서 API (TI) 구버전
-  RegistAndReverseIssueTaxInvoice: '구버전 API입니다. `registAndReverseIssueTaxInvoiceEx`를 사용하세요.',
-  CheckMgtNumIsExists: '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
-  CheckIsValidTaxInvoice: '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
-  RegistTaxInvoice: '구버전 API입니다. `registTaxInvoiceEX`를 사용하세요.',
-  RegistBrokerTaxInvoice: '구버전 API입니다. `registBrokerTaxInvoiceEX`를 사용하세요.',
-  RegistTaxInvoiceReverse: '구버전 API입니다. `registTaxInvoiceReverseEX`를 사용하세요.',
-  RegistModifyTaxInvoice: '구버전 API입니다. `registTaxInvoiceEX`를 사용하세요.',
-  RegistModifyTaxInvoiceEX: '구버전 API입니다. `registTaxInvoiceEX`를 사용하세요.',
-  RegistModifyBrokerTaxInvoice: '구버전 API입니다. `registBrokerTaxInvoiceEX`를 사용하세요.',
-  RegistModifyBrokerTaxInvoiceEX: '구버전 API입니다. `registBrokerTaxInvoiceEX`를 사용하세요.',
-  UpdateTaxInvoice: '구버전 API입니다. `updateTaxInvoiceEX`를 사용하세요.',
-  UpdateBrokerTaxInvoice: '구버전 API입니다. `updateBrokerTaxInvoiceEX`를 사용하세요.',
-  IssueTaxInvoice: '구버전 API입니다. `issueTaxInvoiceEx`를 사용하세요.',
-  PreIssueTaxInvoice: '구버전 API입니다. `preIssueTaxInvoiceEx`를 사용하세요.',
-  ReverseIssueTaxInvoice: '구버전 API입니다. `reverseIssueTaxInvoiceEx`를 사용하세요.',
-  GetTaxInvoiceState: '구버전 API입니다. `getTaxInvoiceStateEX`를 사용하세요.',
-  GetTaxInvoiceStates: '구버전 API입니다. `getTaxInvoiceStatesEX`를 사용하세요.',
-  GetTaxInvoiceSalesList: '구버전 API입니다. `getDailyTaxInvoiceSalesList`를 사용하세요.',
-  GetTaxInvoiceSalesListEx: '구버전 API입니다. `getDailyTaxInvoiceSalesList`를 사용하세요.',
-  GetTaxInvoicePurchaseList: '구버전 API입니다. `getDailyTaxInvoicePurchaseList`를 사용하세요.',
-  GetTaxInvoicePurchaseListEx: '구버전 API입니다. `getDailyTaxInvoicePurchaseList`를 사용하세요.',
-  GetPeriodTaxInvoiceSalesList: '구버전 API입니다. `getPeriodTaxInvoiceSalesListEx`를 사용하세요.',
-  GetPeriodTaxInvoicePurchaseList: '구버전 API입니다. `getPeriodTaxInvoicePurchaseListEx`를 사용하세요.',
-  GetDailyTaxInvoiceSalesList: '구버전 API입니다. `getDailyTaxInvoiceSalesListEx`를 사용하세요.',
-  GetDailyTaxInvoicePurchaseList: '구버전 API입니다. `getDailyTaxInvoicePurchaseListEx`를 사용하세요.',
-  GetMonthlyTaxInvoiceSalesList: '구버전 API입니다. `getMonthlyTaxInvoiceSalesListEx`를 사용하세요.',
-  GetMonthlyTaxInvoicePurchaseList: '구버전 API입니다. `getMonthlyTaxInvoicePurchaseListEx`를 사용하세요.',
-  GetAttachedFileList: '구버전 API입니다. `getAttachedFileListEx`를 사용하세요.',
-  ReSendEmail: '구버전 API입니다. `sendEmailEx`를 사용하세요.',
-  ReSendSMS: '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
-  SendInvoiceSMS: '구버전 API입니다. `sendMessageEx`를 사용하세요.',
-  SendInvoiceFax: '구버전 API입니다. `sendFaxEx`를 사용하세요.',
+/**
+ * 서비스별 구버전 SOAP 메서드. 키는 SERVICES[].pkg (예: 'ti').
+ * 같은 SOAP 메서드 이름이 다른 서비스에도 존재할 수 있으므로 서비스 단위로 한정한다.
+ */
+const DEPRECATED_METHODS: Record<string, Record<string, string>> = {
+  ti: {
+    RegistAndReverseIssueTaxInvoice: '구버전 API입니다. `registAndReverseIssueTaxInvoiceEx`를 사용하세요.',
+    CheckMgtNumIsExists: '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
+    CheckIsValidTaxInvoice: '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
+    RegistTaxInvoice: '구버전 API입니다. `registTaxInvoiceEX`를 사용하세요.',
+    RegistBrokerTaxInvoice: '구버전 API입니다. `registBrokerTaxInvoiceEX`를 사용하세요.',
+    RegistTaxInvoiceReverse: '구버전 API입니다. `registTaxInvoiceReverseEX`를 사용하세요.',
+    RegistModifyTaxInvoice: '구버전 API입니다. `registTaxInvoiceEX`를 사용하세요.',
+    RegistModifyTaxInvoiceEX: '구버전 API입니다. `registTaxInvoiceEX`를 사용하세요.',
+    RegistModifyBrokerTaxInvoice: '구버전 API입니다. `registBrokerTaxInvoiceEX`를 사용하세요.',
+    RegistModifyBrokerTaxInvoiceEX: '구버전 API입니다. `registBrokerTaxInvoiceEX`를 사용하세요.',
+    UpdateTaxInvoice: '구버전 API입니다. `updateTaxInvoiceEX`를 사용하세요.',
+    UpdateBrokerTaxInvoice: '구버전 API입니다. `updateBrokerTaxInvoiceEX`를 사용하세요.',
+    IssueTaxInvoice: '구버전 API입니다. `issueTaxInvoiceEx`를 사용하세요.',
+    PreIssueTaxInvoice: '구버전 API입니다. `preIssueTaxInvoiceEx`를 사용하세요.',
+    ReverseIssueTaxInvoice: '구버전 API입니다. `reverseIssueTaxInvoiceEx`를 사용하세요.',
+    GetTaxInvoiceState: '구버전 API입니다. `getTaxInvoiceStateEX`를 사용하세요.',
+    GetTaxInvoiceStates: '구버전 API입니다. `getTaxInvoiceStatesEX`를 사용하세요.',
+    GetTaxInvoiceSalesList: '구버전 API입니다. `getDailyTaxInvoiceSalesList`를 사용하세요.',
+    GetTaxInvoiceSalesListEx: '구버전 API입니다. `getDailyTaxInvoiceSalesList`를 사용하세요.',
+    GetTaxInvoicePurchaseList: '구버전 API입니다. `getDailyTaxInvoicePurchaseList`를 사용하세요.',
+    GetTaxInvoicePurchaseListEx: '구버전 API입니다. `getDailyTaxInvoicePurchaseList`를 사용하세요.',
+    GetPeriodTaxInvoiceSalesList: '구버전 API입니다. `getPeriodTaxInvoiceSalesListEx`를 사용하세요.',
+    GetPeriodTaxInvoicePurchaseList: '구버전 API입니다. `getPeriodTaxInvoicePurchaseListEx`를 사용하세요.',
+    GetDailyTaxInvoiceSalesList: '구버전 API입니다. `getDailyTaxInvoiceSalesListEx`를 사용하세요.',
+    GetDailyTaxInvoicePurchaseList: '구버전 API입니다. `getDailyTaxInvoicePurchaseListEx`를 사용하세요.',
+    GetMonthlyTaxInvoiceSalesList: '구버전 API입니다. `getMonthlyTaxInvoiceSalesListEx`를 사용하세요.',
+    GetMonthlyTaxInvoicePurchaseList: '구버전 API입니다. `getMonthlyTaxInvoicePurchaseListEx`를 사용하세요.',
+    GetAttachedFileList: '구버전 API입니다. `getAttachedFileListEx`를 사용하세요.',
+    ReSendEmail: '구버전 API입니다. `sendEmailEx`를 사용하세요.',
+    ReSendSMS: '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
+    SendInvoiceSMS: '구버전 API입니다. `sendMessageEx`를 사용하세요.',
+    SendInvoiceFax: '구버전 API입니다. `sendFaxEx`를 사용하세요.',
+  },
 };
 
 /**
@@ -184,6 +191,8 @@ function generateWrapper(service: typeof SERVICES[number]): void {
 
   console.log(`  Found ${methods.length} methods`);
 
+  const serviceDeprecations = DEPRECATED_METHODS[service.pkg] ?? {};
+
   // Collect all needed imports (param types and response types)
   const imports: string[] = [];
   for (const m of methods) {
@@ -197,7 +206,7 @@ function generateWrapper(service: typeof SERVICES[number]): void {
     const callMethod = getCallMethod(m.authMode);
     const hasParams = m.authMode !== 'none' || hasNonAuthFields(definitionsDir, m.paramTypeName);
 
-    const deprecatedMsg = DEPRECATED_METHODS[m.soapMethodName];
+    const deprecatedMsg = COMMON_DEPRECATED_METHODS[m.soapMethodName] ?? serviceDeprecations[m.soapMethodName];
     const jsdoc = deprecatedMsg
       ? `  /**\n   * @deprecated ${deprecatedMsg}\n   */\n`
       : '';
