@@ -334,6 +334,9 @@ export class EdocClient extends BaseBarobillClient {
     return this.call<GetCorpMemberContactsResponse>('GetCorpMemberContacts', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getBalanceCostAmountEx`를 사용하세요.
+   */
   async getBalanceCostAmount(params: Omit<GetBalanceCostAmount, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBalanceCostAmountResponse> {
     return this.call<GetBalanceCostAmountResponse>('GetBalanceCostAmount', params);
   }
@@ -342,6 +345,9 @@ export class EdocClient extends BaseBarobillClient {
     return this.call<GetBalanceCostAmountExResponse>('GetBalanceCostAmountEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getBalanceCostAmountOfInterOPEx`를 사용하세요.
+   */
   async getBalanceCostAmountOfInterOP(params: Omit<GetBalanceCostAmountOfInterOp, 'CERTKEY'>): Promise<GetBalanceCostAmountOfInterOpResponse> {
     return this.callWithCertKeyOnly<GetBalanceCostAmountOfInterOpResponse>('GetBalanceCostAmountOfInterOP', params);
   }
@@ -350,10 +356,16 @@ export class EdocClient extends BaseBarobillClient {
     return this.callWithCertKeyOnly<GetBalanceCostAmountOfInterOpExResponse>('GetBalanceCostAmountOfInterOPEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.
+   */
   async checkChargeable(params: Omit<CheckChargeable, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckChargeableResponse> {
     return this.call<CheckChargeableResponse>('CheckChargeable', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getChargeUnitCostEx`를 사용하세요.
+   */
   async getChargeUnitCost(params: Omit<GetChargeUnitCost, 'CERTKEY'> & { CorpNum?: string }): Promise<GetChargeUnitCostResponse> {
     return this.call<GetChargeUnitCostResponse>('GetChargeUnitCost', params);
   }

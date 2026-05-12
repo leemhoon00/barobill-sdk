@@ -34,6 +34,17 @@ interface MethodInfo {
 }
 
 /**
+ * Deprecated SOAP method names per https://dev.barobill.co.kr docs ("구버전 API").
+ * Keyed by SOAP method name (case-sensitive); value is the JSDoc @deprecated message.
+ */
+const DEPRECATED_METHODS: Record<string, string> = {
+  GetBalanceCostAmount: '구버전 API입니다. `getBalanceCostAmountEx`를 사용하세요.',
+  GetBalanceCostAmountOfInterOP: '구버전 API입니다. `getBalanceCostAmountOfInterOPEx`를 사용하세요.',
+  GetChargeUnitCost: '구버전 API입니다. `getChargeUnitCostEx`를 사용하세요.',
+  CheckChargeable: '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
+};
+
+/**
  * Parse the interface from client.ts to extract method signatures.
  * Only takes the first occurrence of each method (ignores SOAP12 duplicates).
  */
@@ -152,14 +163,19 @@ function generateWrapper(service: typeof SERVICES[number]): void {
     const callMethod = getCallMethod(m.authMode);
     const hasParams = m.authMode !== 'none' || hasNonAuthFields(definitionsDir, m.paramTypeName);
 
+    const deprecatedMsg = DEPRECATED_METHODS[m.soapMethodName];
+    const jsdoc = deprecatedMsg
+      ? `  /**\n   * @deprecated ${deprecatedMsg}\n   */\n`
+      : '';
+
     if (m.authMode === 'none' && !hasParams) {
       // No params at all (like Ping)
-      return `  async ${m.wrapperMethodName}(): Promise<${m.responseTypeName}> {
+      return `${jsdoc}  async ${m.wrapperMethodName}(): Promise<${m.responseTypeName}> {
     return ${callMethod}<${m.responseTypeName}>('${m.soapMethodName}', {});
   }`;
     }
 
-    return `  async ${m.wrapperMethodName}(params: ${paramType}): Promise<${m.responseTypeName}> {
+    return `${jsdoc}  async ${m.wrapperMethodName}(params: ${paramType}): Promise<${m.responseTypeName}> {
     return ${callMethod}<${m.responseTypeName}>('${m.soapMethodName}', params);
   }`;
   });
