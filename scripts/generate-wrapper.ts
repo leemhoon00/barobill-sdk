@@ -170,6 +170,39 @@ const DEPRECATED_METHODS: Record<string, Record<string, string>> = {
     GetCorpState: '구버전 API입니다. `getCorpStateEx`를 사용하세요.',
     GetCorpStates: '구버전 API입니다. `getCorpStatesEx`를 사용하세요.',
   },
+  card: {
+    RegistCard:
+      '구버전 API입니다. `getCardManagementURL`로 발급한 관리 URL을 통해 카드를 등록하세요.',
+    GetCardScrapRequestURL:
+      '구버전 API입니다. `getCardManagementURL`을 사용하세요.',
+    GetCard: '구버전 API입니다. `getCardEx`를 사용하세요.',
+    GetCardEx: '구버전 API입니다. `getCardEx2`를 사용하세요.',
+    GetPeriodCardLog:
+      '구버전 API입니다. `getPeriodCardApprovalLog`를 사용하세요.',
+    GetPeriodCardLogEx:
+      '구버전 API입니다. `getPeriodCardApprovalLog`를 사용하세요.',
+    GetPeriodCardLogEx2:
+      '구버전 API입니다. `getPeriodCardApprovalLog`를 사용하세요.',
+    GetPeriodCardLogEx3:
+      '구버전 API입니다. `getPeriodCardApprovalLog`를 사용하세요.',
+    GetDailyCardLog: '구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.',
+    GetDailyCardLogEx:
+      '구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.',
+    GetDailyCardLogEx2:
+      '구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.',
+    GetDailyCardLogEx3:
+      '구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.',
+    GetMonthlyCardLog:
+      '구버전 API입니다. `getMonthlyCardApprovalLog`를 사용하세요.',
+    GetMonthlyCardLogEx:
+      '구버전 API입니다. `getMonthlyCardApprovalLog`를 사용하세요.',
+    GetMonthlyCardLogEx2:
+      '구버전 API입니다. `getMonthlyCardApprovalLog`를 사용하세요.',
+    GetMonthlyCardLogEx3:
+      '구버전 API입니다. `getMonthlyCardApprovalLog`를 사용하세요.',
+    GetCardLog: '구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.',
+    GetCardLogEx: '구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.',
+  },
 };
 
 /**

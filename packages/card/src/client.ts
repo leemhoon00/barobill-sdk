@@ -140,6 +140,9 @@ export class CardClient extends BaseBarobillClient {
     return client;
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getCardManagementURL`로 발급한 관리 URL을 통해 카드를 등록하세요.
+   */
   async registCard(params: Omit<RegistCard, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistCardResponse> {
     return this.call<RegistCardResponse>('RegistCard', params);
   }
@@ -172,10 +175,16 @@ export class CardClient extends BaseBarobillClient {
     return this.call<RegistCardLogMemoResponse>('RegistCardLogMemo', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getCardEx`를 사용하세요.
+   */
   async getCard(params: Omit<GetCard, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCardResponse> {
     return this.call<GetCardResponse>('GetCard', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getCardEx2`를 사용하세요.
+   */
   async getCardEx(params: Omit<GetCardEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCardExResponse> {
     return this.call<GetCardExResponse>('GetCardEx', params);
   }
@@ -188,26 +197,44 @@ export class CardClient extends BaseBarobillClient {
     return this.call<RefreshCardResponse>('RefreshCard', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.
+   */
   async getCardLog(params: Omit<GetCardLog, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCardLogResponse> {
     return this.call<GetCardLogResponse>('GetCardLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.
+   */
   async getCardLogEx(params: Omit<GetCardLogEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCardLogExResponse> {
     return this.call<GetCardLogExResponse>('GetCardLogEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.
+   */
   async getDailyCardLog(params: Omit<GetDailyCardLog, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCardLogResponse> {
     return this.call<GetDailyCardLogResponse>('GetDailyCardLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.
+   */
   async getDailyCardLogEx(params: Omit<GetDailyCardLogEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCardLogExResponse> {
     return this.call<GetDailyCardLogExResponse>('GetDailyCardLogEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.
+   */
   async getDailyCardLogEx2(params: Omit<GetDailyCardLogEx2, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCardLogEx2Response> {
     return this.call<GetDailyCardLogEx2Response>('GetDailyCardLogEx2', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.
+   */
   async getDailyCardLogEx3(params: Omit<GetDailyCardLogEx3, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyCardLogEx3Response> {
     return this.call<GetDailyCardLogEx3Response>('GetDailyCardLogEx3', params);
   }
@@ -216,18 +243,30 @@ export class CardClient extends BaseBarobillClient {
     return this.call<GetDailyCardApprovalLogResponse>('GetDailyCardApprovalLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyCardApprovalLog`를 사용하세요.
+   */
   async getMonthlyCardLog(params: Omit<GetMonthlyCardLog, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCardLogResponse> {
     return this.call<GetMonthlyCardLogResponse>('GetMonthlyCardLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyCardApprovalLog`를 사용하세요.
+   */
   async getMonthlyCardLogEx(params: Omit<GetMonthlyCardLogEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCardLogExResponse> {
     return this.call<GetMonthlyCardLogExResponse>('GetMonthlyCardLogEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyCardApprovalLog`를 사용하세요.
+   */
   async getMonthlyCardLogEx2(params: Omit<GetMonthlyCardLogEx2, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCardLogEx2Response> {
     return this.call<GetMonthlyCardLogEx2Response>('GetMonthlyCardLogEx2', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyCardApprovalLog`를 사용하세요.
+   */
   async getMonthlyCardLogEx3(params: Omit<GetMonthlyCardLogEx3, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyCardLogEx3Response> {
     return this.call<GetMonthlyCardLogEx3Response>('GetMonthlyCardLogEx3', params);
   }
@@ -236,18 +275,30 @@ export class CardClient extends BaseBarobillClient {
     return this.call<GetMonthlyCardApprovalLogResponse>('GetMonthlyCardApprovalLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodCardApprovalLog`를 사용하세요.
+   */
   async getPeriodCardLog(params: Omit<GetPeriodCardLog, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCardLogResponse> {
     return this.call<GetPeriodCardLogResponse>('GetPeriodCardLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodCardApprovalLog`를 사용하세요.
+   */
   async getPeriodCardLogEx(params: Omit<GetPeriodCardLogEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCardLogExResponse> {
     return this.call<GetPeriodCardLogExResponse>('GetPeriodCardLogEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodCardApprovalLog`를 사용하세요.
+   */
   async getPeriodCardLogEx2(params: Omit<GetPeriodCardLogEx2, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCardLogEx2Response> {
     return this.call<GetPeriodCardLogEx2Response>('GetPeriodCardLogEx2', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodCardApprovalLog`를 사용하세요.
+   */
   async getPeriodCardLogEx3(params: Omit<GetPeriodCardLogEx3, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodCardLogEx3Response> {
     return this.call<GetPeriodCardLogEx3Response>('GetPeriodCardLogEx3', params);
   }
@@ -256,6 +307,9 @@ export class CardClient extends BaseBarobillClient {
     return this.call<GetPeriodCardApprovalLogResponse>('GetPeriodCardApprovalLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getCardManagementURL`을 사용하세요.
+   */
   async getCardScrapRequestURL(params: Omit<GetCardScrapRequestUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetCardScrapRequestUrlResponse> {
     return this.call<GetCardScrapRequestUrlResponse>('GetCardScrapRequestURL', params);
   }
