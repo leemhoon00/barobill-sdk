@@ -148,10 +148,16 @@ export class FaxClient extends BaseBarobillClient {
     return this.call<GetFaxSendStateResponse>('GetFaxSendState', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getFaxMessageEx2`를 사용하세요.
+   */
   async getFaxMessage(params: Omit<GetFaxMessage, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxMessageResponse> {
     return this.call<GetFaxMessageResponse>('GetFaxMessage', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getFaxMessageEx2`를 사용하세요.
+   */
   async getFaxMessageEx(params: Omit<GetFaxMessageEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxMessageExResponse> {
     return this.call<GetFaxMessageExResponse>('GetFaxMessageEx', params);
   }
@@ -160,10 +166,16 @@ export class FaxClient extends BaseBarobillClient {
     return this.call<GetFaxMessageEx2Response>('GetFaxMessageEx2', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getFaxMessagesEx2`를 사용하세요.
+   */
   async getFaxSendMessages(params: Omit<GetFaxSendMessages, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendMessagesResponse> {
     return this.call<GetFaxSendMessagesResponse>('GetFaxSendMessages', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getFaxMessagesEx2`를 사용하세요.
+   */
   async getFaxSendMessagesEx(params: Omit<GetFaxSendMessagesEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendMessagesExResponse> {
     return this.call<GetFaxSendMessagesExResponse>('GetFaxSendMessagesEx', params);
   }
@@ -172,10 +184,16 @@ export class FaxClient extends BaseBarobillClient {
     return this.call<GetFaxMessagesEx2Response>('GetFaxMessagesEx2', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getFaxMessagesByRefKeyEx2`를 사용하세요.
+   */
   async getFaxSendMessagesByRefKey(params: Omit<GetFaxSendMessagesByRefKey, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendMessagesByRefKeyResponse> {
     return this.call<GetFaxSendMessagesByRefKeyResponse>('GetFaxSendMessagesByRefKey', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getFaxMessagesByRefKeyEx2`를 사용하세요.
+   */
   async getFaxSendMessagesByRefKeyEx(params: Omit<GetFaxSendMessagesByRefKeyEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetFaxSendMessagesByRefKeyExResponse> {
     return this.call<GetFaxSendMessagesByRefKeyExResponse>('GetFaxSendMessagesByRefKeyEx', params);
   }

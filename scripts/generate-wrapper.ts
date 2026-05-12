@@ -233,6 +233,16 @@ const DEPRECATED_METHODS: Record<string, Record<string, string>> = {
     GetBankAccountLogEx:
       '구버전 API입니다. `getDailyBankAccountLogEx2`를 사용하세요.',
   },
+  fax: {
+    GetFaxMessage: '구버전 API입니다. `getFaxMessageEx2`를 사용하세요.',
+    GetFaxMessageEx: '구버전 API입니다. `getFaxMessageEx2`를 사용하세요.',
+    GetFaxSendMessages: '구버전 API입니다. `getFaxMessagesEx2`를 사용하세요.',
+    GetFaxSendMessagesEx: '구버전 API입니다. `getFaxMessagesEx2`를 사용하세요.',
+    GetFaxSendMessagesByRefKey:
+      '구버전 API입니다. `getFaxMessagesByRefKeyEx2`를 사용하세요.',
+    GetFaxSendMessagesByRefKeyEx:
+      '구버전 API입니다. `getFaxMessagesByRefKeyEx2`를 사용하세요.',
+  },
 };
 
 /**
