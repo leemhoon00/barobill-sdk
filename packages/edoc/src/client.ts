@@ -150,10 +150,16 @@ export class EdocClient extends BaseBarobillClient {
     return client;
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.
+   */
   async checkMgtKeyIsExists(params: Omit<CheckMgtKeyIsExists, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckMgtKeyIsExistsResponse> {
     return this.call<CheckMgtKeyIsExistsResponse>('CheckMgtKeyIsExists', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.
+   */
   async checkIsValidEDoc(params: Omit<CheckIsValidEDoc, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckIsValidEDocResponse> {
     return this.call<CheckIsValidEDocResponse>('CheckIsValidEDoc', params);
   }
@@ -242,6 +248,9 @@ export class EdocClient extends BaseBarobillClient {
     return this.call<SendFaxExResponse>('SendFaxEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `sendEmailEx`를 사용하세요.
+   */
   async sendEmail(params: Omit<SendEmail, 'CERTKEY'> & { CorpNum?: string }): Promise<SendEmailResponse> {
     return this.call<SendEmailResponse>('SendEmail', params);
   }
@@ -250,10 +259,16 @@ export class EdocClient extends BaseBarobillClient {
     return this.call<SendEmail2Response>('SendEmail2', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `sendMessageEx`를 사용하세요.
+   */
   async sendSMS(params: Omit<SendSms, 'CERTKEY'> & { CorpNum?: string }): Promise<SendSmsResponse> {
     return this.call<SendSmsResponse>('SendSMS', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `sendFaxEx`를 사용하세요.
+   */
   async sendFax(params: Omit<SendFax, 'CERTKEY'> & { CorpNum?: string }): Promise<SendFaxResponse> {
     return this.call<SendFaxResponse>('SendFax', params);
   }

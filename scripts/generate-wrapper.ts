@@ -147,6 +147,15 @@ const DEPRECATED_METHODS: Record<string, Record<string, string>> = {
     SendSMS: '구버전 API입니다. `sendMessageEx`를 사용하세요.',
     SendFax: '구버전 API입니다. `sendFaxEx`를 사용하세요.',
   },
+  edoc: {
+    CheckMgtKeyIsExists:
+      '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
+    CheckIsValidEDoc:
+      '구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.',
+    SendEmail: '구버전 API입니다. `sendEmailEx`를 사용하세요.',
+    SendSMS: '구버전 API입니다. `sendMessageEx`를 사용하세요.',
+    SendFax: '구버전 API입니다. `sendFaxEx`를 사용하세요.',
+  },
 };
 
 /**

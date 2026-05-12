@@ -9,6 +9,7 @@
     "generate": "pnpm generate:types && pnpm generate:wrapper"
   },
   "devDependencies": {
+    "@types/node": "^25.7.0",
     "tsup": "^8.4.0",
     "tsx": "^4.19.0",
     "turbo": "^2.4.0",
