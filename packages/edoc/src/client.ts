@@ -226,6 +226,9 @@ export class EdocClient extends BaseBarobillClient {
     return this.call<DeleteAttachFileWithFileIndexResponse>('DeleteAttachFileWithFileIndex', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getAttachedFileListEx`를 사용하세요.
+   */
   async getAttachedFileList(params: Omit<GetAttachedFileList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetAttachedFileListResponse> {
     return this.call<GetAttachedFileListResponse>('GetAttachedFileList', params);
   }

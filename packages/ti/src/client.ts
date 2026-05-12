@@ -286,14 +286,23 @@ export class TiClient extends BaseBarobillClient {
     return client;
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.
+   */
   async checkMgtNumIsExists(params: Omit<CheckMgtNumIsExists, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckMgtNumIsExistsResponse> {
     return this.call<CheckMgtNumIsExistsResponse>('CheckMgtNumIsExists', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.
+   */
   async checkIsValidTaxInvoice(params: Omit<CheckIsValidTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<CheckIsValidTaxInvoiceResponse> {
     return this.call<CheckIsValidTaxInvoiceResponse>('CheckIsValidTaxInvoice', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registTaxInvoiceEX`를 사용하세요.
+   */
   async registTaxInvoice(params: Omit<RegistTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistTaxInvoiceResponse> {
     return this.call<RegistTaxInvoiceResponse>('RegistTaxInvoice', params);
   }
@@ -302,14 +311,23 @@ export class TiClient extends BaseBarobillClient {
     return this.call<RegistTaxInvoiceExResponse>('RegistTaxInvoiceEX', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registTaxInvoiceEX`를 사용하세요.
+   */
   async registModifyTaxInvoice(params: Omit<RegistModifyTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistModifyTaxInvoiceResponse> {
     return this.call<RegistModifyTaxInvoiceResponse>('RegistModifyTaxInvoice', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registTaxInvoiceEX`를 사용하세요.
+   */
   async registModifyTaxInvoiceEX(params: Omit<RegistModifyTaxInvoiceEx, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistModifyTaxInvoiceExResponse> {
     return this.call<RegistModifyTaxInvoiceExResponse>('RegistModifyTaxInvoiceEX', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registTaxInvoiceReverseEX`를 사용하세요.
+   */
   async registTaxInvoiceReverse(params: Omit<RegistTaxInvoiceReverse, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistTaxInvoiceReverseResponse> {
     return this.call<RegistTaxInvoiceReverseResponse>('RegistTaxInvoiceReverse', params);
   }
@@ -318,6 +336,9 @@ export class TiClient extends BaseBarobillClient {
     return this.call<RegistTaxInvoiceReverseExResponse>('RegistTaxInvoiceReverseEX', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registBrokerTaxInvoiceEX`를 사용하세요.
+   */
   async registBrokerTaxInvoice(params: Omit<RegistBrokerTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistBrokerTaxInvoiceResponse> {
     return this.call<RegistBrokerTaxInvoiceResponse>('RegistBrokerTaxInvoice', params);
   }
@@ -326,14 +347,23 @@ export class TiClient extends BaseBarobillClient {
     return this.call<RegistBrokerTaxInvoiceExResponse>('RegistBrokerTaxInvoiceEX', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registBrokerTaxInvoiceEX`를 사용하세요.
+   */
   async registModifyBrokerTaxInvoice(params: Omit<RegistModifyBrokerTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistModifyBrokerTaxInvoiceResponse> {
     return this.call<RegistModifyBrokerTaxInvoiceResponse>('RegistModifyBrokerTaxInvoice', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registBrokerTaxInvoiceEX`를 사용하세요.
+   */
   async registModifyBrokerTaxInvoiceEX(params: Omit<RegistModifyBrokerTaxInvoiceEx, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistModifyBrokerTaxInvoiceExResponse> {
     return this.call<RegistModifyBrokerTaxInvoiceExResponse>('RegistModifyBrokerTaxInvoiceEX', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `updateTaxInvoiceEX`를 사용하세요.
+   */
   async updateTaxInvoice(params: Omit<UpdateTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateTaxInvoiceResponse> {
     return this.call<UpdateTaxInvoiceResponse>('UpdateTaxInvoice', params);
   }
@@ -342,6 +372,9 @@ export class TiClient extends BaseBarobillClient {
     return this.call<UpdateTaxInvoiceExResponse>('UpdateTaxInvoiceEX', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `updateBrokerTaxInvoiceEX`를 사용하세요.
+   */
   async updateBrokerTaxInvoice(params: Omit<UpdateBrokerTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateBrokerTaxInvoiceResponse> {
     return this.call<UpdateBrokerTaxInvoiceResponse>('UpdateBrokerTaxInvoice', params);
   }
@@ -362,6 +395,9 @@ export class TiClient extends BaseBarobillClient {
     return this.call<DeleteTaxInvoiceIkResponse>('DeleteTaxInvoiceIK', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `issueTaxInvoiceEx`를 사용하세요.
+   */
   async issueTaxInvoice(params: Omit<IssueTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<IssueTaxInvoiceResponse> {
     return this.call<IssueTaxInvoiceResponse>('IssueTaxInvoice', params);
   }
@@ -370,6 +406,9 @@ export class TiClient extends BaseBarobillClient {
     return this.call<IssueTaxInvoiceExResponse>('IssueTaxInvoiceEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `reverseIssueTaxInvoiceEx`를 사용하세요.
+   */
   async reverseIssueTaxInvoice(params: Omit<ReverseIssueTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<ReverseIssueTaxInvoiceResponse> {
     return this.call<ReverseIssueTaxInvoiceResponse>('ReverseIssueTaxInvoice', params);
   }
@@ -378,6 +417,9 @@ export class TiClient extends BaseBarobillClient {
     return this.call<ReverseIssueTaxInvoiceExResponse>('ReverseIssueTaxInvoiceEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `preIssueTaxInvoiceEx`를 사용하세요.
+   */
   async preIssueTaxInvoice(params: Omit<PreIssueTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<PreIssueTaxInvoiceResponse> {
     return this.call<PreIssueTaxInvoiceResponse>('PreIssueTaxInvoice', params);
   }
@@ -406,6 +448,9 @@ export class TiClient extends BaseBarobillClient {
     return this.call<RegistAndPreIssueBrokerTaxInvoiceResponse>('RegistAndPreIssueBrokerTaxInvoice', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registAndReverseIssueTaxInvoiceEx`를 사용하세요.
+   */
   async registAndReverseIssueTaxInvoice(params: Omit<RegistAndReverseIssueTaxInvoice, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistAndReverseIssueTaxInvoiceResponse> {
     return this.call<RegistAndReverseIssueTaxInvoiceResponse>('RegistAndReverseIssueTaxInvoice', params);
   }
@@ -442,10 +487,16 @@ export class TiClient extends BaseBarobillClient {
     return this.call<GetTaxInvoiceNkResponse>('GetTaxInvoiceNK', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getTaxInvoiceStateEX`를 사용하세요.
+   */
   async getTaxInvoiceState(params: Omit<GetTaxInvoiceState, 'CERTKEY'> & { CorpNum?: string }): Promise<GetTaxInvoiceStateResponse> {
     return this.call<GetTaxInvoiceStateResponse>('GetTaxInvoiceState', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getTaxInvoiceStatesEX`를 사용하세요.
+   */
   async getTaxInvoiceStates(params: Omit<GetTaxInvoiceStates, 'CERTKEY'> & { CorpNum?: string }): Promise<GetTaxInvoiceStatesResponse> {
     return this.call<GetTaxInvoiceStatesResponse>('GetTaxInvoiceStates', params);
   }
@@ -486,6 +537,9 @@ export class TiClient extends BaseBarobillClient {
     return this.call<DeleteAttachFileWithFileIndexResponse>('DeleteAttachFileWithFileIndex', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getAttachedFileListEx`를 사용하세요.
+   */
   async getAttachedFileList(params: Omit<GetAttachedFileList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetAttachedFileListResponse> {
     return this.call<GetAttachedFileListResponse>('GetAttachedFileList', params);
   }
@@ -510,18 +564,30 @@ export class TiClient extends BaseBarobillClient {
     return this.call<SendFaxExResponse>('SendFaxEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `sendEmailEx`를 사용하세요.
+   */
   async reSendEmail(params: Omit<ReSendEmail, 'CERTKEY'> & { CorpNum?: string }): Promise<ReSendEmailResponse> {
     return this.call<ReSendEmailResponse>('ReSendEmail', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. 신규 개발 시 사용이 권장되지 않습니다.
+   */
   async reSendSMS(params: Omit<ReSendSms, 'CERTKEY'> & { CorpNum?: string }): Promise<ReSendSmsResponse> {
     return this.call<ReSendSmsResponse>('ReSendSMS', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `sendMessageEx`를 사용하세요.
+   */
   async sendInvoiceSMS(params: Omit<SendInvoiceSms, 'CERTKEY'> & { CorpNum?: string }): Promise<SendInvoiceSmsResponse> {
     return this.call<SendInvoiceSmsResponse>('SendInvoiceSMS', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `sendFaxEx`를 사용하세요.
+   */
   async sendInvoiceFax(params: Omit<SendInvoiceFax, 'CERTKEY'> & { CorpNum?: string }): Promise<SendInvoiceFaxResponse> {
     return this.call<SendInvoiceFaxResponse>('SendInvoiceFax', params);
   }
@@ -570,42 +636,72 @@ export class TiClient extends BaseBarobillClient {
     return this.call<GetTaxInvoiceMailUrlnkResponse>('GetTaxInvoiceMailURLNK', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyTaxInvoiceSalesList`를 사용하세요.
+   */
   async getTaxInvoiceSalesList(params: Omit<GetTaxInvoiceSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetTaxInvoiceSalesListResponse> {
     return this.call<GetTaxInvoiceSalesListResponse>('GetTaxInvoiceSalesList', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyTaxInvoiceSalesList`를 사용하세요.
+   */
   async getTaxInvoiceSalesListEx(params: Omit<GetTaxInvoiceSalesListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetTaxInvoiceSalesListExResponse> {
     return this.call<GetTaxInvoiceSalesListExResponse>('GetTaxInvoiceSalesListEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyTaxInvoicePurchaseList`를 사용하세요.
+   */
   async getTaxInvoicePurchaseList(params: Omit<GetTaxInvoicePurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetTaxInvoicePurchaseListResponse> {
     return this.call<GetTaxInvoicePurchaseListResponse>('GetTaxInvoicePurchaseList', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyTaxInvoicePurchaseList`를 사용하세요.
+   */
   async getTaxInvoicePurchaseListEx(params: Omit<GetTaxInvoicePurchaseListEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetTaxInvoicePurchaseListExResponse> {
     return this.call<GetTaxInvoicePurchaseListExResponse>('GetTaxInvoicePurchaseListEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyTaxInvoiceSalesListEx`를 사용하세요.
+   */
   async getDailyTaxInvoiceSalesList(params: Omit<GetDailyTaxInvoiceSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyTaxInvoiceSalesListResponse> {
     return this.call<GetDailyTaxInvoiceSalesListResponse>('GetDailyTaxInvoiceSalesList', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyTaxInvoicePurchaseListEx`를 사용하세요.
+   */
   async getDailyTaxInvoicePurchaseList(params: Omit<GetDailyTaxInvoicePurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyTaxInvoicePurchaseListResponse> {
     return this.call<GetDailyTaxInvoicePurchaseListResponse>('GetDailyTaxInvoicePurchaseList', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyTaxInvoiceSalesListEx`를 사용하세요.
+   */
   async getMonthlyTaxInvoiceSalesList(params: Omit<GetMonthlyTaxInvoiceSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyTaxInvoiceSalesListResponse> {
     return this.call<GetMonthlyTaxInvoiceSalesListResponse>('GetMonthlyTaxInvoiceSalesList', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyTaxInvoicePurchaseListEx`를 사용하세요.
+   */
   async getMonthlyTaxInvoicePurchaseList(params: Omit<GetMonthlyTaxInvoicePurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyTaxInvoicePurchaseListResponse> {
     return this.call<GetMonthlyTaxInvoicePurchaseListResponse>('GetMonthlyTaxInvoicePurchaseList', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodTaxInvoiceSalesListEx`를 사용하세요.
+   */
   async getPeriodTaxInvoiceSalesList(params: Omit<GetPeriodTaxInvoiceSalesList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodTaxInvoiceSalesListResponse> {
     return this.call<GetPeriodTaxInvoiceSalesListResponse>('GetPeriodTaxInvoiceSalesList', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodTaxInvoicePurchaseListEx`를 사용하세요.
+   */
   async getPeriodTaxInvoicePurchaseList(params: Omit<GetPeriodTaxInvoicePurchaseList, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodTaxInvoicePurchaseListResponse> {
     return this.call<GetPeriodTaxInvoicePurchaseListResponse>('GetPeriodTaxInvoicePurchaseList', params);
   }
