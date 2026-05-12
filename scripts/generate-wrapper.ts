@@ -203,6 +203,36 @@ const DEPRECATED_METHODS: Record<string, Record<string, string>> = {
     GetCardLog: '구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.',
     GetCardLogEx: '구버전 API입니다. `getDailyCardApprovalLog`를 사용하세요.',
   },
+  bankaccount: {
+    RegistBankAccount: '구버전 API입니다. `registBankAccountEx`를 사용하세요.',
+    UpdateBankAccount: '구버전 API입니다. `updateBankAccountEx`를 사용하세요.',
+    GetBankAccountScrapRequestURL:
+      '구버전 API입니다. `getBankAccountManagementURL`을 사용하세요.',
+    GetBankAccount: '구버전 API입니다. `getBankAccountEx`를 사용하세요.',
+    GetBankAccountEx: '구버전 API입니다. `getBankAccountEx2`를 사용하세요.',
+    GetPeriodBankAccountLog:
+      '구버전 API입니다. `getPeriodBankAccountTransLog`를 사용하세요.',
+    GetPeriodBankAccountLogEx:
+      '구버전 API입니다. `getPeriodBankAccountTransLog`를 사용하세요.',
+    GetPeriodBankAccountLogEx2:
+      '구버전 API입니다. `getPeriodBankAccountTransLog`를 사용하세요.',
+    GetDailyBankAccountLog:
+      '구버전 API입니다. `getDailyBankAccountTransLog`를 사용하세요.',
+    GetDailyBankAccountLogEx:
+      '구버전 API입니다. `getDailyBankAccountTransLog`를 사용하세요.',
+    GetDailyBankAccountLogEx2:
+      '구버전 API입니다. `getDailyBankAccountTransLog`를 사용하세요.',
+    GetMonthlyBankAccountLog:
+      '구버전 API입니다. `getMonthlyBankAccountTransLog`를 사용하세요.',
+    GetMonthlyBankAccountLogEx:
+      '구버전 API입니다. `getMonthlyBankAccountTransLog`를 사용하세요.',
+    GetMonthlyBankAccountLogEx2:
+      '구버전 API입니다. `getMonthlyBankAccountTransLog`를 사용하세요.',
+    GetBankAccountLog:
+      '구버전 API입니다. `getDailyBankAccountLogEx2`를 사용하세요.',
+    GetBankAccountLogEx:
+      '구버전 API입니다. `getDailyBankAccountLogEx2`를 사용하세요.',
+  },
 };
 
 /**

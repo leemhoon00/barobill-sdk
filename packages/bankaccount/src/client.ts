@@ -136,6 +136,9 @@ export class BankAccountClient extends BaseBarobillClient {
     return client;
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `registBankAccountEx`를 사용하세요.
+   */
   async registBankAccount(params: Omit<RegistBankAccount, 'CERTKEY'> & { CorpNum?: string }): Promise<RegistBankAccountResponse> {
     return this.call<RegistBankAccountResponse>('RegistBankAccount', params);
   }
@@ -148,6 +151,9 @@ export class BankAccountClient extends BaseBarobillClient {
     return this.call<RegistBankAccountsExResponse>('RegistBankAccountsEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `updateBankAccountEx`를 사용하세요.
+   */
   async updateBankAccount(params: Omit<UpdateBankAccount, 'CERTKEY'> & { CorpNum?: string }): Promise<UpdateBankAccountResponse> {
     return this.call<UpdateBankAccountResponse>('UpdateBankAccount', params);
   }
@@ -172,10 +178,16 @@ export class BankAccountClient extends BaseBarobillClient {
     return this.call<RegistBankAccountLogMemoResponse>('RegistBankAccountLogMemo', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getBankAccountEx`를 사용하세요.
+   */
   async getBankAccount(params: Omit<GetBankAccount, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBankAccountResponse> {
     return this.call<GetBankAccountResponse>('GetBankAccount', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getBankAccountEx2`를 사용하세요.
+   */
   async getBankAccountEx(params: Omit<GetBankAccountEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBankAccountExResponse> {
     return this.call<GetBankAccountExResponse>('GetBankAccountEx', params);
   }
@@ -188,22 +200,37 @@ export class BankAccountClient extends BaseBarobillClient {
     return this.call<RefreshBankAccountResponse>('RefreshBankAccount', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyBankAccountLogEx2`를 사용하세요.
+   */
   async getBankAccountLog(params: Omit<GetBankAccountLog, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBankAccountLogResponse> {
     return this.call<GetBankAccountLogResponse>('GetBankAccountLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyBankAccountLogEx2`를 사용하세요.
+   */
   async getBankAccountLogEx(params: Omit<GetBankAccountLogEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBankAccountLogExResponse> {
     return this.call<GetBankAccountLogExResponse>('GetBankAccountLogEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyBankAccountTransLog`를 사용하세요.
+   */
   async getDailyBankAccountLog(params: Omit<GetDailyBankAccountLog, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyBankAccountLogResponse> {
     return this.call<GetDailyBankAccountLogResponse>('GetDailyBankAccountLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyBankAccountTransLog`를 사용하세요.
+   */
   async getDailyBankAccountLogEx(params: Omit<GetDailyBankAccountLogEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyBankAccountLogExResponse> {
     return this.call<GetDailyBankAccountLogExResponse>('GetDailyBankAccountLogEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getDailyBankAccountTransLog`를 사용하세요.
+   */
   async getDailyBankAccountLogEx2(params: Omit<GetDailyBankAccountLogEx2, 'CERTKEY'> & { CorpNum?: string }): Promise<GetDailyBankAccountLogEx2Response> {
     return this.call<GetDailyBankAccountLogEx2Response>('GetDailyBankAccountLogEx2', params);
   }
@@ -212,14 +239,23 @@ export class BankAccountClient extends BaseBarobillClient {
     return this.call<GetDailyBankAccountTransLogResponse>('GetDailyBankAccountTransLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyBankAccountTransLog`를 사용하세요.
+   */
   async getMonthlyBankAccountLog(params: Omit<GetMonthlyBankAccountLog, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyBankAccountLogResponse> {
     return this.call<GetMonthlyBankAccountLogResponse>('GetMonthlyBankAccountLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyBankAccountTransLog`를 사용하세요.
+   */
   async getMonthlyBankAccountLogEx(params: Omit<GetMonthlyBankAccountLogEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyBankAccountLogExResponse> {
     return this.call<GetMonthlyBankAccountLogExResponse>('GetMonthlyBankAccountLogEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getMonthlyBankAccountTransLog`를 사용하세요.
+   */
   async getMonthlyBankAccountLogEx2(params: Omit<GetMonthlyBankAccountLogEx2, 'CERTKEY'> & { CorpNum?: string }): Promise<GetMonthlyBankAccountLogEx2Response> {
     return this.call<GetMonthlyBankAccountLogEx2Response>('GetMonthlyBankAccountLogEx2', params);
   }
@@ -228,14 +264,23 @@ export class BankAccountClient extends BaseBarobillClient {
     return this.call<GetMonthlyBankAccountTransLogResponse>('GetMonthlyBankAccountTransLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodBankAccountTransLog`를 사용하세요.
+   */
   async getPeriodBankAccountLog(params: Omit<GetPeriodBankAccountLog, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodBankAccountLogResponse> {
     return this.call<GetPeriodBankAccountLogResponse>('GetPeriodBankAccountLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodBankAccountTransLog`를 사용하세요.
+   */
   async getPeriodBankAccountLogEx(params: Omit<GetPeriodBankAccountLogEx, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodBankAccountLogExResponse> {
     return this.call<GetPeriodBankAccountLogExResponse>('GetPeriodBankAccountLogEx', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getPeriodBankAccountTransLog`를 사용하세요.
+   */
   async getPeriodBankAccountLogEx2(params: Omit<GetPeriodBankAccountLogEx2, 'CERTKEY'> & { CorpNum?: string }): Promise<GetPeriodBankAccountLogEx2Response> {
     return this.call<GetPeriodBankAccountLogEx2Response>('GetPeriodBankAccountLogEx2', params);
   }
@@ -244,6 +289,9 @@ export class BankAccountClient extends BaseBarobillClient {
     return this.call<GetPeriodBankAccountTransLogResponse>('GetPeriodBankAccountTransLog', params);
   }
 
+  /**
+   * @deprecated 구버전 API입니다. `getBankAccountManagementURL`을 사용하세요.
+   */
   async getBankAccountScrapRequestURL(params: Omit<GetBankAccountScrapRequestUrl, 'CERTKEY'> & { CorpNum?: string }): Promise<GetBankAccountScrapRequestUrlResponse> {
     return this.call<GetBankAccountScrapRequestUrlResponse>('GetBankAccountScrapRequestURL', params);
   }
